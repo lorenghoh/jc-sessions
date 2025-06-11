@@ -86,8 +86,8 @@ x <- c(1, 2, 3)
 
 The above statement is in fact performing two things:
 
-- Create an object consisting of a vector `[1, 2, 3]`.
-- Bind the object above to a name `x`.
+-   Create an object consisting of a vector `[1, 2, 3]`.
+-   Bind the object above to a name `x`.
 
 We will talk more about vectors later.
 
@@ -106,7 +106,7 @@ Now, what happens when you change the value of `y`?
 
 ### Exercise
 
-- Explain the relationship between `a`, `b`, `c` and `d` in the following code:
+-   Explain the relationship between `a`, `b`, `c` and `d` in the following code:
 
 ```{r}
 a <- 1:10
@@ -115,7 +115,7 @@ c <- b
 d <- 1:10
 ```
 
-- Consider the following code. It binds `x` and `y` to a single object, and it attempts to modify `y`
+-   Consider the following code. It binds `x` and `y` to a single object, and it attempts to modify `y`
 
 ```{r}
 x <- c(1, 2, 3)
@@ -139,12 +139,12 @@ In this lesson, we will focus on (atomic) vectors.
 
 There are four primary types of atomic vectors:
 
-- Logical
-- Integer
-- Double
-- Character (which contains strings)
+-   Logical
+-   Integer
+-   Double
+-   Character (which contains strings)
 
-And there are two rare types: complex and raw. 
+And there are two rare types: complex and raw.
 
 ### Vector Operatios
 
