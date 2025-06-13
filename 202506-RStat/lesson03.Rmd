@@ -1,0 +1,176 @@
+---
+title: "Lesson 3: Data Transformation"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(magrittr)
+```
+
+# Data Import
+
+## Exercise
+
+Remember all the steps we have taken to merge the two CSV files? Let's make a proper R script. We will be using the resulting CSV file for this lesson.
+
+```{r}
+df <- read_csv("data/merged_df.csv")
+```
+
+# Data Transformation Using `dplyr`
+
+## Select
+
+What it does: `select` only the columns (variables) that you want to see. Gets rid of all other columns. You can to refer to the columns by the column position (first column) or by name. The order in which you list the column names/positions is the order that the columns will be displayed.
+
+```{r}
+df %>% select(., MRN, distress_score, BMI)
+```
+
+## Filter
+
+What it does: `filter` specific rows of data based on the specified requirement(s), or condition(s).
+
+```{r}
+df %>% filter(., diabetes == "Y")
+```
+
+### Exercise 1
+
+Combine `select` and `filter` functions to return MRN and DOB (and only those) of all the patients that are diabetic and have been diagnosed with high blood pressure. Do not worry about finding unique rows for now.
+
+```{r}
+df %>%
+  filter(., (hypertension == "Y" & diabetes == "Y")) %>%
+  select(., MRN, DOB)
+```
+
+### Exercise 2
+
+Combine `select` and `filter` functions to return MRN `contact_date` and `temp` of all visits after January 1st, 2018.
+
+```{r}
+df %>%
+  filter(., (financialclass == "Medicare" & enc_type == "Office visit" & contact_date > "2018-01-01")) %>%
+  select(., MRN, contact_date, temp)
+```
+
+## Arrange
+
+What it does: `arrange` values within a variable in ascending or descending order (if that is applicable to your values). This can apply to both numerical and non-numerical values.
+
+### Exercise
+
+Arrange `df` by `contact_date` (latest to oldest). Display only MRN and `contact_date` columns.
+
+```{r}
+df %>%
+  arrange(., desc(contact_date)) %>%
+  select(., MRN, contact_date)
+```
+
+## Mutate
+
+What it does: `mutate` the dataframe to add new columns or modifies current variables in the dataset.
+
+```{r}
+df %>%
+  mutate(.,
+    temp_c = (temp - 32) / 1.8
+  ) %>%
+  select(., MRN, temp, temp_c)
+```
+
+### Exercise 1
+
+Take the `temp` column, and round the temperature to one decimal place. Store the output in a new column.
+
+```{r}
+df %>%
+  mutate(.,
+    temp_r = round(temp, digits = 1)
+  ) %>%
+  select(., MRN, temp, temp_r)
+```
+
+### Exercise 2
+
+Calculate the age of each patient at the beginning of this cohort (2019-09-01). Let's not worry about duplicates. Use `lubridate` package to calculate the number of years.
+
+```{r}
+get_age <- function(age, base=ymd("2019-09-01")) {
+  age %>%
+    interval(., base) %>%
+    as.period(.) %>%
+    year(.)
+}
+
+df %>%
+  mutate(., age = get_age(DOB)) %>%
+  select(., MRN, DOB, age)
+```
+
+### Exercise 3
+
+Categorize `WBC` column according to the following criteria:
+
+- Low (< 3.2)
+- Medium (3.2 - 9.8)
+- High (> 9.8)
+- Not Taken
+
+Use `cut()` function to do this.
+
+```{r}
+categorize_wbc <- function(wbc) {
+  cut(
+    wbc,
+    breaks=c(0, 3.2, 9.8, Inf),
+    labels=c("Low", "Normal", "High")
+  ) %>%
+    fct_na_value_to_level(., level="Not Taken")
+}
+
+x <- df$WBC
+categorize_wbc(x)
+```
+
+## Groupby: Introduction
+
+```{r}
+df %>%
+  group_by(., MRN) %>%
+  count() %>%
+  arrange(., desc(n))
+```
+
+```{r}
+df %>%
+  group_by(., MRN) %>%
+  summarize(
+    m = mean(temp),
+    sd = sd(temp)
+  ) %>%
+  arrange(., desc(m))
+```
+
+```{r}
+df %>%
+  count(., financialclass)
+```
+
+### Exercise
+
+Calculate the average temperature for each patient, and show the result along with the number of visits, sorted by temperature (highest to lowest).
+
+```{r}
+df %>%
+  group_by(., MRN) %>%
+  summarize(.,
+    temp = mean(temp),
+    n = n()
+  ) %>%
+  arrange(., desc(temp))
+```
+
