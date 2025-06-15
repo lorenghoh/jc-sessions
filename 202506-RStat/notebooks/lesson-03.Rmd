@@ -115,10 +115,10 @@ df %>%
 
 Categorize `WBC` column according to the following criteria:
 
-- Low (< 3.2)
-- Medium (3.2 - 9.8)
-- High (> 9.8)
-- Not Taken
+-   Low (\< 3.2)
+-   Medium (3.2 - 9.8)
+-   High (\> 9.8)
+-   Not Taken
 
 Use `cut()` function to do this.
 
@@ -173,4 +173,3 @@ df %>%
   ) %>%
   arrange(., desc(temp))
 ```
-
