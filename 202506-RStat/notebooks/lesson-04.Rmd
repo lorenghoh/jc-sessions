@@ -2,3 +2,145 @@
 title: "Lesson 3: Group-by and Visualization"
 output: html_notebook
 ---
+
+```{r}
+library(tidyverse)
+library(magrittr)
+```
+
+# Recap
+
+In the last lesson, we have gone through five functions introduced by the `dplyr` package.
+
+-   `select()`
+-   `filter()`
+-   `arrange()`
+-   `mutate()`
+-   `summarize()`
+
+Load the dataset we created from the last lesson.
+
+```{r}
+df <- read_csv("../data/merged_df.csv")
+```
+
+Let's further examine the difference between `mutate()` and `summarize()`. From the loaded dataframe, calculate the average temperature using the two methods. Can you tell the difference?
+
+```{r}
+df %>%
+  mutate(., m = mean(temp)) %>%
+  select(., MRN, temp, m)
+
+df %>%
+  summarize(., m = mean(temp))
+```
+
+# Grouping with `by` Keyword
+
+There is a shortcut to `group_by()` for each method. With the exception of `select()`, the verbs support the `.by` argument, which applies the grouping operation on the corresponding (and only the corresponding) verb.
+
+For example, let's say that you want to calculate the average temperature for each patient measured through the experiment. Normally you'd write something like the following.
+
+```{r}
+df %>%
+  group_by(., MRN) %>%
+  summarize(., m = mean(temp))
+```
+
+Instead, you can simplify this operation as follows.
+
+```{r}
+df %>%
+  summarize(., m = mean(temp), .by = MRN)
+```
+
+## Example
+
+Let's say that we would like to compare each temperature record to the maximum temperature record for each patient. Using the `by =` argument, write a function, in one line, that calculates the maximum temperature for each patient over the course of the experiment. Then add another line that selects `MRN`, `contact_date`, `temp` and the newly created column as the output.
+
+```{r}
+df %>%
+  mutate(., m = max(temp), .by = MRN) %>%
+  select(., MRN, contact_date, temp, m)
+```
+
+# Visualization with `ggplot2`
+
+Plotting with `ggplot2` consists of defining the base layer with the `ggplot()` function, adding layers of *geometries*, or `geoms`, and appending figure information such as axis labels, title, fonts, and so on.
+
+```{r eval=FALSE, include=FALSE}
+ggplot(data = <DATA>) + 
+  <GEOM_FUNCTION>(mapping = aes(x, y, ...))
+```
+
+or,
+
+```{r eval=FALSE, include=FALSE}
+ggplot(data = <DATA>, mapping = aes(x, y, ...)) + 
+  <GEOM_FUNCTION>()
+```
+
+There are multiple types of geometries supported by `ggplot2`. The most widely used geometries are as follows. For example,
+
+-   Histograms (`geom_histogram()`)
+-   Bar charts (`geom_bar()`)
+-   Scatter Points (`geom_point()`)
+-   Lines (`geom_line()`)
+-   Trends (`geom_smooth()`)
+
+Let's try to visualize our data. First, define the *canvas* by mapping our dataset.
+
+```{r}
+ggplot(data = df, mapping = aes(WBC, temp))
+```
+
+Look at the x and y axis. The figure has been defined according to the data ranges in the x and y axis based on the mapping. To add the actual data points, we can then add the geometries as necessary.
+
+```{r}
+ggplot(df, aes(WBC, temp)) +
+  geom_point()
+```
+
+We can clean up the rows containing `NA` values. Furthermore, let's group the points by `race`.
+
+```{r}
+df %>%
+  drop_na(.) %>%
+  ggplot(., aes(WBC, temp)) +
+    geom_point(aes(color = race))
+```
+
+A good figure should always have proper axis labels and a title. The labels in `ggplot2` can be written using the `labs()` function.
+
+```{r}
+df %>%
+  drop_na(.) %>%
+  ggplot(., aes(WBC, temp)) +
+    geom_point(aes(color = race)) +
+    labs(
+      title = "WBC vs temperature distribution",
+      subtitle = "Meaurements from 2019 cohort study",
+      x = "White Blood Cell Count",
+      y = "Temperature [Fahrenheit]"
+    )
+```
+
+## Exercise
+
+Let's use `palmerpenguins::penguins` dataset. This library contains size measurements of different adult penguin species near Palmer Station, Antarctica, made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER.
+
+```{r}
+library(palmerpenguins)
+```
+
+```{r}
+ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(color = species, shape = species)) +
+  geom_smooth(aes(x = flipper_length_mm, y = body_mass_g, linetype = species, color = species), method = "lm") +
+  labs(
+    title = "Body mass and flipper length",
+    subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
+    x = "Flipper length (mm)", y = "Body mass (g)",
+    color = "Species", shape = "Species"
+  )
+```
