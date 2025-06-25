@@ -1,0 +1,192 @@
+---
+title: "Lesson 1: Basics of R Workflow"
+output: html_notebook
+---
+
+# Getting Started with RStudio
+
+## Install RStudio
+
+Follow instructions on [this website](https://posit.co/download/rstudio-desktop/). The RStuido interface should be straightforward, but feel free to change the layout.
+
+## Use R console to perform basic calculations
+
+Using the R console menu, you can use R as a calculator. For example, try the following computations:
+
+```{r}
+1 + 1
+```
+
+The `[1]` in the output pane represents the index of the following value, which is `2` in this case. The index is useful when outputting a long list or a vector. For example,
+
+```{r}
+1:50
+```
+
+shows that the number in the square brackets corresponds to the 1-based index of the following output. You can always use this index to refer to the element in a vector, like the example below.
+
+```{r}
+a <- c(1:50)
+a[[31]]
+```
+
+## Install Packages
+
+Let's try to install packages through the R console. For this notebook, we will use the `lobstr` package. Run the following command to install this package.
+
+```{r eval=FALSE}
+install.packages("lobstr")
+```
+
+And load the package to this notebook.
+
+```{r}
+library(lobstr)
+```
+
+## Use Help Pages
+
+It is a good idea to refer to documentation. Let's take a look at `c()`, for example.
+
+```{r}
+help(c)
+```
+
+## Create R Notebook Page
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*.
+
+```{r}
+plot(cars)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+# The Very Basics
+
+## Assignments
+
+When you create objects in R programming language, you make an **assignment** statement:
+
+```{r eval=FALSE}
+object_name <- value
+```
+
+which roughly translates to "assign some `value` to an object and name it as `object_name`" in plain English. However, a more precise definition is needed to avoid confusion.
+
+Let's consider the following assignment.
+
+```{r}
+x <- c(1, 2, 3)
+```
+
+The above statement is in fact performing two things:
+
+-   Create an object consisting of a vector `[1, 2, 3]`.
+-   Bind the object above to a name `x`.
+
+We will talk more about vectors later.
+
+The *name* is a reference to an object. In R, the variable/object name is simply a reference, so you can define a reference to a name, which is a reference to the vector we created.
+
+```{r}
+y <- x
+```
+
+```{r}
+obj_addr(x)
+obj_addr(y)
+```
+
+Now, what happens when you change the value of `y`?
+
+### Exercise
+
+-   Explain the relationship between `a`, `b`, `c` and `d` in the following code:
+
+```{r}
+a <- 1:10
+b <- a
+c <- b
+d <- 1:10
+```
+
+-   Consider the following code. It binds `x` and `y` to a single object, and it attempts to modify `y`
+
+```{r}
+x <- c(1, 2, 3)
+y <- x
+
+y[[3]] <- 4
+
+x
+y
+```
+
+Why did the above code not modify `x`?
+
+## Vectors
+
+There are two types of vectors: atomic vectors (sometimes simply called *vectors*) and lists (also called *generic vectors*). They differ in terms of the type(s) of elements they hold. Atomic vectors hold elements of the same type, and lists can hold elemtns of different types.
+
+In this lesson, we will focus on (atomic) vectors.
+
+### Atomic Vectors
+
+There are four primary types of atomic vectors:
+
+-   Logical
+-   Integer
+-   Double
+-   Character (which contains strings)
+
+And there are two rare types: complex and raw.
+
+### Vector Operatios
+
+Vector operations in R always performs element-wise operations. R will not do linear algebra unless you explicitly ask it to.
+
+Let's define a simple (atomic) vector.
+
+```{r}
+x <- c(1:6)
+x
+```
+
+All operations are done element-wise, even the multiplication.
+
+```{r}
+x * x
+```
+
+If you give R two vectors of unequal lengths, R will repeat the shorter vector until it is as long as the longer vector -- which is a terrible thing to do.
+
+```{r}
+x * 1:2
+```
+
+At the very least, you will see a warning (although it should really be an error) if the length of the shorter vector is not an integer multiple of the longer vector; for example,
+
+```{r}
+x * 1:4
+```
+
+which is still ghastly.
+
+It is still possible to perform traditional linear algebra operations, fortunately; inner products can be calculated with the `%*%` operator, and outer products with the `%o%` operator, as shown below.
+
+```{r}
+x %*% x
+```
+
+```{r}
+x %o% x
+```
+
+### Exercise
+
+Try to figure out how to transpose a matrix and calculate the determinant of that matrix; use the help function to locate the appropriate tools.

@@ -1,0 +1,213 @@
+---
+title: "Lesson 2: Basics of R, Continued"
+output: html_notebook
+---
+
+# Basics of R, Continued
+
+```{r}
+library(tidyverse)
+```
+
+## Factors
+
+A factor is a special occasion of a vector that can only hold pre-defined `levels` of values, and are used for categorical variables.
+
+Imagine that you have a variable that records month:
+
+```{r}
+x1 <- c("Dec", "Apr", "Jan", "Mar")
+```
+
+Using a string to record this variable has two problems:
+
+1.  There are only twelve possible months, and there is nothing saving you from typos:
+
+```{r}
+x2 <- c("Dec", "Apr", "Jam", "Mar")
+```
+
+2.  It does not sort in a useful way:
+
+```{r}
+sort(x1)
+```
+
+You can fix both of these problems with a factor. To create a factor you must start by creating a list of the valid levels:
+
+```{r}
+month_levels <- c(
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+)
+```
+
+Now you can create a factor:
+
+```{r}
+y1 <- factor(x1, levels = month_levels)
+y1
+```
+
+```{r}
+sort(y1)
+```
+
+## Example
+
+```{r}
+patients <- read_csv("data/patient.csv")
+```
+
+```{r}
+patients
+```
+
+### Exercise
+
+Import the dataframe, and let's pull the `financialclass` column and make it into a factor. You can assess the column as follows.
+
+```{r}
+patients$financialclass
+```
+
+## Piping
+
+### Motivations
+
+Let us start with an example from a totally different field. How to make pancakes? A recipe might look like this:
+
+1.  Take 2 eggs
+2.  Add sugar, whisk together
+3.  Add milk, whisk
+4.  Add flour, whisk
+5.  Spread 3 tablespoons of batter on skillet
+6.  Cook
+
+Let us try to write computer code that bakes a few pancakes. We use the standard programming approach with functions and variables.
+
+```{r eval=FALSE, include=FALSE}
+batter <- add(2*egg, sugar)
+batter <- whisk(batter)
+batter <- add(batter, milk)
+batter <- whisk(batter)
+...
+```
+
+This code works but it is not very easy to read. The assignment to `batter` takes quite a bit of space and attention away from the main message, the action verbs `add`, `whisk`, and so on, and also the argument batter makes it harder to see the ingredients. From technical perspective, we create (and repeatedly overwrite) an unnecessary variable `batter`. After all, we do not care about batter but about cakes! We can try to replace it with nested functions:
+
+```{r eval=FALSE, include=FALSE}
+batter <- whisk(add(whisk(add(2*egg, sugar)), milk))
+batter <- whisk(add(batter, flour))
+cake <- cook(spread(batter, 3*tablespoon))
+```
+
+This approach is more compact but even harder to read. In particular, the order of tasks is not the same as order of the functions. While standard in math and in coding, one has to read nested functions from inside out (i.e. from right to left), while keeping eyes on the additional arguments like “flour” or “milk” and parenthesis.
+
+Fortunately there is another way. Note that we have a central variable here, batter, and everything we do is to add and manipulate batter. So we can imagine writing the code along these lines:
+
+```{r eval=FALSE, include=FALSE}
+add(2*egg, sugar) %>%
+   whisk() %>%
+   add(milk) %>%
+   whisk() %>%
+   add(flour) %>%
+   whisk() %>%
+   ...
+```
+
+Here the %\>% operator must be understood as “take the value of previous function and feed it into the next function”.
+
+The pipe operator used to be based on the `magrittr` package, and was formerly written as follows.
+
+```{r}
+library(magrittr)
+x <- seq(1, 10)
+x %>% mean()
+```
+
+The pipe operator `|>` has officially been introduced in version `4.1.0`.
+
+```{r}
+x |> mean()
+```
+
+The base operator, however, it a bit limited compared to the `magrittr` package. For example,
+
+```{r}
+bg <- function(a, b) {
+  if (a >= b) {
+    r <- a
+  } else {
+    r <- b
+  }
+  
+  r
+}
+```
+
+```{r}
+x %>% sum(.) %>% bg(., 1)
+x |> sum() |> bg(1)
+```
+
+When working with more complex pipes, it is sometimes useful to call a function for its side-effects. Maybe you want to print out the current object, or plot it, or save it to disk. Many times, such functions do not return anything, effectively terminating the pipe.
+
+To work around this problem, you can use the T-pipe. `%T>%` works like `%>%` except that it returns the left-hand side instead of the right-hand side.
+
+```{r}
+x %>% plot()
+```
+
+```{r}
+x %T>% plot()
+```
+
+The `magrittr` package also comes with an assignment pipe, which makes parsing the `financialclass` from the CSV file much easier to follow:
+
+```{r}
+patients$financialclass %<>% parse_factor(.)
+```
+
+```{r}
+patients$financialclass
+```
+
+## Exercise
+
+Create a vector of numbers 1, 2, 3, 4. Compute its mean, and print (this time use cat) it followed by word “approximately” like
+
+```{r eval=FALSE, include=FALSE}
+2.5 (approximately)
+```
+
+# Data Transformation
+
+```{r}
+encounters = read_csv("data/encounter.csv")
+```
+
+```{r}
+encounters
+```
+
+There are four types of merging.
+
+```{r out.width="100%"}
+url <- "https://coletl.github.io/tidy_intro/lessons/dplyr_join/join_diagram.png"
+knitr::include_graphics(url)
+```
+
+Before we merge the two dataframes, we need to choose which function we need to use. Upon inspection, we can tell that the two dataframes need to be merged on `MRN` as our key. Then, we can inspect the differences in `MRN` for the two dataframes.
+
+```{r}
+setdiff(patients$MRN, encounters$MRN)
+```
+
+```{r}
+merged_df = inner_join(patients, encounters, by = "MRN")
+```
+
+```{r}
+summary(merged_df)
+```

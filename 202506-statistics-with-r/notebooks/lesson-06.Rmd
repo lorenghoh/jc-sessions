@@ -1,0 +1,164 @@
+---
+title: "lesson-06"
+output: html_notebook
+---
+
+# Basic Statistics with R, continued
+
+```{r}
+library(tidyverse)
+library(magrittr)
+```
+
+# Making the Model Go
+
+## Baye's Theorem
+
+The conditional probability of the data `W` and any particular value of `p` is
+
+$$
+\begin{align}
+  P(D, p)
+    &= P(D | p) \: P(p) \\
+    &= P(p | D) \: P(D)
+\end{align}
+$$
+
+$$
+P(D | p) \: P(p) = P(p | D) \: P(D)
+$$
+
+$$
+P(p | D) = \frac{ P(D | p) \: P(p) }{ P(D) }
+$$
+
+$$
+\text{Posterior} = \frac{ \text{Probability of Data} \times \text{Prior} }{ \text{Average Probability of Data} }
+$$
+
+$$
+P(D) = \mathbb{E}(P(D | p)) = \int P(D | p) \: P(p) \: \mathrm{d}p
+$$
+
+### Exercise?
+
+Suppose there is a blood test that correctly detects vampirism 95% of the time. In more precise and mathematical notation, $P(\text{positive test result}|\text{vampire}) = 0.95$. It is a very accurate test, nearly always catching real vampires. It also make mistakes, though, in the form of false positives. One percent of the time, it incorrectly diagnoses normal people as vampires, $P(\text{positive test result}|\text{mortal}) = 0.01$. The final bit of information we are told is that vampires are rather rare, being only 0.1% of the population, implying $P(\text{vampire}) = 0.001$. Suppose now that someone tests positive for vampirism. What’s the probability that he or she is a bloodsucking immortal?
+
+```{r}
+tibble(
+  pr_positive_vampire = .95,
+  pr_positive_mortal  = .01,
+  pr_vampire          = .001
+) %>%
+  mutate(
+    pr_positive = pr_positive_vampire * pr_vampire + pr_positive_mortal * (1 - pr_vampire)
+  ) %>% 
+  mutate(
+    pr_vampire_positive = pr_positive_vampire * pr_vampire / pr_positive
+  ) %>% 
+  glimpse()
+```
+
+## Making the Model Go
+
+- Grid approximation
+- Quadratic approximation
+- Markov chain Monte Carlo (MCMC)
+
+## Grid Approximation
+
+At any particular value of a parameter, `p′`, it is a simple matter to compute the posterior probability: just multiply the prior probability of `p′` by the likelihood at `p′`. Repeating this procedure for each value in the grid generates an approximate picture of the exact posterior distribution. This procedure is called **grid approximation**.
+
+```{r}
+d <-
+  tibble(
+    p_grid = seq(from = 0, to = 1, length.out = 20),
+    prior  = 1
+  ) %>%
+  mutate(likelihood = dbinom(6, size = 9, prob = p_grid)) %>%
+  mutate(unstd_posterior = likelihood * prior) %>%
+  mutate(posterior = unstd_posterior / sum(unstd_posterior))
+
+print(d)
+```
+
+```{r}
+d %>% 
+  ggplot(aes(x = p_grid, y = posterior)) +
+  geom_point() +
+  geom_line() +
+  labs(
+    subtitle = "20 points",
+    x = "probability of water",
+    y = "posterior probability"
+  ) 
+```
+
+## Quadratic Approximation
+
+Under quite general conditions, the region near the peak of the posterior distribution will be nearly Gaussian–or “normal”–in shape. This means the posterior distribution can be usefully approximated by a Gaussian distribution. A Gaussian distribution is convenient, because it can be completely described by only two numbers: the location of its center (mean) and its spread (variance).
+
+A Gaussian approximation is called the **quadratic approximation** because the logarithm of a Gaussian distribution forms a parabola. And a parabola is a quadratic function. So this approximation essentially represents any log-posterior with a parabola.
+
+```{r}
+n_grid <- 100
+
+# wrangle
+tibble(w = c(6, 12, 24),
+       n = c(9, 18, 36),
+       s = c(.16, .11, .08)) %>% 
+  expand_grid(p_grid = seq(from = 0, to = 1, length.out = n_grid)) %>% 
+  mutate(prior = 1,
+         m     = .67)  %>%
+  mutate(likelihood = dbinom(w, size = n, prob = p_grid)) %>%
+  mutate(unstd_grid_posterior = likelihood * prior,
+         unstd_quad_posterior = dnorm(p_grid, m, s)) %>%
+  group_by(w) %>% 
+  mutate(grid_posterior = unstd_grid_posterior / sum(unstd_grid_posterior),
+         quad_posterior = unstd_quad_posterior / sum(unstd_quad_posterior),
+         n              = str_c("n = ", n)) %>% 
+  mutate(n = factor(n, levels = c("n = 9", "n = 18", "n = 36"))) %>% 
+  
+  # plot
+  ggplot(aes(x = p_grid)) +
+  geom_line(aes(y = grid_posterior)) +
+  geom_line(aes(y = quad_posterior),
+            color = "grey50") +
+  labs(x = "proportion water",
+       y = "density") +
+  facet_wraP(~ n)
+```
+
+## MCMC
+
+```{r}
+library(brms)
+```
+
+```{r}
+bino_model <-
+  brm(
+    data = list(w = 24), 
+    family = binomial(link = "identity"),
+    w | trials(36) ~ 0 + Intercept,
+    prior(beta(1, 1), class = b, lb = 0, ub = 1),
+    seed = 2
+  )
+
+print(bino_model)
+```
+
+```{r}
+posterior_summary(bino_model) %>% 
+  round(digits = 2)
+```
+
+```{r}
+as_draws_df(bino_model) %>% 
+  mutate(n = "n = 36") %>%
+  ggplot(aes(x = b_Intercept)) +
+  geom_density(fill = "black") +
+  scale_x_continuous("proportion water", limits = c(0, 1)) +
+  facet_wraP(~ n)
+```
+
