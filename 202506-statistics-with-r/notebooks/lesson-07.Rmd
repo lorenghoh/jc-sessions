@@ -1,0 +1,223 @@
+---
+title: "lesson-07"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(magrittr)
+```
+
+# Statistical Simulation
+
+A probability model of a random phenomenon consists of a sample space of possible outcomes, associated events and random variables, and a probability measure which specifies probabilities of events and determines distributions of random variables. **Simulation** involves using a probability model to artificially recreate a random phenomenon, many times, usually using a computer. Given a probability model, we can simulate outcomes, occurrences of events, and values of random variables, according to the specifications of the probability measure which reflects the model assumptions.
+
+## Tactile Simulations
+
+While we generally use technology to conduct large scale simulations, it is helpful to first consider how we might conduct a simulation by hand using physical objects like coins, dice, cards, or spinners.
+
+Many random phenomena can be represented in terms of a **box model**.
+
+-   Imagine a box containing "tickets” with labels. Examples include:
+
+    -   Fair coin flip. 2 tickets: 1 labelled `H` and 1 labelled `T`
+    -   Free throw attempt of a 90% free throw shooter. 10 tickets: 9 labelled `make` and 1 labelled `miss`.
+    -   Card shuffling. 52 cards: each card with a pair of labels (face value, suit).
+
+-   The tickets are shuffled in the box, some number are drawn out — either with replacement or without replacement of the tickets before the next draw.
+
+-   In some cases, the order in which the tickets are drawn matters; in other cases the order is irrelevant. For example,
+
+    -   Dealing a 5 card poker hand: Select 5 cards without replacement, order does not matter
+    -   Random digit dialing: Select 4 cards with replacement from a box with tickets labelled 0 through 9 to represent the last 4 digits of a randomly selected phone number with a particular area code and exchange; order matters, e.g., 805-555-1212 is a different outcome than 805-555-2121.
+
+-   Then something is done with the tickets, typically to measure random variables of interest. For example, you might flip a coin 10 times (by drawing from the H/T box 10 times with replacement) and count the number of H.
+
+If the draws are made with replacement from a single box, we can think of a single circular “spinner” instead of a box, spun multiple times. For example:
+
+-   Fair coin flip. Spinner with half of the area corresponding to `H` and half `T`
+-   Free throw attempt of a 90% free throw shooter. Spinner with 90% of the area corresponding to `make` and 10% `miss`.
+
+## Random Number Generation
+
+Sometimes you want to implement a statistical procedure that requires random number generation or sampling (i.e. Markov chain Monte Carlo, the bootstrap, random forests, bagging) and sometimes you want to simulate a system and random number generators can be used to model random inputs.
+
+R comes with a set of pseudo-random number generators that allow you to simulate from well-known probability distributions like the Normal, Poisson, and binomial. Some example functions for probability distributions in R
+
+-   `rnorm`: generate random Normal variates with a given mean and standard deviation
+-   `dnorm`: evaluate the Normal probability density (with a given mean/SD) at a point (or vector of points)
+-   `pnorm`: evaluate the cumulative distribution function for a Normal distribution
+-   `rpois`: generate random Poisson variates with a given rate
+
+For each probability distribution there are typically four functions available that start with a "r”, “d”, “p”, and “q”. The “r” function is the one that actually simulates random numbers from that distribution. The other functions are prefixed with a
+
+-   `d` for density
+-   `r` for random number generation
+-   `p` for cumulative distribution
+-   `q` for quantile function (inverse cumulative distribution)
+
+### Sampling from a Uniform Distribution
+
+Sample 500 points from a uniform distribution, defined in `[0, 1]`, and plot the results.
+
+```{r}
+runif(n = 5e3, min = 0, max = 1) %>%
+  tibble(x = .) %>%
+  ggplot(., aes(x = x)) +
+    geom_histogram(boundary = 0, binwidth = 0.05, fill = "skyblue4", color = "white")
+```
+
+### Sampling from a Normal Distribution
+
+Sample 1000 points from a normal distribution with $\mu = 0$ and $\sigma = 1$ (do not worry too much about the units yet), and plot the results.
+
+```{r}
+rnorm(n = 1e3, mean = 0, sd = 1) %>%
+  tibble(x = .) %>%
+  ggplot(., aes(x = x)) +
+    geom_histogram(center = 0, binwidth = 0.25, fill = "skyblue4", color = "white")
+```
+
+### Sampling from a Poisson Distribution
+
+Sample 1000 points from a Poisson distribution with $\lambda = 5$ and plot the results.
+
+```{r}
+rpois(n = 1e3, lambda = 5) %>%
+  tibble(x = .) %>%
+  ggplot(., aes(x = x)) +
+    geom_histogram(center = 0, binwidth = 1, fill = "skyblue4", color = "white")
+```
+
+### Sampling from a Binomial Distribution
+
+Sampling from a binomial distribution in R with `rbinom` is a bit more complex. Like those previous functions, the `rbinom` function returns some number (n) of random numbers, but the arguments and output can be slightly confusing at first.
+
+Recall that a binomial distribution describes the number of ‘successes’ for some number of independent trials. The `rbinom` function returns the number of successes after `size` trials, in which the probability of success in each trial is `prob`.
+
+For a concrete example, suppose we want to simulate the flipping of a fair coin 1000 times, and we want to know how many times that coin comes up heads (‘success’). We can do this with the following code.
+
+```{r}
+coin_flips <- rbinom(n = 1000, size = 1000, prob = 0.5)
+```
+
+```{r}
+coin_flips %>%
+  tibble(res = .) %>%
+  ggplot(., aes(x = res)) +
+    geom_histogram(binwidth = 5, center = 500, fill = "skyblue4", color = "white")
+```
+
+For our first test of it, we will generate one observation (n = 1) of a sample of size 100 (size = 100) and a probability of success of 0.3 (prob = 0.3).
+
+```{r}
+set.seed(12)
+```
+
+```{r}
+rbinom(1, 100, 0.3)
+```
+
+The result printed above is the number of successes in a single sample of size 100. The proportion of successes is not exactly equal to the one we used to generate the data, but it is close, and the larger the sample size gets, the closer that actual proportion will be to that theoretical proportion.
+
+Now let’s do something a little more interesting. What does the binomial distribution look like?
+
+```{r}
+binomial_data <- rbinom(1000, 100, 0.3)
+binomial_data <- tibble(data = binomial_data)
+
+binomial_data %>% ggplot() + 
+  geom_histogram(binwidth = 1,
+                 aes(x = data, 
+                     y = after_stat(count / sum(count))), 
+                     color = 'black') +
+  geom_vline(xintercept = 30, 
+             size = 1, 
+             linetype = 'dashed',
+             color = 'red') +
+  theme_bw() +
+  labs(x = 'Number of successes in 100 trials',
+       y = 'Proportion',
+       title = '1000 samples of b(100, 0.3)')
+```
+
+The next function we’re going to learn about is `dbinom()`, which gives the probability that a binomial variable with certain parameters takes a certain value. Let’s use it to calculate the probability that the variable we’ve been working with will take the average value `np = 30`.
+
+```{r}
+dbinom(30, 100, 0.3)
+```
+
+```{r}
+binomial_data %>% 
+  ggplot() + 
+  geom_histogram(aes(x = data,
+                     y = after_stat(count / sum(count)),
+                     fill = data == 30), 
+                 color = 'black') +
+  theme_bw() +
+  labs(x = 'Number of successes in 100 trials',
+       y = 'Proportion',
+       title = '1000 samples of b(100, 0.3)')
+```
+
+```{r}
+binomial_data %>%
+  dplyr::summarize(
+    proportion_of_30s = sum(binomial_data == 30) / n()
+  )
+```
+
+The next function we’re going to learn about is `pbinom()`, which is a cumulative probability function. It returns the probability that a random binomially distributed variable takes on a value that is less than or equal to a certain value. Let’s try it out.
+
+```{r}
+pbinom(30, 100, 0.3)
+```
+
+```{r}
+binomial_data %>%
+  ggplot() + 
+  geom_histogram(aes(x = data,
+                     y = after_stat(count / sum(count)),
+                     fill = data <= 30), 
+                 color = 'black') +
+  theme_bw() +
+  labs(x = 'Number of successes in 100 trials',
+       y = 'Proportion',
+       title = '1000 samples of b(100, 0.3)')
+```
+
+## Exercise
+
+Suppose that on a certain day in a certain large class (500 students!) the instructor gives a pop quiz and no one is prepared because no one has been studying. Suppose also that everyone showed up for class that day. (Most unrealistic assumption of all.)
+
+This means that students taking the test have no choice but to guess their answers randomly and independently because they don’t know what they’re doing.
+
+The quiz is given as a multiple choice test. There are 20 questions and 4 choices for each question.
+
+1.  Suppose that a student must answer at least 10 questions correctly in order to pass this quiz. What is the probability of guessing at least 10 answers correctly?
+
+2.  Use R’s built-in binomial functions to simulate test results for each of the 500 students in this class. Use a seed integer of 12 when you do it. How many students passed? How does the empirical proportion of students who passed compare to the theoretical one?
+
+3.  Use your simulated data to make a proportion histogram of your test results. Color code it to indicate which bars represents students who passed and which ones represent students who failed.
+
+4.  Suppose that the instructor for this class gives another pop quiz the following week and 80% of students pass it. Why is it highly unlikely that students were randomly guessing this time?
+
+## Exercise
+
+For this problem we will consider the imbalance between male and female births in the USA.
+
+The tutorial contained a link to a news article which had some information we needed for our simulation. The article is linked again below because you will need to dig through its contents (including links inside of the article) in order to correctly complete tasks for this lab.
+
+> <https://www.npr.org/sections/health-shots/2015/03/30/396384911/why-are-more-baby-boys-born-than-girls>
+
+1.  Calculate the percentage of births in the USA that were female for the year that you were born. If you cannot find information for the year of your birth, use information for the most recent year that is available. Calculate this number inside of your lab report, save it as a variable so that you can use it later and print it so that its accuracy can be easily verified. Please do not round the number.
+
+Hint: Completion of the above task will require some detective work. This part of the lab is very important! If you get this wrong, it will throw off the rest of your calculations!
+
+2.  Using the value you calculated in the last problem together with R’s built-in functions for the binomial distribution, calculate the theoretical probabilities for the possible numbers of girls that a family with three children could have. Store this information in a dataframe that is easy to read and print it inside of your lab report.
+
+3.  Using the same probability that was calculated in Question 1 together with a seed integer of 10, simulate outcomes for 10 families. Add this simulated data to the dataframe you created for your answer to Question 2. Print your results inside of your lab report.
+
+4.  Repeat what you did to answer Question 3 for 1,000 families. Print your results.
+
+5.  Explain why your empirical results are not exactly equal to the theoretical probabilities.
