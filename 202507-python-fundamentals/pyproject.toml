@@ -1,0 +1,11 @@
+[project]
+name = "202507-python-fundamentals"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "jupyter>=1.1.1",
+    "marimo>=0.14.9",
+    "numpy>=2.2.6",
+]
