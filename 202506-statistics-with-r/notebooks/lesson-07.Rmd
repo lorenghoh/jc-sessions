@@ -1,5 +1,5 @@
 ---
-title: "lesson-07"
+title: "lesson-07: Statistical Simulation"
 output: html_notebook
 ---
 

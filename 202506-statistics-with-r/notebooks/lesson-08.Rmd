@@ -1,5 +1,215 @@
 ---
-title: "lesson-08"
+title: "lesson-08: Conditioning"
 output: html_notebook
 ---
+
+```{r}
+library(tidyverse)
+library(magrittr)
+```
+
+# Conditioning
+
+Conditioning concerns how probabilities of events or distributions of random variables are influenced by information about the occurrence of events or the values of random variables. (Later, we will also see that conditioning provides a useful strategy for breaking problems down into smaller parts.)
+
+A probability is a measure of the likelihood or degree of uncertainty of an event. A conditional probability revises this measure to reflect any “new” information about the outcome of the underlying random phenomenon.
+
+## Example
+
+The probability that a randomly selected American adult supports impeachment of President Trump is $0.49$.
+
+1.  Suppose the randomly selected person is a Democrat. Do you think the probability that the randomly selected Democrat supports impeachment is $0.49$?
+
+2.  The probability that a randomly selected American is a Democrat is $0.31$; let's say that someone suggested that the probability that a randomly selected American both (1) is a Democrat, and (2) supports impeachment is equal to $0.49 \times 0.31$. Do you agree?
+
+3.  Without further information, provide a range of “logically possible” values for the probability in the previous part. (“Logically possible” means they satisfy the rules of probability, even though they might not be realistic in context.)
+
+4.  Suppose that the probability that a randomly selected American both is a Democrat and supports impeachment is $0.26$. Construct an appropriate two-way table of probabilities. Construct a corresponding two-way table of hypothetical counts.
+
+5.  Find the probability that a randomly selected American who is a Democrat supports impeachment. How can the probability in the previous part be written in terms of the probabilities provided in the setup?
+
+6.  Find the probability that a randomly selected American who supports impeachment is a Democrat.
+
+## Conditional Probability
+
+The **conditional probability** of event $A$ given event $B$, denoted $P(A | B)$, is defined as
+
+$$
+P(A | B) = \frac{P(A \cap B)}{P(B)}
+$$
+
+and represents how the *likelihood* or degree of uncertainty of event $A$ should be updated to reflect information that event $B$ has occurred.
+
+On the other hand, the *unconditional* probability $P(A)$ is often called prior (or base) probability of event $A$, as in the probability of the event $A$ *prior* to observing event $B$. The *conditional* probability $P(A | B)$ then is the *posterior* probability of $A$ after observing $B$.
+
+In general, knowing whether or not event $B$ occurs influences the probability of event $A$. That is,
+
+$$
+P(A | B) \neq P(A)
+$$
+
+For example, without knowing a person’s political party, the probability of supporting impeachment is $0.49$, but after learning the person is a Democrat, the probability of supporting impeachment changed to $0.839$.
+
+Be careful: order is essential in conditioning. That is,
+
+$$
+P(A | B) \neq P(B | A)
+$$
+
+### Example
+
+Which of the following is larger -- 1 or 2?
+
+The probability that a randomly selected man who is greater than six feet tall plays in the NBA. The probability that a randomly selected man who plays in the NBA is greater than six feet tall.
+
+## Simulating Conditional Probabilities
+
+Consider simulating a randomly selected American and determining whether or not the person supports impeachment and whether or not the person is a Democrat, as in the previous example. Remember that
+
+$$ 
+\begin{align}
+  P(A) &= 0.49 \\
+  P(D) &= 0.31 \\
+  P(A \cap D) &= 0.26
+\end{align}
+$$
+
+where $A$ is the event that the person supports impeachment and $D$ is the event that the person is a Democrat.
+
+1.  Consider a suggestion that we need two spinners: One spinner with areas of $0.49$ and $0.51$ to represent Support/Not support, and another spinner with areas of $0.31$ and $0.69$ to represent Democrat/Not Democrat. Then spin each spinner once to simulate one repetition. Do you agree?
+
+2.  How could you perform one repetition of the simulation using just a single spinner? (Hint: it needs 4 sectors.)
+
+3.  How could you perform a simulation, using the spinner in the previous part, to estimate $P(A | D)$?
+
+4.  What determines the order of magnitude of the the margin of error for your estimate in the previous part?
+
+5.  What is another method for performing the simulation and estimating $P(A | D)$ that has a smaller margin of error? What is the disadvantage of this method?
+
+There are two basic ways to use simulation to approximate a conditional probability $P(A | B)$.
+
+1.  Simulate the random phenomenon for a set number of repetitions (say $10000$), discard those repetitions on which $B$ does not occur, and compute the relative frequency of $A$ among the remaining repetitions (on which $B$ does occur).
+
+2.  Simulate the random phenomenon until obtaining a certain number of repetitions (say 10000) on which $B$ occurs, discarding those repetitions on which $B$ does not occur as you go, and compute the relative frequency of $A$ among the remaining repetitions (on which $B$ does occur).
+
+```{r}
+pairs <- c("nsd", "nsnd", "sd", "snd")
+probs <- c(0.05, 0.46, 0.26, 0.23)
+
+x <- replicate(1000, sample(x = pairs, size = 1, replace = TRUE, prob = probs))
+df <- tibble(outcome = pairs)
+
+df %<>%
+  rowwise() %>%
+  mutate(
+    .,
+    result = sum(outcome == x)
+  ) %>%
+  ungroup(.)
+
+df %>%
+  add_row(
+    .,
+    outcome = "total",
+    result = sum(.$result)
+  )
+```
+
+Let's filter out cases where the person is not a democrat.
+
+```{r}
+df %>%
+  filter(
+    .,
+    (outcome == "nsd") | (outcome == "sd")
+  ) %>%
+  add_row(
+    .,
+    outcome = "total",
+    result = sum(.$result)
+  )
+```
+
+We can also use this total counts to obtain the corresponding probabilities.
+
+```{r}
+df %>%
+  filter(
+    .,
+    (outcome == "nsd") | (outcome == "sd")
+  ) %>%
+  mutate(
+    .,
+    prob = round(.$result / sum(.$result), 3)
+  )
+```
+
+# Joint Probabilities
+
+Within the context of two events, we have joint, conditional, and marginal probabilities.
+
+-   Joint: unconditional probability involving both events, $P(A \cup B)$.
+
+-   Conditional: conditional probability of one event given the other, $P(A | B)$ or $P(B | A)$.
+
+-   Marginal: unconditional probability of a single event, $P(A)$ and $P(B)$.
+
+Notice that the conditional probability is defined in terms of join and marginal probabilities. That is,
+
+$$
+\begin{align}
+  P(A | B) &= \frac{P(A \cup B)}{P(B)}
+\end{align}
+$$
+
+In the previous impeachment problem, we were provided the joint and marginal probabilities and we computed conditional probabilities. But in many problems conditional probabilities are provided or can be determined directly.
+
+## Example
+
+Recent polls suggest that
+
+-   $83\%$ of Democrats support impeachment of President Trump
+
+-   $44\%$ of Independents support impeachment of President Trump
+
+-   $14\%$ of Republicans support impeachment of President Trump
+
+1.  The average of these three percentages is $(83 + 44 + 14) / 3 = 47$. Is it necessarily true that $47\%$ of all Americans support impeachment?
+
+2.  Based on recent polls,
+
+-   $31\%$ of Americans are Democrats
+
+-   $40\%$ of Americans are Independents
+
+-   $29\%$ of Americans are Republicans
+
+Define the event $A$ to represent “supports impeachment” and $D$, $I$, $R$ to correspond to affiliation in each of the parties. If the probability measure $P$ corresponds to randomly selecting an American, write all the percentages above as probabilities using proper notation.
+
+3.  Find the probability that a randomly selected American is a Democrat who supports impeachment. Is this a joint, conditional, or marginal probability?
+
+4.  Construct an appropriate two-way table.
+
+5.  Find the probability that a randomly selected American supports impeachment. How does this differ from the average of the three percentages in Question 1? Why?
+
+6.  Now suppose that the randomly selected American supports impeachment. How does this information change the probability that the selected American belongs to a particular political party? Answer by computing appropriate probabilities (and using proper notation).
+
+7.  How does each of the probabilities from the previous part compare to the respective prior probability? Does this make sense?
+
+## Example (Continued)
+
+Consider simulating a randomly selected American and determining whether or not the person supports impeachment and whether or not the person is a Democrat.
+
+Remember that we have been given the following probabilities.
+
+$$
+\begin{align}
+P(A | D) &= 0.83 \\
+P(A | I) &= 0.44 \\
+P(A | R) &= 0.14 \\
+P(D) &= 0.31 \\
+P(I) &= 0.40 \\
+P(R) &= 0.29 \\
+\end{align}
+$$
 

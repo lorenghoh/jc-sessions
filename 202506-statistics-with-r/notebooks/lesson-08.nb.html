@@ -11,7 +11,7 @@
 
 
 
-<title>lesson-08</title>
+<title>lesson-08: Conditioning</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1746,15 +1746,331 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">lesson-08</h1>
+<h1 class="title toc-ignore">lesson-08: Conditioning</h1>
 
 </div>
 
 
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHViR2xpY21GeWVTaDBhV1I1ZG1WeWMyVXBYRzVzYVdKeVlYSjVLRzFoWjNKcGRIUnlLVnh1WUdCZ0luMD0gLS0+XG5cbmBgYHJcbmxpYnJhcnkodGlkeXZlcnNlKVxubGlicmFyeShtYWdyaXR0cilcbmBgYFxuXG48IS0tIHJuYi1zb3VyY2UtZW5kIC0tPlxuIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KG1hZ3JpdHRyKVxuYGBgIn0= -->
+<pre class="r"><code>library(tidyverse)
+library(magrittr)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="conditioning" class="section level1">
+<h1>Conditioning</h1>
+<p>Conditioning concerns how probabilities of events or distributions of
+random variables are influenced by information about the occurrence of
+events or the values of random variables. (Later, we will also see that
+conditioning provides a useful strategy for breaking problems down into
+smaller parts.)</p>
+<p>A probability is a measure of the likelihood or degree of uncertainty
+of an event. A conditional probability revises this measure to reflect
+any “new” information about the outcome of the underlying random
+phenomenon.</p>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<p>The probability that a randomly selected American adult supports
+impeachment of President Trump is <span class="math inline">\(0.49\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Suppose the randomly selected person is a Democrat. Do you think
+the probability that the randomly selected Democrat supports impeachment
+is <span class="math inline">\(0.49\)</span>?</p></li>
+<li><p>The probability that a randomly selected American is a Democrat
+is <span class="math inline">\(0.31\)</span>; let’s say that someone
+suggested that the probability that a randomly selected American both
+(1) is a Democrat, and (2) supports impeachment is equal to <span class="math inline">\(0.49 \times 0.31\)</span>. Do you agree?</p></li>
+<li><p>Without further information, provide a range of “logically
+possible” values for the probability in the previous part. (“Logically
+possible” means they satisfy the rules of probability, even though they
+might not be realistic in context.)</p></li>
+<li><p>Suppose that the probability that a randomly selected American
+both is a Democrat and supports impeachment is <span class="math inline">\(0.26\)</span>. Construct an appropriate two-way
+table of probabilities. Construct a corresponding two-way table of
+hypothetical counts.</p></li>
+<li><p>Find the probability that a randomly selected American who is a
+Democrat supports impeachment. How can the probability in the previous
+part be written in terms of the probabilities provided in the
+setup?</p></li>
+<li><p>Find the probability that a randomly selected American who
+supports impeachment is a Democrat.</p></li>
+</ol>
+</div>
+<div id="conditional-probability" class="section level2">
+<h2>Conditional Probability</h2>
+<p>The <strong>conditional probability</strong> of event <span class="math inline">\(A\)</span> given event <span class="math inline">\(B\)</span>, denoted <span class="math inline">\(P(A | B)\)</span>, is defined as</p>
+<p><span class="math display">\[
+P(A | B) = \frac{P(A \cap B)}{P(B)}
+\]</span></p>
+<p>and represents how the <em>likelihood</em> or degree of uncertainty
+of event <span class="math inline">\(A\)</span> should be updated to
+reflect information that event <span class="math inline">\(B\)</span>
+has occurred.</p>
+<p>On the other hand, the <em>unconditional</em> probability <span class="math inline">\(P(A)\)</span> is often called prior (or base)
+probability of event <span class="math inline">\(A\)</span>, as in the
+probability of the event <span class="math inline">\(A\)</span>
+<em>prior</em> to observing event <span class="math inline">\(B\)</span>. The <em>conditional</em> probability
+<span class="math inline">\(P(A | B)\)</span> then is the
+<em>posterior</em> probability of <span class="math inline">\(A\)</span>
+after observing <span class="math inline">\(B\)</span>.</p>
+<p>In general, knowing whether or not event <span class="math inline">\(B\)</span> occurs influences the probability of
+event <span class="math inline">\(A\)</span>. That is,</p>
+<p><span class="math display">\[
+P(A | B) \neq P(A)
+\]</span></p>
+<p>For example, without knowing a person’s political party, the
+probability of supporting impeachment is <span class="math inline">\(0.49\)</span>, but after learning the person is a
+Democrat, the probability of supporting impeachment changed to <span class="math inline">\(0.839\)</span>.</p>
+<p>Be careful: order is essential in conditioning. That is,</p>
+<p><span class="math display">\[
+P(A | B) \neq P(B | A)
+\]</span></p>
+<div id="example-1" class="section level3">
+<h3>Example</h3>
+<p>Which of the following is larger – 1 or 2?</p>
+<p>The probability that a randomly selected man who is greater than six
+feet tall plays in the NBA. The probability that a randomly selected man
+who plays in the NBA is greater than six feet tall.</p>
+</div>
+</div>
+<div id="simulating-conditional-probabilities" class="section level2">
+<h2>Simulating Conditional Probabilities</h2>
+<p>Consider simulating a randomly selected American and determining
+whether or not the person supports impeachment and whether or not the
+person is a Democrat, as in the previous example. Remember that</p>
+<p><span class="math display">\[
+\begin{align}
+  P(A) &amp;= 0.49 \\
+  P(D) &amp;= 0.31 \\
+  P(A \cap D) &amp;= 0.26
+\end{align}
+\]</span></p>
+<p>where <span class="math inline">\(A\)</span> is the event that the
+person supports impeachment and <span class="math inline">\(D\)</span>
+is the event that the person is a Democrat.</p>
+<ol style="list-style-type: decimal">
+<li><p>Consider a suggestion that we need two spinners: One spinner with
+areas of <span class="math inline">\(0.49\)</span> and <span class="math inline">\(0.51\)</span> to represent Support/Not support,
+and another spinner with areas of <span class="math inline">\(0.31\)</span> and <span class="math inline">\(0.69\)</span> to represent Democrat/Not Democrat.
+Then spin each spinner once to simulate one repetition. Do you
+agree?</p></li>
+<li><p>How could you perform one repetition of the simulation using just
+a single spinner? (Hint: it needs 4 sectors.)</p></li>
+<li><p>How could you perform a simulation, using the spinner in the
+previous part, to estimate <span class="math inline">\(P(A |
+D)\)</span>?</p></li>
+<li><p>What determines the order of magnitude of the the margin of error
+for your estimate in the previous part?</p></li>
+<li><p>What is another method for performing the simulation and
+estimating <span class="math inline">\(P(A | D)\)</span> that has a
+smaller margin of error? What is the disadvantage of this
+method?</p></li>
+</ol>
+<p>There are two basic ways to use simulation to approximate a
+conditional probability <span class="math inline">\(P(A |
+B)\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Simulate the random phenomenon for a set number of repetitions
+(say <span class="math inline">\(10000\)</span>), discard those
+repetitions on which <span class="math inline">\(B\)</span> does not
+occur, and compute the relative frequency of <span class="math inline">\(A\)</span> among the remaining repetitions (on
+which <span class="math inline">\(B\)</span> does occur).</p></li>
+<li><p>Simulate the random phenomenon until obtaining a certain number
+of repetitions (say 10000) on which <span class="math inline">\(B\)</span> occurs, discarding those repetitions on
+which <span class="math inline">\(B\)</span> does not occur as you go,
+and compute the relative frequency of <span class="math inline">\(A\)</span> among the remaining repetitions (on
+which <span class="math inline">\(B\)</span> does occur).</p></li>
+</ol>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVjR0ZwY25NZ1BDMGdZeWhjSW01elpGd2lMQ0JjSW01emJtUmNJaXdnWENKelpGd2lMQ0JjSW5OdVpGd2lLVnh1Y0hKdlluTWdQQzBnWXlnd0xqQTFMQ0F3TGpRMkxDQXdMakkyTENBd0xqSXpLVnh1WEc1NElEd3RJSEpsY0d4cFkyRjBaU2d4TURBd0xDQnpZVzF3YkdVb2VDQTlJSEJoYVhKekxDQnphWHBsSUQwZ01Td2djbVZ3YkdGalpTQTlJRlJTVlVVc0lIQnliMklnUFNCd2NtOWljeWtwWEc1a1ppQThMU0IwYVdKaWJHVW9iM1YwWTI5dFpTQTlJSEJoYVhKektWeHVYRzVrWmlBbFBENGxYRzRnSUhKdmQzZHBjMlVvS1NBbFBpVmNiaUFnYlhWMFlYUmxLRnh1SUNBZ0lDNHNYRzRnSUNBZ2NtVnpkV3gwSUQwZ2MzVnRLRzkxZEdOdmJXVWdQVDBnZUNsY2JpQWdLU0FsUGlWY2JpQWdkVzVuY205MWNDZ3VLVnh1WEc1a1ppQWxQaVZjYmlBZ1lXUmtYM0p2ZHloY2JpQWdJQ0F1TEZ4dUlDQWdJRzkxZEdOdmJXVWdQU0JjSW5SdmRHRnNYQ0lzWEc0Z0lDQWdjbVZ6ZFd4MElEMGdjM1Z0S0M0a2NtVnpkV3gwS1Z4dUlDQXBYRzVnWUdBaWZRPT0gLS0+XG5cbmBgYHJcbnBhaXJzIDwtIGMoXCJuc2RcIiwgXCJuc25kXCIsIFwic2RcIiwgXCJzbmRcIilcbnByb2JzIDwtIGMoMC4wNSwgMC40NiwgMC4yNiwgMC4yMylcblxueCA8LSByZXBsaWNhdGUoMTAwMCwgc2FtcGxlKHggPSBwYWlycywgc2l6ZSA9IDEsIHJlcGxhY2UgPSBUUlVFLCBwcm9iID0gcHJvYnMpKVxuZGYgPC0gdGliYmxlKG91dGNvbWUgPSBwYWlycylcblxuZGYgJTw+JVxuICByb3d3aXNlKCkgJT4lXG4gIG11dGF0ZShcbiAgICAuLFxuICAgIHJlc3VsdCA9IHN1bShvdXRjb21lID09IHgpXG4gICkgJT4lXG4gIHVuZ3JvdXAoLilcblxuZGYgJT4lXG4gIGFkZF9yb3coXG4gICAgLixcbiAgICBvdXRjb21lID0gXCJ0b3RhbFwiLFxuICAgIHJlc3VsdCA9IHN1bSguJHJlc3VsdClcbiAgKVxuYGBgXG5cbjwhLS0gcm5iLXNvdXJjZS1lbmQgLS0+XG4ifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGFpcnMgPC0gYyhcIm5zZFwiLCBcIm5zbmRcIiwgXCJzZFwiLCBcInNuZFwiKVxucHJvYnMgPC0gYygwLjA1LCAwLjQ2LCAwLjI2LCAwLjIzKVxuXG54IDwtIHJlcGxpY2F0ZSgxMDAwLCBzYW1wbGUoeCA9IHBhaXJzLCBzaXplID0gMSwgcmVwbGFjZSA9IFRSVUUsIHByb2IgPSBwcm9icykpXG5kZiA8LSB0aWJibGUob3V0Y29tZSA9IHBhaXJzKVxuXG5kZiAlPD4lXG4gIHJvd3dpc2UoKSAlPiVcbiAgbXV0YXRlKFxuICAgIC4sXG4gICAgcmVzdWx0ID0gc3VtKG91dGNvbWUgPT0geClcbiAgKSAlPiVcbiAgdW5ncm91cCguKVxuXG5kZiAlPiVcbiAgYWRkX3JvdyhcbiAgICAuLFxuICAgIG91dGNvbWUgPSBcInRvdGFsXCIsXG4gICAgcmVzdWx0ID0gc3VtKC4kcmVzdWx0KVxuICApXG5gYGAifQ== -->
+<pre class="r"><code>pairs &lt;- c(&quot;nsd&quot;, &quot;nsnd&quot;, &quot;sd&quot;, &quot;snd&quot;)
+probs &lt;- c(0.05, 0.46, 0.26, 0.23)
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAibGVzc29uLTA4IgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgo=</div>
+x &lt;- replicate(1000, sample(x = pairs, size = 1, replace = TRUE, prob = probs))
+df &lt;- tibble(outcome = pairs)
+
+df %&lt;&gt;%
+  rowwise() %&gt;%
+  mutate(
+    .,
+    result = sum(outcome == x)
+  ) %&gt;%
+  ungroup(.)
+
+df %&gt;%
+  add_row(
+    .,
+    outcome = &quot;total&quot;,
+    result = sum(.$result)
+  )</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1mcmFtZS1iZWdpbiBleUp0WlhSaFpHRjBZU0k2ZXlKamJHRnpjMlZ6SWpwYkluUmliRjlrWmlJc0luUmliQ0lzSW1SaGRHRXVabkpoYldVaVhTd2libkp2ZHlJNk5Td2libU52YkNJNk1pd2ljM1Z0YldGeWVTSTZleUpCSUhScFltSnNaU0k2V3lJMUlNT1hJRElpWFgxOUxDSnlaR1lpT2lKSU5ITkpRVUZCUVVGQlFVRkJNVEZTZDFVMlJVMUNRV1JYYzNCdFUxWmFUaTlCTkRRMlJWaDJlR2M0ZDIxMWVURlJiREpLTTFOdGFGSlVNelpaTXpaTVZpOHZRbHBJUlV0eVYzUkxRWEo0Tlc1VVpIWmFibkF6Y3pjd2MzUjVWVUZqVFdoR1FteDNVVUpRUm5kbU1YUmtRV1ZUVFdkbmVIbFhVSFl2VDNsWFpFVXZSR3R0WXpoTFFuaDRkRWN5UTA5R2FVNXRabmwzTDJ0elNWcEtlbGRDZWxaM1FUUktiMHRtT1VoeVF6TTVVelp1Wm1sTGJFUjFiRkV5VDB4S1FYSk5OM0pITjBaVlNXa3dTRnBWWW5SRmRWSTNUVmQ0TTFZemJ6VTVNRWRsWVhCd0wxVnZkRWhUVW05MFNXeHhNVEJ6YmpSaFUwVXZVa2xhUjNOVVR6ZzJaM2xTYVhaMlJXbEZWMlJFVVhCNVR6WkVkSEJ4SzFvMWVFcG1jVWxxYm0xUVpUWTROVEIzZEhwNVdtYzRVU3Q2Y0ZGek1rSllhMUkxTVdVME5ucENkVkV5YWpWeFNGTnpNMHR5V0VGRk9XOUlMMDAyTm00M2J6Qk5WVFZwWWxneFkybDFRbUZaZVU5NlJIYzFTRWcwUWxZeWVDdFVRMWxEUVVGQlBTSjkgLS0+XG5cbjxkaXYgZGF0YS1wYWdlZHRhYmxlPVwiZmFsc2VcIj5cbiAgPHNjcmlwdCBkYXRhLXBhZ2VkdGFibGUtc291cmNlIHR5cGU9XCJhcHBsaWNhdGlvbi9qc29uXCI+XG57XCJjb2x1bW5zXCI6W3tcImxhYmVsXCI6W1wib3V0Y29tZVwiXSxcIm5hbWVcIjpbMV0sXCJ0eXBlXCI6W1wiY2hyXCJdLFwiYWxpZ25cIjpbXCJsZWZ0XCJdfSx7XCJsYWJlbFwiOltcInJlc3VsdFwiXSxcIm5hbWVcIjpbMl0sXCJ0eXBlXCI6W1wiaW50XCJdLFwiYWxpZ25cIjpbXCJyaWdodFwiXX1dLFwiZGF0YVwiOlt7XCIxXCI6XCJuc2RcIixcIjJcIjpcIjU3XCJ9LHtcIjFcIjpcIm5zbmRcIixcIjJcIjpcIjQ3OVwifSx7XCIxXCI6XCJzZFwiLFwiMlwiOlwiMjc1XCJ9LHtcIjFcIjpcInNuZFwiLFwiMlwiOlwiMTg5XCJ9LHtcIjFcIjpcInRvdGFsXCIsXCIyXCI6XCIxMDAwXCJ9XSxcIm9wdGlvbnNcIjp7XCJjb2x1bW5zXCI6e1wibWluXCI6e30sXCJtYXhcIjpbMTBdLFwidG90YWxcIjpbMl19LFwicm93c1wiOntcIm1pblwiOlsxMF0sXCJtYXhcIjpbMTBdLFwidG90YWxcIjpbNV19LFwicGFnZXNcIjp7fX19XG4gIDxcL3NjcmlwdD5cbjxcL2Rpdj5cblxuPCEtLSBybmItZnJhbWUtZW5kIC0tPlxuIn0= -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6NSwibmNvbCI6Miwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyI1IMOXIDIiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFBMTFSd1U2RU1CQWRXc3BtU1ZaTi9BNDQ2RVh2eGc4d211eTFRbDJKM1NtaFJUMzZZMzZMVi8vQlpIRUtyV3RLQXJ4NW5UZHZabnAzczcwc3R5VUFjTWhGQmx3UUJQRndmMXRkQWVTTWdneHlXUHYvT3lXZEUvRGttYzhLQnh4dEcyQ09GaU5tZnl3L2tzSVpKeldCelZ3QTRKb0tmOUhyQzM5UzZuZmlLbER1bFEyT0xKQXJNN3JHN0ZVSWkwSFpVYnRFdVI3TVd4M1YzbzU5MEdlYXBwL1VvdEhTUm90SWxxMTBzbjRhU0UvUklaR3NUTzg2Z3lSaXZ2RWlFV2REUXB5TzZEdHBxK1o1eEpmcUlqbm1QZTY4NTB3dHp5Wmc4USt6cFFzMkJYa1I1MWU0NnpCdVEyajVxSFNzM0tyWEFFOW9IL002Nm43bzBNVTVpYlgxY2l1QmFZeU96RHc1SEg0QlYyeCtUQ1lDQUFBPSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["outcome"],"name":[1],"type":["chr"],"align":["left"]},{"label":["result"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"nsd","2":"57"},{"1":"nsnd","2":"479"},{"1":"sd","2":"275"},{"1":"snd","2":"189"},{"1":"total","2":"1000"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[5]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Let’s filter out cases where the person is not a democrat.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVaR1lnSlQ0bFhHNGdJR1pwYkhSbGNpaGNiaUFnSUNBdUxGeHVJQ0FnSUNodmRYUmpiMjFsSUQwOUlGd2libk5rWENJcElId2dLRzkxZEdOdmJXVWdQVDBnWENKelpGd2lLVnh1SUNBcElDVStKVnh1SUNCaFpHUmZjbTkzS0Z4dUlDQWdJQzRzWEc0Z0lDQWdiM1YwWTI5dFpTQTlJRndpZEc5MFlXeGNJaXhjYmlBZ0lDQnlaWE4xYkhRZ1BTQnpkVzBvTGlSeVpYTjFiSFFwWEc0Z0lDbGNibUJnWUNKOSAtLT5cblxuYGBgclxuZGYgJT4lXG4gIGZpbHRlcihcbiAgICAuLFxuICAgIChvdXRjb21lID09IFwibnNkXCIpIHwgKG91dGNvbWUgPT0gXCJzZFwiKVxuICApICU+JVxuICBhZGRfcm93KFxuICAgIC4sXG4gICAgb3V0Y29tZSA9IFwidG90YWxcIixcbiAgICByZXN1bHQgPSBzdW0oLiRyZXN1bHQpXG4gIClcbmBgYFxuXG48IS0tIHJuYi1zb3VyY2UtZW5kIC0tPlxuIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGYgJT4lXG4gIGZpbHRlcihcbiAgICAuLFxuICAgIChvdXRjb21lID09IFwibnNkXCIpIHwgKG91dGNvbWUgPT0gXCJzZFwiKVxuICApICU+JVxuICBhZGRfcm93KFxuICAgIC4sXG4gICAgb3V0Y29tZSA9IFwidG90YWxcIixcbiAgICByZXN1bHQgPSBzdW0oLiRyZXN1bHQpXG4gIClcbmBgYCJ9 -->
+<pre class="r"><code>df %&gt;%
+  filter(
+    .,
+    (outcome == &quot;nsd&quot;) | (outcome == &quot;sd&quot;)
+  ) %&gt;%
+  add_row(
+    .,
+    outcome = &quot;total&quot;,
+    result = sum(.$result)
+  )</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1mcmFtZS1iZWdpbiBleUp0WlhSaFpHRjBZU0k2ZXlKamJHRnpjMlZ6SWpwYkluUmliRjlrWmlJc0luUmliQ0lzSW1SaGRHRXVabkpoYldVaVhTd2libkp2ZHlJNk15d2libU52YkNJNk1pd2ljM1Z0YldGeWVTSTZleUpCSUhScFltSnNaU0k2V3lJeklNT1hJRElpWFgxOUxDSnlaR1lpT2lKSU5ITkpRVUZCUVVGQlFVRkJNVEpTYzFjM1JFbENRMGQ2TWtGamVGWk1ZVk51TUU5bE9HNVROMnhYYlZSR1ZYSmFZVlV5VkdFd1UzTkJRVzVJWm5acGFsaDBaM0ZEYnpnMFVEa3JLMDgyTkRRdmJuQnpTekJRVGxGQ1VVdEdhMEpzUzBWRk9YWnhlV0Y0TkVGVGIwcENRVk5YY3k5bU9FeEVPVEpxT0U5aVpGRnZVVTV4YlhkbVNtWnNWSHBIYmtoS1dYQk9UMEZ1ZDJsQ2JWRk1kbHBhVjNGaU5GTmthVmxyYTFKNmNGTm1XRFphVDBsWlYxZEZibUZVVEhsTVdGSnNlbUpTZG1kNk5YaHRWMlUxTlNzNFVrTmxOVlJUVjFOWFptWmpPR1ppWkVsSkwxSk9WVTVYWlc1VFJGWm5aMUl6TTB0V2QxbFlTbXBPZEVvclduWXdWR1pqZUhGak9XMXRNak5VVlZJeE9YcFhRWFF6ZVZweEsyc3JWRFZTV210cWJtbFdLMmhtY1U5TFp6QkVVMkkxYlRWQmNHTjVMMDlWWkRkblVFMUpOREowUlUxNWNWVXJNR0pZZERob2NsSTJZbEpOVkhWblkzSnlLMEZMYVc0NFFuZEpRVUZCUFQwaWZRPT0gLS0+XG5cbjxkaXYgZGF0YS1wYWdlZHRhYmxlPVwiZmFsc2VcIj5cbiAgPHNjcmlwdCBkYXRhLXBhZ2VkdGFibGUtc291cmNlIHR5cGU9XCJhcHBsaWNhdGlvbi9qc29uXCI+XG57XCJjb2x1bW5zXCI6W3tcImxhYmVsXCI6W1wib3V0Y29tZVwiXSxcIm5hbWVcIjpbMV0sXCJ0eXBlXCI6W1wiY2hyXCJdLFwiYWxpZ25cIjpbXCJsZWZ0XCJdfSx7XCJsYWJlbFwiOltcInJlc3VsdFwiXSxcIm5hbWVcIjpbMl0sXCJ0eXBlXCI6W1wiaW50XCJdLFwiYWxpZ25cIjpbXCJyaWdodFwiXX1dLFwiZGF0YVwiOlt7XCIxXCI6XCJuc2RcIixcIjJcIjpcIjU3XCJ9LHtcIjFcIjpcInNkXCIsXCIyXCI6XCIyNzVcIn0se1wiMVwiOlwidG90YWxcIixcIjJcIjpcIjMzMlwifV0sXCJvcHRpb25zXCI6e1wiY29sdW1uc1wiOntcIm1pblwiOnt9LFwibWF4XCI6WzEwXSxcInRvdGFsXCI6WzJdfSxcInJvd3NcIjp7XCJtaW5cIjpbMTBdLFwibWF4XCI6WzEwXSxcInRvdGFsXCI6WzNdfSxcInBhZ2VzXCI6e319fVxuICA8XC9zY3JpcHQ+XG48XC9kaXY+XG5cbjwhLS0gcm5iLWZyYW1lLWVuZCAtLT5cbiJ9 -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MywibmNvbCI6Miwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIzIMOXIDIiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFBMTJSc1c3RElCQ0d6MkFjeFZMYVNuME9lOG5TN2xXbVRGVXJaYVUyVGEwU3NBQW5IZnZpalh0Z3FDbzg0UDkrK082NDQvbnBzSzBQTlFCUUtGa0JsS0VFOXZxeWF4NEFTb0pCQVNXcy9mOExEOTJqOE9iZFFvUU5xbXdmSmZsVHpHbkhKWXBOT0Fud2lCbVFMdlpaV3FiNFNkaVlra1J6cFNmWDZaT0lZV1dFbmFUTHlMWFJsemJSdmd6NXhtV2U1NSs4UkNlNVRTV1NXZmZjOGZiZElJL1JOVU5XZW5TRFZnZ1IzM0tWd1lYSmpOdEorWnYwVGZjeHFjOW1tMjNUVVIxOXpXQXQzeVpxK2srVDVSWmtqbmlWK2hmcU9LZzBEU2I1bTVBcGN5L09VZDdnUE1JNDJ0RU15cVUrMGJYdDhoclI2YlJNVHVnY3JyK0FLaW44QndJQUFBPT0ifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["outcome"],"name":[1],"type":["chr"],"align":["left"]},{"label":["result"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"nsd","2":"57"},{"1":"sd","2":"275"},{"1":"total","2":"332"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[3]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>We can also use this total counts to obtain the corresponding
+probabilities.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVaR1lnSlQ0bFhHNGdJR1pwYkhSbGNpaGNiaUFnSUNBdUxGeHVJQ0FnSUNodmRYUmpiMjFsSUQwOUlGd2libk5rWENJcElId2dLRzkxZEdOdmJXVWdQVDBnWENKelpGd2lLVnh1SUNBcElDVStKVnh1SUNCdGRYUmhkR1VvWEc0Z0lDQWdMaXhjYmlBZ0lDQndjbTlpSUQwZ2NtOTFibVFvTGlSeVpYTjFiSFFnTHlCemRXMG9MaVJ5WlhOMWJIUXBMQ0F6S1Z4dUlDQXBYRzVnWUdBaWZRPT0gLS0+XG5cbmBgYHJcbmRmICU+JVxuICBmaWx0ZXIoXG4gICAgLixcbiAgICAob3V0Y29tZSA9PSBcIm5zZFwiKSB8IChvdXRjb21lID09IFwic2RcIilcbiAgKSAlPiVcbiAgbXV0YXRlKFxuICAgIC4sXG4gICAgcHJvYiA9IHJvdW5kKC4kcmVzdWx0IC8gc3VtKC4kcmVzdWx0KSwgMylcbiAgKVxuYGBgXG5cbjwhLS0gcm5iLXNvdXJjZS1lbmQgLS0+XG4ifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGYgJT4lXG4gIGZpbHRlcihcbiAgICAuLFxuICAgIChvdXRjb21lID09IFwibnNkXCIpIHwgKG91dGNvbWUgPT0gXCJzZFwiKVxuICApICU+JVxuICBtdXRhdGUoXG4gICAgLixcbiAgICBwcm9iID0gcm91bmQoLiRyZXN1bHQgLyBzdW0oLiRyZXN1bHQpLCAzKVxuICApXG5gYGAifQ== -->
+<pre class="r"><code>df %&gt;%
+  filter(
+    .,
+    (outcome == &quot;nsd&quot;) | (outcome == &quot;sd&quot;)
+  ) %&gt;%
+  mutate(
+    .,
+    prob = round(.$result / sum(.$result), 3)
+  )</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1mcmFtZS1iZWdpbiBleUp0WlhSaFpHRjBZU0k2ZXlKamJHRnpjMlZ6SWpwYkluUmliRjlrWmlJc0luUmliQ0lzSW1SaGRHRXVabkpoYldVaVhTd2libkp2ZHlJNk1pd2libU52YkNJNk15d2ljM1Z0YldGeWVTSTZleUpCSUhScFltSnNaU0k2V3lJeUlNT1hJRE1pWFgxOUxDSnlaR1lpT2lKSU5ITkpRVUZCUVVGQlFVRkJNVEZSYzFVM1JFMUNRemt5U0VkeFVtMXdRbGx0Um0xVWVGbFpXVTl4UXl0QlFVVlZiR016VFZOWFVUSndTR3BCUWxCcFNDOW5aRnB0V2pKYWFHSXJaMHRZY0RKaVZXdzFSV2hLTTI1MmJqa3JOVGd4TldaTU1ETjVXa0YzUTBac1ExWkJSMVZLWjNSNlpGaDRWR3hCVTNCQmEydE5URlV2YkM5M01FcEZOME5ZUTBsTUwwVkdTM1oyWVZFMFNVbFpUMkZMUVVKa2IzTnZZVFUxV1haUU9WQnFaR1pFZDNObWJDOHZkbXNySzJaeFNqQktkbXhIT1VRMldtVnVSMmxDYkU5d2FtWkJNREEyU1daWGRVNWFNbTF0TVdsc1MyMVhhakpZU1dOdFRqaFpZV1pqVW5relkySjFjVFZZTVc5R09GTTROVzloV0dSNGNqbDVSMHhNVWtoWGJWVlNTazU0UmpSeGFUaDVTbXB2VTBSUlpIQktObkZMTmtnclVtcGpVbUZXWVZObVdIUnhaVlE1Y3k5TldTOUpVREF2TUZWYVVGUXlURTk0UTNsSVZXcDNNbHBaZVRGbGFVUmpiVEZsVUVwM2FuWjBkelo1WnpjelkybDNkVko2Vm5acVZFczRSMFJLU3psVlIzaGtNR04wYW5SS1FuUmtZVWRuU1VGQlFUMDlJbjA9IC0tPlxuXG48ZGl2IGRhdGEtcGFnZWR0YWJsZT1cImZhbHNlXCI+XG4gIDxzY3JpcHQgZGF0YS1wYWdlZHRhYmxlLXNvdXJjZSB0eXBlPVwiYXBwbGljYXRpb24vanNvblwiPlxue1wiY29sdW1uc1wiOlt7XCJsYWJlbFwiOltcIm91dGNvbWVcIl0sXCJuYW1lXCI6WzFdLFwidHlwZVwiOltcImNoclwiXSxcImFsaWduXCI6W1wibGVmdFwiXX0se1wibGFiZWxcIjpbXCJyZXN1bHRcIl0sXCJuYW1lXCI6WzJdLFwidHlwZVwiOltcImludFwiXSxcImFsaWduXCI6W1wicmlnaHRcIl19LHtcImxhYmVsXCI6W1wicHJvYlwiXSxcIm5hbWVcIjpbM10sXCJ0eXBlXCI6W1wiZGJsXCJdLFwiYWxpZ25cIjpbXCJyaWdodFwiXX1dLFwiZGF0YVwiOlt7XCIxXCI6XCJuc2RcIixcIjJcIjpcIjU3XCIsXCIzXCI6XCIwLjE3MlwifSx7XCIxXCI6XCJzZFwiLFwiMlwiOlwiMjc1XCIsXCIzXCI6XCIwLjgyOFwifV0sXCJvcHRpb25zXCI6e1wiY29sdW1uc1wiOntcIm1pblwiOnt9LFwibWF4XCI6WzEwXSxcInRvdGFsXCI6WzNdfSxcInJvd3NcIjp7XCJtaW5cIjpbMTBdLFwibWF4XCI6WzEwXSxcInRvdGFsXCI6WzJdfSxcInBhZ2VzXCI6e319fVxuICA8XC9zY3JpcHQ+XG48XC9kaXY+XG5cbjwhLS0gcm5iLWZyYW1lLWVuZCAtLT5cbiJ9 -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MiwibmNvbCI6Mywic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIyIMOXIDMiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFBMTFRc1U3RE1CQzkySEdxUm1wQlltRm1UeFlZWU9xQytBQUVVbGMzTVNXUTJwSGpBQlBpSC9nZFptWjJaaGIrZ0tYcDJiVWw1RWhKM252bjkrNTgxNWZMMDN5WkF3Q0ZsQ1ZBR1VKZ3R6ZFh4VGxBU3BBa2tNTFUvbC93MEpFN0NYQ0lML0VGS3Z2YVE0SUlZT2FLQUJkb3NvYTU1WXZQOVBqZGZEd3NmbC8vdmsrK2ZxSjBKdmxHOUQ2WmVuR2lCbE9wamZBMDA2SWZXdU5aMm1tMWlsS21XajJYSWNtTjhZYWZjUnkzY2J1cTVYMW9GOFM4NW9hWGR4cjl5R0xMUkhXbVVSSk54RjRxaTh5SmpvU0RRZHBKNnFLNkgrUmpjUmFWYVNmWHRxZVQ5cy9NWS9JUDAvMFVaUFQyTE94Q3lIVWp3MlpZeTFlaURjbTFlUEp3anZ0dzZ5ZzczY2l3dVJ6VnZqVEs4R0RKSzlVR3hkMGN0anRKQnRkYUdnSUFBQT09In0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["outcome"],"name":[1],"type":["chr"],"align":["left"]},{"label":["result"],"name":[2],"type":["int"],"align":["right"]},{"label":["prob"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"nsd","2":"57","3":"0.172"},{"1":"sd","2":"275","3":"0.828"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+<div id="joint-probabilities" class="section level1">
+<h1>Joint Probabilities</h1>
+<p>Within the context of two events, we have joint, conditional, and
+marginal probabilities.</p>
+<ul>
+<li><p>Joint: unconditional probability involving both events, <span class="math inline">\(P(A \cup B)\)</span>.</p></li>
+<li><p>Conditional: conditional probability of one event given the
+other, <span class="math inline">\(P(A | B)\)</span> or <span class="math inline">\(P(B | A)\)</span>.</p></li>
+<li><p>Marginal: unconditional probability of a single event, <span class="math inline">\(P(A)\)</span> and <span class="math inline">\(P(B)\)</span>.</p></li>
+</ul>
+<p>Notice that the conditional probability is defined in terms of join
+and marginal probabilities. That is,</p>
+<p><span class="math display">\[
+\begin{align}
+  P(A | B) &amp;= \frac{P(A \cup B)}{P(B)}
+\end{align}
+\]</span></p>
+<p>In the previous impeachment problem, we were provided the joint and
+marginal probabilities and we computed conditional probabilities. But in
+many problems conditional probabilities are provided or can be
+determined directly.</p>
+<div id="example-2" class="section level2">
+<h2>Example</h2>
+<p>Recent polls suggest that</p>
+<ul>
+<li><p><span class="math inline">\(83\%\)</span> of Democrats support
+impeachment of President Trump</p></li>
+<li><p><span class="math inline">\(44\%\)</span> of Independents support
+impeachment of President Trump</p></li>
+<li><p><span class="math inline">\(14\%\)</span> of Republicans support
+impeachment of President Trump</p></li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><p>The average of these three percentages is <span class="math inline">\((83 + 44 + 14) / 3 = 47\)</span>. Is it
+necessarily true that <span class="math inline">\(47\%\)</span> of all
+Americans support impeachment?</p></li>
+<li><p>Based on recent polls,</p></li>
+</ol>
+<ul>
+<li><p><span class="math inline">\(31\%\)</span> of Americans are
+Democrats</p></li>
+<li><p><span class="math inline">\(40\%\)</span> of Americans are
+Independents</p></li>
+<li><p><span class="math inline">\(29\%\)</span> of Americans are
+Republicans</p></li>
+</ul>
+<p>Define the event <span class="math inline">\(A\)</span> to represent
+“supports impeachment” and <span class="math inline">\(D\)</span>, <span class="math inline">\(I\)</span>, <span class="math inline">\(R\)</span>
+to correspond to affiliation in each of the parties. If the probability
+measure <span class="math inline">\(P\)</span> corresponds to randomly
+selecting an American, write all the percentages above as probabilities
+using proper notation.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Find the probability that a randomly selected American is a
+Democrat who supports impeachment. Is this a joint, conditional, or
+marginal probability?</p></li>
+<li><p>Construct an appropriate two-way table.</p></li>
+<li><p>Find the probability that a randomly selected American supports
+impeachment. How does this differ from the average of the three
+percentages in Question 1? Why?</p></li>
+<li><p>Now suppose that the randomly selected American supports
+impeachment. How does this information change the probability that the
+selected American belongs to a particular political party? Answer by
+computing appropriate probabilities (and using proper
+notation).</p></li>
+<li><p>How does each of the probabilities from the previous part compare
+to the respective prior probability? Does this make sense?</p></li>
+</ol>
+</div>
+<div id="example-continued" class="section level2">
+<h2>Example (Continued)</h2>
+<p>Consider simulating a randomly selected American and determining
+whether or not the person supports impeachment and whether or not the
+person is a Democrat.</p>
+<p>Remember that we have been given the following probabilities.</p>
+<p><span class="math display">\[
+\begin{align}
+P(A | D) &amp;= 0.83 \\
+P(A | I) &amp;= 0.44 \\
+P(A | R) &amp;= 0.14 \\
+P(D) &amp;= 0.31 \\
+P(I) &amp;= 0.40 \\
+P(R) &amp;= 0.29 \\
+\end{align}
+\]</span></p>
+<!-- rnb-text-end -->
+</div>
+</div>
+
+<div id="rmd-source-code">LS0tCnRpdGxlOiAibGVzc29uLTA4OiBDb25kaXRpb25pbmciCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCmBgYHtyfQpsaWJyYXJ5KHRpZHl2ZXJzZSkKbGlicmFyeShtYWdyaXR0cikKYGBgCgojIENvbmRpdGlvbmluZwoKQ29uZGl0aW9uaW5nIGNvbmNlcm5zIGhvdyBwcm9iYWJpbGl0aWVzIG9mIGV2ZW50cyBvciBkaXN0cmlidXRpb25zIG9mIHJhbmRvbSB2YXJpYWJsZXMgYXJlIGluZmx1ZW5jZWQgYnkgaW5mb3JtYXRpb24gYWJvdXQgdGhlIG9jY3VycmVuY2Ugb2YgZXZlbnRzIG9yIHRoZSB2YWx1ZXMgb2YgcmFuZG9tIHZhcmlhYmxlcy4gKExhdGVyLCB3ZSB3aWxsIGFsc28gc2VlIHRoYXQgY29uZGl0aW9uaW5nIHByb3ZpZGVzIGEgdXNlZnVsIHN0cmF0ZWd5IGZvciBicmVha2luZyBwcm9ibGVtcyBkb3duIGludG8gc21hbGxlciBwYXJ0cy4pCgpBIHByb2JhYmlsaXR5IGlzIGEgbWVhc3VyZSBvZiB0aGUgbGlrZWxpaG9vZCBvciBkZWdyZWUgb2YgdW5jZXJ0YWludHkgb2YgYW4gZXZlbnQuIEEgY29uZGl0aW9uYWwgcHJvYmFiaWxpdHkgcmV2aXNlcyB0aGlzIG1lYXN1cmUgdG8gcmVmbGVjdCBhbnkg4oCcbmV34oCdIGluZm9ybWF0aW9uIGFib3V0IHRoZSBvdXRjb21lIG9mIHRoZSB1bmRlcmx5aW5nIHJhbmRvbSBwaGVub21lbm9uLgoKIyMgRXhhbXBsZQoKVGhlIHByb2JhYmlsaXR5IHRoYXQgYSByYW5kb21seSBzZWxlY3RlZCBBbWVyaWNhbiBhZHVsdCBzdXBwb3J0cyBpbXBlYWNobWVudCBvZiBQcmVzaWRlbnQgVHJ1bXAgaXMgJDAuNDkkLgoKMS4gIFN1cHBvc2UgdGhlIHJhbmRvbWx5IHNlbGVjdGVkIHBlcnNvbiBpcyBhIERlbW9jcmF0LiBEbyB5b3UgdGhpbmsgdGhlIHByb2JhYmlsaXR5IHRoYXQgdGhlIHJhbmRvbWx5IHNlbGVjdGVkIERlbW9jcmF0IHN1cHBvcnRzIGltcGVhY2htZW50IGlzICQwLjQ5JD8KCjIuICBUaGUgcHJvYmFiaWxpdHkgdGhhdCBhIHJhbmRvbWx5IHNlbGVjdGVkIEFtZXJpY2FuIGlzIGEgRGVtb2NyYXQgaXMgJDAuMzEkOyBsZXQncyBzYXkgdGhhdCBzb21lb25lIHN1Z2dlc3RlZCB0aGF0IHRoZSBwcm9iYWJpbGl0eSB0aGF0IGEgcmFuZG9tbHkgc2VsZWN0ZWQgQW1lcmljYW4gYm90aCAoMSkgaXMgYSBEZW1vY3JhdCwgYW5kICgyKSBzdXBwb3J0cyBpbXBlYWNobWVudCBpcyBlcXVhbCB0byAkMC40OSBcdGltZXMgMC4zMSQuIERvIHlvdSBhZ3JlZT8KCjMuICBXaXRob3V0IGZ1cnRoZXIgaW5mb3JtYXRpb24sIHByb3ZpZGUgYSByYW5nZSBvZiDigJxsb2dpY2FsbHkgcG9zc2libGXigJ0gdmFsdWVzIGZvciB0aGUgcHJvYmFiaWxpdHkgaW4gdGhlIHByZXZpb3VzIHBhcnQuICjigJxMb2dpY2FsbHkgcG9zc2libGXigJ0gbWVhbnMgdGhleSBzYXRpc2Z5IHRoZSBydWxlcyBvZiBwcm9iYWJpbGl0eSwgZXZlbiB0aG91Z2ggdGhleSBtaWdodCBub3QgYmUgcmVhbGlzdGljIGluIGNvbnRleHQuKQoKNC4gIFN1cHBvc2UgdGhhdCB0aGUgcHJvYmFiaWxpdHkgdGhhdCBhIHJhbmRvbWx5IHNlbGVjdGVkIEFtZXJpY2FuIGJvdGggaXMgYSBEZW1vY3JhdCBhbmQgc3VwcG9ydHMgaW1wZWFjaG1lbnQgaXMgJDAuMjYkLiBDb25zdHJ1Y3QgYW4gYXBwcm9wcmlhdGUgdHdvLXdheSB0YWJsZSBvZiBwcm9iYWJpbGl0aWVzLiBDb25zdHJ1Y3QgYSBjb3JyZXNwb25kaW5nIHR3by13YXkgdGFibGUgb2YgaHlwb3RoZXRpY2FsIGNvdW50cy4KCjUuICBGaW5kIHRoZSBwcm9iYWJpbGl0eSB0aGF0IGEgcmFuZG9tbHkgc2VsZWN0ZWQgQW1lcmljYW4gd2hvIGlzIGEgRGVtb2NyYXQgc3VwcG9ydHMgaW1wZWFjaG1lbnQuIEhvdyBjYW4gdGhlIHByb2JhYmlsaXR5IGluIHRoZSBwcmV2aW91cyBwYXJ0IGJlIHdyaXR0ZW4gaW4gdGVybXMgb2YgdGhlIHByb2JhYmlsaXRpZXMgcHJvdmlkZWQgaW4gdGhlIHNldHVwPwoKNi4gIEZpbmQgdGhlIHByb2JhYmlsaXR5IHRoYXQgYSByYW5kb21seSBzZWxlY3RlZCBBbWVyaWNhbiB3aG8gc3VwcG9ydHMgaW1wZWFjaG1lbnQgaXMgYSBEZW1vY3JhdC4KCiMjIENvbmRpdGlvbmFsIFByb2JhYmlsaXR5CgpUaGUgKipjb25kaXRpb25hbCBwcm9iYWJpbGl0eSoqIG9mIGV2ZW50ICRBJCBnaXZlbiBldmVudCAkQiQsIGRlbm90ZWQgJFAoQSB8IEIpJCwgaXMgZGVmaW5lZCBhcwoKJCQKUChBIHwgQikgPSBcZnJhY3tQKEEgXGNhcCBCKX17UChCKX0KJCQKCmFuZCByZXByZXNlbnRzIGhvdyB0aGUgKmxpa2VsaWhvb2QqIG9yIGRlZ3JlZSBvZiB1bmNlcnRhaW50eSBvZiBldmVudCAkQSQgc2hvdWxkIGJlIHVwZGF0ZWQgdG8gcmVmbGVjdCBpbmZvcm1hdGlvbiB0aGF0IGV2ZW50ICRCJCBoYXMgb2NjdXJyZWQuCgpPbiB0aGUgb3RoZXIgaGFuZCwgdGhlICp1bmNvbmRpdGlvbmFsKiBwcm9iYWJpbGl0eSAkUChBKSQgaXMgb2Z0ZW4gY2FsbGVkIHByaW9yIChvciBiYXNlKSBwcm9iYWJpbGl0eSBvZiBldmVudCAkQSQsIGFzIGluIHRoZSBwcm9iYWJpbGl0eSBvZiB0aGUgZXZlbnQgJEEkICpwcmlvciogdG8gb2JzZXJ2aW5nIGV2ZW50ICRCJC4gVGhlICpjb25kaXRpb25hbCogcHJvYmFiaWxpdHkgJFAoQSB8IEIpJCB0aGVuIGlzIHRoZSAqcG9zdGVyaW9yKiBwcm9iYWJpbGl0eSBvZiAkQSQgYWZ0ZXIgb2JzZXJ2aW5nICRCJC4KCkluIGdlbmVyYWwsIGtub3dpbmcgd2hldGhlciBvciBub3QgZXZlbnQgJEIkIG9jY3VycyBpbmZsdWVuY2VzIHRoZSBwcm9iYWJpbGl0eSBvZiBldmVudCAkQSQuIFRoYXQgaXMsCgokJApQKEEgfCBCKSBcbmVxIFAoQSkKJCQKCkZvciBleGFtcGxlLCB3aXRob3V0IGtub3dpbmcgYSBwZXJzb27igJlzIHBvbGl0aWNhbCBwYXJ0eSwgdGhlIHByb2JhYmlsaXR5IG9mIHN1cHBvcnRpbmcgaW1wZWFjaG1lbnQgaXMgJDAuNDkkLCBidXQgYWZ0ZXIgbGVhcm5pbmcgdGhlIHBlcnNvbiBpcyBhIERlbW9jcmF0LCB0aGUgcHJvYmFiaWxpdHkgb2Ygc3VwcG9ydGluZyBpbXBlYWNobWVudCBjaGFuZ2VkIHRvICQwLjgzOSQuCgpCZSBjYXJlZnVsOiBvcmRlciBpcyBlc3NlbnRpYWwgaW4gY29uZGl0aW9uaW5nLiBUaGF0IGlzLAoKJCQKUChBIHwgQikgXG5lcSBQKEIgfCBBKQokJAoKIyMjIEV4YW1wbGUKCldoaWNoIG9mIHRoZSBmb2xsb3dpbmcgaXMgbGFyZ2VyIC0tIDEgb3IgMj8KClRoZSBwcm9iYWJpbGl0eSB0aGF0IGEgcmFuZG9tbHkgc2VsZWN0ZWQgbWFuIHdobyBpcyBncmVhdGVyIHRoYW4gc2l4IGZlZXQgdGFsbCBwbGF5cyBpbiB0aGUgTkJBLiBUaGUgcHJvYmFiaWxpdHkgdGhhdCBhIHJhbmRvbWx5IHNlbGVjdGVkIG1hbiB3aG8gcGxheXMgaW4gdGhlIE5CQSBpcyBncmVhdGVyIHRoYW4gc2l4IGZlZXQgdGFsbC4KCiMjIFNpbXVsYXRpbmcgQ29uZGl0aW9uYWwgUHJvYmFiaWxpdGllcwoKQ29uc2lkZXIgc2ltdWxhdGluZyBhIHJhbmRvbWx5IHNlbGVjdGVkIEFtZXJpY2FuIGFuZCBkZXRlcm1pbmluZyB3aGV0aGVyIG9yIG5vdCB0aGUgcGVyc29uIHN1cHBvcnRzIGltcGVhY2htZW50IGFuZCB3aGV0aGVyIG9yIG5vdCB0aGUgcGVyc29uIGlzIGEgRGVtb2NyYXQsIGFzIGluIHRoZSBwcmV2aW91cyBleGFtcGxlLiBSZW1lbWJlciB0aGF0CgokJCAKXGJlZ2lue2FsaWdufQogIFAoQSkgJj0gMC40OSBcXAogIFAoRCkgJj0gMC4zMSBcXAogIFAoQSBcY2FwIEQpICY9IDAuMjYKXGVuZHthbGlnbn0KJCQKCndoZXJlICRBJCBpcyB0aGUgZXZlbnQgdGhhdCB0aGUgcGVyc29uIHN1cHBvcnRzIGltcGVhY2htZW50IGFuZCAkRCQgaXMgdGhlIGV2ZW50IHRoYXQgdGhlIHBlcnNvbiBpcyBhIERlbW9jcmF0LgoKMS4gIENvbnNpZGVyIGEgc3VnZ2VzdGlvbiB0aGF0IHdlIG5lZWQgdHdvIHNwaW5uZXJzOiBPbmUgc3Bpbm5lciB3aXRoIGFyZWFzIG9mICQwLjQ5JCBhbmQgJDAuNTEkIHRvIHJlcHJlc2VudCBTdXBwb3J0L05vdCBzdXBwb3J0LCBhbmQgYW5vdGhlciBzcGlubmVyIHdpdGggYXJlYXMgb2YgJDAuMzEkIGFuZCAkMC42OSQgdG8gcmVwcmVzZW50IERlbW9jcmF0L05vdCBEZW1vY3JhdC4gVGhlbiBzcGluIGVhY2ggc3Bpbm5lciBvbmNlIHRvIHNpbXVsYXRlIG9uZSByZXBldGl0aW9uLiBEbyB5b3UgYWdyZWU/CgoyLiAgSG93IGNvdWxkIHlvdSBwZXJmb3JtIG9uZSByZXBldGl0aW9uIG9mIHRoZSBzaW11bGF0aW9uIHVzaW5nIGp1c3QgYSBzaW5nbGUgc3Bpbm5lcj8gKEhpbnQ6IGl0IG5lZWRzIDQgc2VjdG9ycy4pCgozLiAgSG93IGNvdWxkIHlvdSBwZXJmb3JtIGEgc2ltdWxhdGlvbiwgdXNpbmcgdGhlIHNwaW5uZXIgaW4gdGhlIHByZXZpb3VzIHBhcnQsIHRvIGVzdGltYXRlICRQKEEgfCBEKSQ/Cgo0LiAgV2hhdCBkZXRlcm1pbmVzIHRoZSBvcmRlciBvZiBtYWduaXR1ZGUgb2YgdGhlIHRoZSBtYXJnaW4gb2YgZXJyb3IgZm9yIHlvdXIgZXN0aW1hdGUgaW4gdGhlIHByZXZpb3VzIHBhcnQ/Cgo1LiAgV2hhdCBpcyBhbm90aGVyIG1ldGhvZCBmb3IgcGVyZm9ybWluZyB0aGUgc2ltdWxhdGlvbiBhbmQgZXN0aW1hdGluZyAkUChBIHwgRCkkIHRoYXQgaGFzIGEgc21hbGxlciBtYXJnaW4gb2YgZXJyb3I/IFdoYXQgaXMgdGhlIGRpc2FkdmFudGFnZSBvZiB0aGlzIG1ldGhvZD8KClRoZXJlIGFyZSB0d28gYmFzaWMgd2F5cyB0byB1c2Ugc2ltdWxhdGlvbiB0byBhcHByb3hpbWF0ZSBhIGNvbmRpdGlvbmFsIHByb2JhYmlsaXR5ICRQKEEgfCBCKSQuCgoxLiAgU2ltdWxhdGUgdGhlIHJhbmRvbSBwaGVub21lbm9uIGZvciBhIHNldCBudW1iZXIgb2YgcmVwZXRpdGlvbnMgKHNheSAkMTAwMDAkKSwgZGlzY2FyZCB0aG9zZSByZXBldGl0aW9ucyBvbiB3aGljaCAkQiQgZG9lcyBub3Qgb2NjdXIsIGFuZCBjb21wdXRlIHRoZSByZWxhdGl2ZSBmcmVxdWVuY3kgb2YgJEEkIGFtb25nIHRoZSByZW1haW5pbmcgcmVwZXRpdGlvbnMgKG9uIHdoaWNoICRCJCBkb2VzIG9jY3VyKS4KCjIuICBTaW11bGF0ZSB0aGUgcmFuZG9tIHBoZW5vbWVub24gdW50aWwgb2J0YWluaW5nIGEgY2VydGFpbiBudW1iZXIgb2YgcmVwZXRpdGlvbnMgKHNheSAxMDAwMCkgb24gd2hpY2ggJEIkIG9jY3VycywgZGlzY2FyZGluZyB0aG9zZSByZXBldGl0aW9ucyBvbiB3aGljaCAkQiQgZG9lcyBub3Qgb2NjdXIgYXMgeW91IGdvLCBhbmQgY29tcHV0ZSB0aGUgcmVsYXRpdmUgZnJlcXVlbmN5IG9mICRBJCBhbW9uZyB0aGUgcmVtYWluaW5nIHJlcGV0aXRpb25zIChvbiB3aGljaCAkQiQgZG9lcyBvY2N1cikuCgpgYGB7cn0KcGFpcnMgPC0gYygibnNkIiwgIm5zbmQiLCAic2QiLCAic25kIikKcHJvYnMgPC0gYygwLjA1LCAwLjQ2LCAwLjI2LCAwLjIzKQoKeCA8LSByZXBsaWNhdGUoMTAwMCwgc2FtcGxlKHggPSBwYWlycywgc2l6ZSA9IDEsIHJlcGxhY2UgPSBUUlVFLCBwcm9iID0gcHJvYnMpKQpkZiA8LSB0aWJibGUob3V0Y29tZSA9IHBhaXJzKQoKZGYgJTw+JQogIHJvd3dpc2UoKSAlPiUKICBtdXRhdGUoCiAgICAuLAogICAgcmVzdWx0ID0gc3VtKG91dGNvbWUgPT0geCkKICApICU+JQogIHVuZ3JvdXAoLikKCmRmICU+JQogIGFkZF9yb3coCiAgICAuLAogICAgb3V0Y29tZSA9ICJ0b3RhbCIsCiAgICByZXN1bHQgPSBzdW0oLiRyZXN1bHQpCiAgKQpgYGAKCkxldCdzIGZpbHRlciBvdXQgY2FzZXMgd2hlcmUgdGhlIHBlcnNvbiBpcyBub3QgYSBkZW1vY3JhdC4KCmBgYHtyfQpkZiAlPiUKICBmaWx0ZXIoCiAgICAuLAogICAgKG91dGNvbWUgPT0gIm5zZCIpIHwgKG91dGNvbWUgPT0gInNkIikKICApICU+JQogIGFkZF9yb3coCiAgICAuLAogICAgb3V0Y29tZSA9ICJ0b3RhbCIsCiAgICByZXN1bHQgPSBzdW0oLiRyZXN1bHQpCiAgKQpgYGAKCldlIGNhbiBhbHNvIHVzZSB0aGlzIHRvdGFsIGNvdW50cyB0byBvYnRhaW4gdGhlIGNvcnJlc3BvbmRpbmcgcHJvYmFiaWxpdGllcy4KCmBgYHtyfQpkZiAlPiUKICBmaWx0ZXIoCiAgICAuLAogICAgKG91dGNvbWUgPT0gIm5zZCIpIHwgKG91dGNvbWUgPT0gInNkIikKICApICU+JQogIG11dGF0ZSgKICAgIC4sCiAgICBwcm9iID0gcm91bmQoLiRyZXN1bHQgLyBzdW0oLiRyZXN1bHQpLCAzKQogICkKYGBgCgojIEpvaW50IFByb2JhYmlsaXRpZXMKCldpdGhpbiB0aGUgY29udGV4dCBvZiB0d28gZXZlbnRzLCB3ZSBoYXZlIGpvaW50LCBjb25kaXRpb25hbCwgYW5kIG1hcmdpbmFsIHByb2JhYmlsaXRpZXMuCgotICAgSm9pbnQ6IHVuY29uZGl0aW9uYWwgcHJvYmFiaWxpdHkgaW52b2x2aW5nIGJvdGggZXZlbnRzLCAkUChBIFxjdXAgQikkLgoKLSAgIENvbmRpdGlvbmFsOiBjb25kaXRpb25hbCBwcm9iYWJpbGl0eSBvZiBvbmUgZXZlbnQgZ2l2ZW4gdGhlIG90aGVyLCAkUChBIHwgQikkIG9yICRQKEIgfCBBKSQuCgotICAgTWFyZ2luYWw6IHVuY29uZGl0aW9uYWwgcHJvYmFiaWxpdHkgb2YgYSBzaW5nbGUgZXZlbnQsICRQKEEpJCBhbmQgJFAoQikkLgoKTm90aWNlIHRoYXQgdGhlIGNvbmRpdGlvbmFsIHByb2JhYmlsaXR5IGlzIGRlZmluZWQgaW4gdGVybXMgb2Ygam9pbiBhbmQgbWFyZ2luYWwgcHJvYmFiaWxpdGllcy4gVGhhdCBpcywKCiQkClxiZWdpbnthbGlnbn0KICBQKEEgfCBCKSAmPSBcZnJhY3tQKEEgXGN1cCBCKX17UChCKX0KXGVuZHthbGlnbn0KJCQKCkluIHRoZSBwcmV2aW91cyBpbXBlYWNobWVudCBwcm9ibGVtLCB3ZSB3ZXJlIHByb3ZpZGVkIHRoZSBqb2ludCBhbmQgbWFyZ2luYWwgcHJvYmFiaWxpdGllcyBhbmQgd2UgY29tcHV0ZWQgY29uZGl0aW9uYWwgcHJvYmFiaWxpdGllcy4gQnV0IGluIG1hbnkgcHJvYmxlbXMgY29uZGl0aW9uYWwgcHJvYmFiaWxpdGllcyBhcmUgcHJvdmlkZWQgb3IgY2FuIGJlIGRldGVybWluZWQgZGlyZWN0bHkuCgojIyBFeGFtcGxlCgpSZWNlbnQgcG9sbHMgc3VnZ2VzdCB0aGF0CgotICAgJDgzXCUkIG9mIERlbW9jcmF0cyBzdXBwb3J0IGltcGVhY2htZW50IG9mIFByZXNpZGVudCBUcnVtcAoKLSAgICQ0NFwlJCBvZiBJbmRlcGVuZGVudHMgc3VwcG9ydCBpbXBlYWNobWVudCBvZiBQcmVzaWRlbnQgVHJ1bXAKCi0gICAkMTRcJSQgb2YgUmVwdWJsaWNhbnMgc3VwcG9ydCBpbXBlYWNobWVudCBvZiBQcmVzaWRlbnQgVHJ1bXAKCjEuICBUaGUgYXZlcmFnZSBvZiB0aGVzZSB0aHJlZSBwZXJjZW50YWdlcyBpcyAkKDgzICsgNDQgKyAxNCkgLyAzID0gNDckLiBJcyBpdCBuZWNlc3NhcmlseSB0cnVlIHRoYXQgJDQ3XCUkIG9mIGFsbCBBbWVyaWNhbnMgc3VwcG9ydCBpbXBlYWNobWVudD8KCjIuICBCYXNlZCBvbiByZWNlbnQgcG9sbHMsCgotICAgJDMxXCUkIG9mIEFtZXJpY2FucyBhcmUgRGVtb2NyYXRzCgotICAgJDQwXCUkIG9mIEFtZXJpY2FucyBhcmUgSW5kZXBlbmRlbnRzCgotICAgJDI5XCUkIG9mIEFtZXJpY2FucyBhcmUgUmVwdWJsaWNhbnMKCkRlZmluZSB0aGUgZXZlbnQgJEEkIHRvIHJlcHJlc2VudCDigJxzdXBwb3J0cyBpbXBlYWNobWVudOKAnSBhbmQgJEQkLCAkSSQsICRSJCB0byBjb3JyZXNwb25kIHRvIGFmZmlsaWF0aW9uIGluIGVhY2ggb2YgdGhlIHBhcnRpZXMuIElmIHRoZSBwcm9iYWJpbGl0eSBtZWFzdXJlICRQJCBjb3JyZXNwb25kcyB0byByYW5kb21seSBzZWxlY3RpbmcgYW4gQW1lcmljYW4sIHdyaXRlIGFsbCB0aGUgcGVyY2VudGFnZXMgYWJvdmUgYXMgcHJvYmFiaWxpdGllcyB1c2luZyBwcm9wZXIgbm90YXRpb24uCgozLiAgRmluZCB0aGUgcHJvYmFiaWxpdHkgdGhhdCBhIHJhbmRvbWx5IHNlbGVjdGVkIEFtZXJpY2FuIGlzIGEgRGVtb2NyYXQgd2hvIHN1cHBvcnRzIGltcGVhY2htZW50LiBJcyB0aGlzIGEgam9pbnQsIGNvbmRpdGlvbmFsLCBvciBtYXJnaW5hbCBwcm9iYWJpbGl0eT8KCjQuICBDb25zdHJ1Y3QgYW4gYXBwcm9wcmlhdGUgdHdvLXdheSB0YWJsZS4KCjUuICBGaW5kIHRoZSBwcm9iYWJpbGl0eSB0aGF0IGEgcmFuZG9tbHkgc2VsZWN0ZWQgQW1lcmljYW4gc3VwcG9ydHMgaW1wZWFjaG1lbnQuIEhvdyBkb2VzIHRoaXMgZGlmZmVyIGZyb20gdGhlIGF2ZXJhZ2Ugb2YgdGhlIHRocmVlIHBlcmNlbnRhZ2VzIGluIFF1ZXN0aW9uIDE/IFdoeT8KCjYuICBOb3cgc3VwcG9zZSB0aGF0IHRoZSByYW5kb21seSBzZWxlY3RlZCBBbWVyaWNhbiBzdXBwb3J0cyBpbXBlYWNobWVudC4gSG93IGRvZXMgdGhpcyBpbmZvcm1hdGlvbiBjaGFuZ2UgdGhlIHByb2JhYmlsaXR5IHRoYXQgdGhlIHNlbGVjdGVkIEFtZXJpY2FuIGJlbG9uZ3MgdG8gYSBwYXJ0aWN1bGFyIHBvbGl0aWNhbCBwYXJ0eT8gQW5zd2VyIGJ5IGNvbXB1dGluZyBhcHByb3ByaWF0ZSBwcm9iYWJpbGl0aWVzIChhbmQgdXNpbmcgcHJvcGVyIG5vdGF0aW9uKS4KCjcuICBIb3cgZG9lcyBlYWNoIG9mIHRoZSBwcm9iYWJpbGl0aWVzIGZyb20gdGhlIHByZXZpb3VzIHBhcnQgY29tcGFyZSB0byB0aGUgcmVzcGVjdGl2ZSBwcmlvciBwcm9iYWJpbGl0eT8gRG9lcyB0aGlzIG1ha2Ugc2Vuc2U/CgojIyBFeGFtcGxlIChDb250aW51ZWQpCgpDb25zaWRlciBzaW11bGF0aW5nIGEgcmFuZG9tbHkgc2VsZWN0ZWQgQW1lcmljYW4gYW5kIGRldGVybWluaW5nIHdoZXRoZXIgb3Igbm90IHRoZSBwZXJzb24gc3VwcG9ydHMgaW1wZWFjaG1lbnQgYW5kIHdoZXRoZXIgb3Igbm90IHRoZSBwZXJzb24gaXMgYSBEZW1vY3JhdC4KClJlbWVtYmVyIHRoYXQgd2UgaGF2ZSBiZWVuIGdpdmVuIHRoZSBmb2xsb3dpbmcgcHJvYmFiaWxpdGllcy4KCiQkClxiZWdpbnthbGlnbn0KUChBIHwgRCkgJj0gMC44MyBcXApQKEEgfCBJKSAmPSAwLjQ0IFxcClAoQSB8IFIpICY9IDAuMTQgXFwKUChEKSAmPSAwLjMxIFxcClAoSSkgJj0gMC40MCBcXApQKFIpICY9IDAuMjkgXFwKXGVuZHthbGlnbn0KJCQKCg==</div>
 
 
 
