@@ -1,0 +1,351 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.14.9"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "6320c64e6609240e8b8964f0774662d7",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h1 id=\"python-fundamentals\">Python Fundamentals</h1>\n<h2 id=\"lesson-01-getting-started\">Lesson 01: Getting started</h2>\n<span class=\"paragraph\">Computer programs consist of commands, each command instructing the computer to take some action. A computer executes these commands one by one. Among other things, commands can be used to perform calculations, compare things in the computer's memory, cause changes in how the program functions, relay messages or ask for information from the program's user.</span>\n<span class=\"paragraph\">Let's begin programming by getting familiar with the print command, which prints text. In this context, printing essentially means that the program will show some text on the screen.</span>\n<span class=\"paragraph\">This is a classic example of a <em>hello world</em> program, which is traditionally how you get started with a new programming language.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "5373a64586b720d400d7129dd72af164",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Hello World!\n"
+        }
+      ]
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "ad44419b3f86394eaab49329234c9e72",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">The program will not work unless the code is written exactly as it is above. For example, trying to run the print command without the quotation marks, like so</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "03b0fc5710d9eef90669af9526f6dad8",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "syntax",
+          "evalue": "line 1\n    print(Hello World!)\n          ^^^^^^^^^^^\nSyntaxError: invalid syntax. Perhaps you forgot a comma?\n",
+          "traceback": []
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "1b9718bf910d024afa59616d8ca7494c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h3 id=\"example\">Example</h3>\n<span class=\"paragraph\">Write a Python script that prints out the following lines <em>exactly</em> as they are written.</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>&gt; Row, row, row your boat,\n&gt; Gently down the stream.\n&gt; Merrily, merrily, merrily, merrily,\n&gt; Life is but a dream.\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "05489a4a4ab57f36d72c96cec0d470eb",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">In summary, if you want to print text, the text must all be encased in quotation marks or Python will not interpret it correctly.</span>\n<span class=\"paragraph\">In Python, the <em>text</em> wrapped in quotation marks are called <em>strings</em>. Before we delve into the details of variable types, however, we need to first talk about variables and variable assignments in Python.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "9e434250e9467ddd19267a09826052ee",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"variables\">Variables</h2>\n<span class=\"paragraph\">In programming, you assign <strong>data</strong> to <strong>variables</strong>. A <em>variable</em> is defined by a named used to store some <em>value</em>, like a string or a number. You store a value into a variable so that it can be used later, or be changed.</span>\n<span class=\"paragraph\">For example, if you want to store a value of <marimo-tex class=\"arithmatex\">||(10||)</marimo-tex> into a variable named <em>x</em>, you would write</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "ec70d49728cfd408179dfe9030859a81",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "10\n"
+        }
+      ]
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "ccfa27121931ad5abbd740a128469911",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">The assignment operator \"<code>=</code>\" assigns a value to a variable.</span>\n<span class=\"paragraph\">Because Python is a dynamic, <em>type-inferred</em> programming language, you do not have to worry about matching variable types. In fact, we can re-assign text into the variable like the following.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "d96bba138db085caeeca214c0b5ebd3a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "10\nSome Text\n"
+        }
+      ]
+    },
+    {
+      "id": "emfo",
+      "code_hash": "462d5d60389f2678f71ded4fc8759257",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">In Python, you can assign multiple values to multiple variables by <em>chaining</em> the assignment statements.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "b17031e5371597d8a5dee4e9219e9b65",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "1\n2\nHello?\n"
+        }
+      ]
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "55930bfd90127aea2992f41213fbd27c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">You can also ask for an input from the user to define a variable. You would use a Python command named <code>input()</code> to do this. Write the following program that asks for the user's name and prints out a message.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iLit",
+      "code_hash": "b1ccb025716b2cce0300fb857bf59fec",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Tell me your name:  Steve\n"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Hello, Steve\n"
+        }
+      ]
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "d3bc05a79a9c5e876ef173e0e67dbf40",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h3 id=\"example\">Example</h3>\n<span class=\"paragraph\">Write a program that asks for the user's name and prints the name twice, on two different lines. The following shows an example of the output from the program.</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>&gt; What is your name? Steve\n&gt; Steve\n&gt; Steve\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ROlb",
+      "code_hash": "4ec7723e323f30076ae0f608c5eac5cf",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">A variable can be referenced multiple times in a program. With strings in Python, combining multiple texts (strings) are as easy as simply adding multiple variables.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "qnkX",
+      "code_hash": "e7473a3c7db1894eaff6c30dae4eab4d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Hello, Steve That is a nice name, Steve.\n"
+        }
+      ]
+    },
+    {
+      "id": "TqIu",
+      "code_hash": "ae689458f44ea8859d8563ebdcb2933f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">You could, of course, ask for more than one input.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Vxnm",
+      "code_hash": "c614e69b88645ba7dbd655faa7661230",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "What is your first name?  Steve\n"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "What is your last name?  Miller\n"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Your name is Steve Miller?\n"
+        }
+      ]
+    },
+    {
+      "id": "DnEU",
+      "code_hash": "f0488e77288d28f2af04b18b0c74eb72",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h3 id=\"example\">Example</h3>\n<span class=\"paragraph\">Write a program that asks for a user's name and address. The program will then print out the given information.</span>\n<div class=\"language-carbon codehilite\"><pre><span></span><code><span class=\"p\">&gt;</span><span class=\"w\"> </span><span class=\"nx\">What</span><span class=\"w\"> </span><span class=\"k\">is</span><span class=\"w\"> </span><span class=\"nx\">your</span><span class=\"w\"> </span><span class=\"nx\">first</span><span class=\"w\"> </span><span class=\"nx\">name</span><span class=\"p\">?</span><span class=\"w\"> </span><span class=\"nx\">Steve</span>\n<span class=\"p\">&gt;</span><span class=\"w\"> </span><span class=\"nx\">What</span><span class=\"w\"> </span><span class=\"k\">is</span><span class=\"w\"> </span><span class=\"nx\">your</span><span class=\"w\"> </span><span class=\"nx\">last</span><span class=\"w\"> </span><span class=\"nx\">name</span><span class=\"p\">?</span><span class=\"w\"> </span><span class=\"nx\">Sanders</span>\n<span class=\"p\">&gt;</span><span class=\"w\"> </span><span class=\"nx\">What</span><span class=\"w\"> </span><span class=\"k\">is</span><span class=\"w\"> </span><span class=\"nx\">your</span><span class=\"w\"> </span><span class=\"nx\">street</span><span class=\"w\"> </span><span class=\"nx\">address</span><span class=\"p\">?</span><span class=\"w\"> </span><span class=\"mi\">91</span><span class=\"w\"> </span><span class=\"nx\">Station</span><span class=\"w\"> </span><span class=\"nx\">Road</span>\n<span class=\"p\">&gt;</span><span class=\"w\"> </span><span class=\"nx\">City</span><span class=\"w\"> </span><span class=\"k\">and</span><span class=\"w\"> </span><span class=\"nx\">postal</span><span class=\"w\"> </span><span class=\"nx\">code</span><span class=\"p\">?</span><span class=\"w\"> </span><span class=\"nx\">London</span><span class=\"w\"> </span><span class=\"nx\">EC05</span><span class=\"w\"> </span><span class=\"mi\">6</span><span class=\"nx\">AW</span>\n\n<span class=\"p\">&gt;</span><span class=\"w\"> </span><span class=\"nx\">Steve</span><span class=\"w\"> </span><span class=\"nx\">Sanders</span>\n<span class=\"p\">&gt;</span><span class=\"w\"> </span><span class=\"mi\">91</span><span class=\"w\"> </span><span class=\"nx\">Station</span><span class=\"w\"> </span><span class=\"nx\">Road</span>\n<span class=\"p\">&gt;</span><span class=\"w\"> </span><span class=\"nx\">London</span><span class=\"w\"> </span><span class=\"nx\">EC05</span><span class=\"w\"> </span><span class=\"mi\">6</span><span class=\"nx\">AW</span>\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ulZA",
+      "code_hash": "288903bf7c02e6c5e6b9fd52e4a1a17f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h3 id=\"example\">Example</h3>\n<span class=\"paragraph\">Write a program that asks for three words, and prints out the combination of the three words. For example,</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>&gt; First word: Bibbidi\n&gt; Second word: Bobbidi\n&gt; Third word: Boo\n&gt;\n&gt; Bibbidi-Bobbidi-Boo\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

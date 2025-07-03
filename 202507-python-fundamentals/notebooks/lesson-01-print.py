@@ -1,7 +1,7 @@
 import marimo
 
 __generated_with = "0.14.9"
-app = marimo.App(layout_file="layouts/lesson-01.slides.json")
+app = marimo.App()
 
 
 @app.cell
@@ -16,7 +16,7 @@ def _(mo):
         r"""
     # Python Fundamentals
 
-    ## Getting started
+    ## Lesson 01: Getting started
 
     Computer programs consist of commands, each command instructing the computer to take some action. A computer executes these commands one by one. Among other things, commands can be used to perform calculations, compare things in the computer's memory, cause changes in how the program functions, relay messages or ask for information from the program's user.
 
@@ -160,9 +160,9 @@ def _(mo):
     Write a program that asks for the user's name and prints the name twice, on two different lines. The following shows an example of the output from the program.
 
     ```
-    > What is your name? Loren
-    > Loren
-    > Loren
+    > What is your name? Steve
+    > Steve
+    > Steve
     ```
     """
     )
@@ -183,7 +183,7 @@ def _(name):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""You could, of course, ask for more than one input. """)
+    mo.md(r"""You could, of course, ask for more than one input.""")
     return
 
 
@@ -233,130 +233,6 @@ def _(mo):
     > Third word: Boo
     >
     > Bibbidi-Bobbidi-Boo
-    ```
-    """
-    )
-    return
-
-
-@app.cell
-def _(mo):
-    mo.md(
-        r"""
-    ### Example
-
-    Write another program that write a story. You allow the user to give it a name and a year, and the program writes the following.
-
-    ```
-    > Type in a name: Mary
-    > Type in a year: 1572
-    >
-    > Mary is a valiant knight, born in the year 1572. One morning Mary woke up to an awful racket: a dragon was approaching the village. Only Mary could save the village's residents.
-    ```
-    """
-    )
-    return
-
-
-@app.cell
-def _(mo):
-    mo.md(
-        r"""
-    ## Numeric Types: Integers
-
-    So far, we have mainly dealt with texts (strings). But there are many other types of data. We will now take a look at integers. An **integer** is a whole number (not a fraction or decimal) that can be negative, zero, or positive.
-
-    Let's define a variable named `age`, which will contain an integer value.
-    """
-    )
-    return
-
-
-@app.cell
-def _():
-    age = 20
-    print(age)
-    return
-
-
-@app.cell
-def _(mo):
-    mo.md(
-        r"""
-    Notice the lack of quotation marks here. In fact, if we were to add quotation marks around the number, this would mean our variable would no longer be an integer, but a string instead. A string can contain numbers, but it is processed differently.
-
-    So, why does it matter that variables have a type, when the following program still prints out the same thing twice?
-    """
-    )
-    return
-
-
-@app.cell
-def _():
-    number1 = 100
-    number2 = "100"
-
-    print(number1)
-    print(number2)
-    return number1, number2
-
-
-@app.cell
-def _(mo):
-    mo.md(r"""Variable types matter because different operations affect different types of variables in different ways. Let's have a look at an example:""")
-    return
-
-
-@app.cell
-def _(number1, number2):
-    print(number1 + number1)
-    print(number2 + number2)
-    return
-
-
-@app.cell
-def _(mo):
-    mo.md(r"""Can you tell what happened here?""")
-    return
-
-
-@app.cell
-def _(mo):
-    mo.md(r"""Similarly, you cannot simply add a string and an integer together. For example,""")
-    return
-
-
-@app.cell
-def _():
-    print("Some text " + 12)
-    return
-
-
-@app.cell
-def _(mo):
-    mo.md(r"""If we do want to print out a string and an integer in a single command, the integer can be cast as a string with the `str` function, and the two strings can then be combined normally. For example, this would work:""")
-    return
-
-
-@app.cell
-def _():
-    print("Some text " + str(12))
-    return
-
-
-@app.cell
-def _(mo):
-    mo.md(
-        r"""
-    ### Example
-
-    Write a program that asks for two numbers from the user and display the total and the difference of the two numbers. The following shows a possible interaction with this program.
-
-    ```
-    > Define x = 27
-    > Define y = 12
-    > 27 + 12 = 39
-    > 27 - 12 = 15
     ```
     """
     )
