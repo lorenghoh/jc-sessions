@@ -51,26 +51,13 @@
     },
     {
       "id": "bkHC",
-      "code_hash": "ad44419b3f86394eaab49329234c9e72",
+      "code_hash": "93cffafa388cca0818236ebbcce1db3a",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">The program will not work unless the code is written exactly as it is above. For example, trying to run the print command without the quotation marks, like so</span></span>"
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">The program will not work unless the code is written exactly as it is above. For example, try to run the print command without the quotation marks, like so:</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>print(Hello World!)\n</code></pre></div></span>"
           }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "lEQa",
-      "code_hash": "03b0fc5710d9eef90669af9526f6dad8",
-      "outputs": [
-        {
-          "type": "error",
-          "ename": "syntax",
-          "evalue": "line 1\n    print(Hello World!)\n          ^^^^^^^^^^^\nSyntaxError: invalid syntax. Perhaps you forgot a comma?\n",
-          "traceback": []
         }
       ],
       "console": []
@@ -312,12 +299,12 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "What is your last name?  Miller\n"
+          "text": "What is your last name?  Austin\n"
         },
         {
           "type": "stream",
           "name": "stdout",
-          "text": "Your name is Steve Miller?\n"
+          "text": "Your name is Steve Austin?\n"
         }
       ]
     },

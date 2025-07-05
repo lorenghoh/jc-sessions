@@ -1,0 +1,316 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.14.9"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "10c1209666e0a9bb554147f54e1f82a8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h1 id=\"python-fundamentals\">Python Fundamentals</h1>\n<h2 id=\"lesson-02-variables\">Lesson 02: Variables</h2>\n<h2 id=\"creating-variables-with-assignments\">Creating variables with assignments</h2>\n<span class=\"paragraph\">In Python, the primary way to create a variable is to <strong>assign</strong> a value to the variable using the assignment operator <code>=</code>.</span>\n<div class=\"language-gdscript codehilite\"><pre><span></span><code><span class=\"n\">variable_name</span><span class=\"w\"> </span><span class=\"o\">=</span><span class=\"w\"> </span><span class=\"n\">value</span>\n</code></pre></div>\n<span class=\"paragraph\">Here, the name of the variable is on the left-hand side of the statement, and the assignment operator <code>=</code>, then the value that is to be stored in the variable.</span>\n<h2 id=\"naming-the-variable\">Naming the variable</h2>\n<span class=\"paragraph\">Variable names in Python can be of any length, and can consist of uppercase letters [A-Z] and lowercase letters [a-z], numbers [0-9], and understore [_].</span>\n<span class=\"paragraph\">The one restriction in Python is that the first character cannot be a number [0-9].</span>\n<span class=\"paragraph\">For example, the following variables are declared with valid names.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "f383b4ffd432655a4236457be41dec4c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "6618e64961b6cba40f4ffea9c4ff20ef",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">However, the following is not a valid variable declaration (try the following code).</span>\n<div class=\"language-cbmbas codehilite\"><pre><span></span><code><span class=\"mf\">999</span><span class=\"n\">_birds</span><span class=\"w\"> </span><span class=\"o\">=</span><span class=\"w\"> </span><span class=\"mf\">10</span>\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "7e46d8a9bc25fece5af4dc1934b59df9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">Sometimes, you will need more than one word to properly describe your variable. When using multi-word names, you can struggle to read them if there isn\u2019t a distinguishable boundary between words:</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "ce2dc958b0c3096c0a49fda465cadd9a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "98e470f7656a88c79857d4a4f788cc92",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">The most common practices for multi-word variable names are the following:</span>\n<ul>\n<li>\n<span class=\"paragraph\">Snake case: Lowercase words are separated by underscores. For example: number_of_graduates.</span>\n</li>\n<li>\n<span class=\"paragraph\">Camel case: The second and subsequent words are capitalized to make word boundaries easier to see. For example: numberOfGraduates.</span>\n</li>\n<li>\n<span class=\"paragraph\">Pascal case: Similar to camel case, except the first word is also capitalized. For example: NumberOfGraduates.</span>\n</li>\n</ul>\n<span class=\"paragraph\">Python recommends the snake-case style. That is, the above multi-word variable should be named:</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "9b43f06e72343d95fda0f46be78f2340",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "c2ae041d0ab6dad196a9c5e2d4f57100",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example\">Example</h2>\n<span class=\"paragraph\">With everything we have learned so far, let's work on some examples.</span>\n<span class=\"paragraph\">Write a program that create a variable called <code>month</code>, and assign \"July\" as its value. Print out the variable.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "856ce278d7696c2dcbed3d5769ea0965",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h3 id=\"example\">Example</h3>\n<span class=\"paragraph\">You are tasked with building a Python program based on some databse. One of the entries in the database looks like the following table.</span>\n<table>\n<thead>\n<tr>\n<th>Last Name</th>\n<th>First Name</th>\n<th>State</th>\n<th>Gender</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Rahn</td>\n<td>Sid</td>\n<td>NJ</td>\n<td>Male</td>\n</tr>\n</tbody>\n</table>\n<span class=\"paragraph\">Write a program that creates four variables, whose names and values correspond to each of the columns in the above table, then print out the results. The output of the program could look like the following.</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>Sid Rahn (NJ), Male\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "e7ce789cbe95228cbe79239fee71a413",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"numeric-types-integers\">Numeric Types: Integers</h2>\n<span class=\"paragraph\">So far, we have mainly dealt with texts (strings). But there are many other types of data. We will now take a look at integers. An <strong>integer</strong> is a whole number (not a fraction or decimal) that can be negative, zero, or positive.</span>\n<span class=\"paragraph\">Let's define a variable named <code>age</code>, which will contain an integer value.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "cb16e1173a59e7172a657b31e4911fcb",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "20\n"
+        }
+      ]
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "39c6d7398187a685737b1ae4570bb9f4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">In fact, if we were to add quotation marks around the number, this would mean our variable would no longer be an integer, but a string instead. A string can contain numbers, but it is processed differently.</span>\n<span class=\"paragraph\">So, why does it matter that variables have a type, when the following program still prints out the same thing twice?</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iLit",
+      "code_hash": "61f7109c46f443dc41699e136edfdac9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "100\n100\n"
+        }
+      ]
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "09dd7dac79f5ef7a07036ed4c9e98de9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">Variable types matter because different operations affect different types of variables in different ways. Let's have a look at an example:</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ROlb",
+      "code_hash": "2d7b7a2850164abe6accb13467f1509d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "200\n100100\n"
+        }
+      ]
+    },
+    {
+      "id": "qnkX",
+      "code_hash": "b8ba6f18662823bc415dfae1f7d09db9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">Can you tell what happened here?</span>\n<span class=\"paragraph\">Similarly, you cannot simply add a string and an integer together. For example, try the following code:</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>print(&quot;Some text &quot; + 12)\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TqIu",
+      "code_hash": "5319207add7b34033e60bed86ae6db7e",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Vxnm",
+      "code_hash": "8667930a25463bea3e6f7883d21170a7",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">The above code did not work because the text (\"Some text\") is of type <code>string</code>, but the number (12) is of type <code>integer</code>. </span>\n<span class=\"paragraph\">What if you do want to print some numbers with the text?</span>\n<span class=\"paragraph\">We will need a <em>function</em> that converts an <code>integer</code> to a <code>string</code>, so that we can add it to another text, which will then concatenate the two strings together.</span>\n<span class=\"paragraph\">Luckily, Python has a <code>str()</code> function that will convert the input into <code>string</code>. But how would we used a function? In Python, a <em>function</em> is defined by its name, followed by <code>()</code>, and if there is an output, you call the function using a statement that is structured like the following.</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>output = function(input)\n</code></pre></div>\n<span class=\"paragraph\">So for the <code>str()</code> function, we can do something like</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "DnEU",
+      "code_hash": "d6f514625d30742b1417be04c40a5271",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Enter a number:  22\n"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "The number is 22.\n"
+        }
+      ]
+    },
+    {
+      "id": "ulZA",
+      "code_hash": "59ff08d8314b15fdd7a2103a7c352668",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">Actually the above example isn't exactly truthful, because the output from the <code>input()</code> function is always a string (we were just pretending that the input is an integer, because that's what we asked).</span>\n<span class=\"paragraph\">So, if we do want to import a number, we should really be <em>casting</em> <code>number</code> (from the <code>input()</code> function) to integer first. We can use <code>int()</code> function to do so.</span>\n<div class=\"language-scdoc codehilite\"><pre><span></span><code>number = input(&quot;Enter a number: &quot;)\nnumber = int(number)\nnumber_as_text = str(number)\nprint(&quot;The number is &quot; + number_as_text + &quot;.&quot;)\n</code></pre></div>\n<span class=\"paragraph\">But can we simplify this a bit further?</span>\n<span class=\"paragraph\">You can always <em>nest</em> multiple functions. Let's say there are two functions, <code>func1</code> then <code>func2</code>, you want to apply to a variable. Then, you would write</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>output = func2(func(input))\n</code></pre></div>\n<span class=\"paragraph\">In our case, the above code can be simplified as </span>\n<div class=\"language-scdoc codehilite\"><pre><span></span><code>number = int(input(&quot;Enter a number: &quot;))\nnumber_as_text = str(number)\nprint(&quot;The number is &quot; + number_as_text + &quot;.&quot;)\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ecfG",
+      "code_hash": "0bcfc5f9c9d1938831f4f2cb27872dd9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h3 id=\"example\">Example</h3>\n<span class=\"paragraph\">Write a program that asks for a number from the user, increment the number by one, and print the result. The following shows a possible interaction with this program.</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>Enter a number: 4\nThe increment is: 5\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}
