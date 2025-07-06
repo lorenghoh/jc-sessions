@@ -116,7 +116,7 @@ def _(mo):
 def _(mo):
     mo.md(
         r"""
-    ### Example
+    ## Example
 
     You are tasked with building a Python program based on some databse. One of the entries in the database looks like the following table.
 
@@ -292,7 +292,7 @@ def _(mo):
 def _(mo):
     mo.md(
         r"""
-    ### Example
+    ## Example
 
     Write a program that asks for two numbers from the user and display the total and the difference of the two numbers. The following shows a possible interaction with this program.
 
@@ -305,6 +305,53 @@ def _(mo):
     ```
     """
     )
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        r"""
+    ## Example
+
+    Write a program that asks for three numbers from the user and display the sum of the three numbers. The following shows a possible interaction with this program.
+
+    ```
+    Enter first number: 11
+    Enter second number: 7
+    Enter third number: 3
+
+    The sum is: 21
+    ```
+
+    How many variables did you use? Can you re-write this code with only a single variable?
+    """
+    )
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        r"""
+    ## Aside
+
+    Let's consider the following lines of code.
+    """
+    )
+    return
+
+
+@app.cell
+def _():
+    x = 7
+    y = 4
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""and let's say that at some point in the code, you need to swap the values of `x` and `y`. It is likely that you do not remember the exact values of the two. What would you do to swap the two variables?""")
     return
 
 
