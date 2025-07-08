@@ -1,0 +1,246 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.14.9"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RjpD",
+      "code_hash": "86087baf8a283289f212fc951a989574",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h1 id=\"lesson-04-conditional-statements\">Lesson 04: Conditional Statements</h1>\n<span class=\"paragraph\">So far, the programs we wrote executetd line-by-line. That is, the computer <em>executes</em> every line of the written code top-to-bottom every single time. However, sometimes you want to do different things under different conditions, in which case we use <em>if-statements</em>.</span>\n<span class=\"paragraph\">If-statements are essential in programming because they allow code to branch out\u2014think of them as decision-making tools for computers. Imagine you're planning your route home during rush hour traffic: you decide whether to take the train, car, or bike based on how much time you have. Similarly, programs need to make choices to navigate through tasks efficiently.</span>\n<span class=\"paragraph\">In Python, if-statements are implemented using the <code>if</code> keyword. They follow a specific\nstructure:</span>\n<ol>\n<li><strong>Condition:</strong> A statement that evaluates as either <code>True</code> or <code>False</code>.</li>\n<li><strong>Colon:</strong> Followed by a colon to introduce the indented block of code.</li>\n<li><strong>Indentation:</strong> The code inside the if-statement is indented, and Python executes it\nonly when the condition is true.</li>\n</ol></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "hqXl",
+      "code_hash": "23742cd6b3f7b7a5212d39e8028d7fa4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Hello world!\n"
+        }
+      ]
+    },
+    {
+      "id": "PGEA",
+      "code_hash": "7ddc0313e88f7146fbb3ef79a9b8e8fc",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">The code above prints \"Hello world!\" only when the input is \"yes\". The indented line is executed only when the condition is met. For example,</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "FksY",
+      "code_hash": "9a44ab83483e10595edfedb81507cfec",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "jova",
+      "code_hash": "8c8621cb68ec4f0b0069509e6b3e95c7",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">Nothing happens when the code above is run, because the condition is not met.</span>\n<span class=\"paragraph\">The if-statements follow the same structure.</span>\n<div class=\"language-teratermmacro codehilite\"><pre><span></span><code><span class=\"k\">if</span><span class=\"w\"> </span><span class=\"nv\">CONDITION</span>:\n<span class=\"w\">    </span><span class=\"nv\">EXECUTE</span>\n</code></pre></div>\n<span class=\"paragraph\">Notice the tap (or 4 spaces) before <code>EXECUTE</code>? In Python, tapped lines define a <em>code block</em>. In the above code, the <code>EXECUTE</code> block is executed if and only if the condition is met for the if-statement.</span>\n<span class=\"paragraph\">A <strong>block</strong> of code is a group of lines that can be executed as a single unit, typically defined by indentation.</span>\n<span class=\"paragraph\">This structure allows for better organization and readability, particularly within control structures like if-else statements and loops. The use of indentation helps group related lines of code logically, making it easier to manage nested conditions and loops.</span>\n<span class=\"paragraph\">A code block within an <code>if</code> statement in Python is defined as a set of statements that follow the colon (<code>:</code>) after the <code>if</code> keyword. These statements, indented to a specific level, execute only when the condition specified by the <code>if</code> statement is met. The indentation signifies which lines are part of the conditional block, allowing nested structures for more complex logic. This structure helps in organizing code and managing multiple conditions or loops within the same scope.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SMAy",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "DyxH",
+      "code_hash": "9f9558b119a8e1dd0509ba6d1c496850",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example\">Example</h2>\n<span class=\"paragraph\">Write a program which asks for the hourly wage, hours worked, and the day of the week.</span>\n<span class=\"paragraph\">The program should then print out the daily wages, which equal hourly wage multiplied by hours worked, except on Sundays when the hourly wage is doubled.</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>Hourly wage dollars: 8.5\nHours worked: 3\nDay of the week: Monday\nDaily wages: 25.5 dollars\n</code></pre></div>\n<div class=\"language-text codehilite\"><pre><span></span><code>Hourly wage: 12.5\nHours worked: 10\nDay of the week: Sunday\nDaily wages: 250.0 dollars\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "WdxJ",
+      "code_hash": "20c88ba57d3aa8ed686e641bdb4e386b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"logical-operators\">Logical operators</h2>\n<span class=\"paragraph\">To evaluate the <em>condition</em>, we need first to talk about truth values of variables. The variables that can hold the values of <code>True</code> and <code>False</code> are called <strong>boolean variables</strong>, named after the English mathematician George Boole. In Python, this corresponds to the <code>bool</code> data type.</span>\n<span class=\"paragraph\">Any expressions that result in a Boolean value, either <code>True</code> or <code>False</code>, are called <em>Boolean expressions</em>. The <em>condition</em> in the example above is of course a Boolean expression as well.</span>\n<span class=\"paragraph\">Remember that the result of a Boolean expression is always a Boolean value, either <code>True</code> or <code>False</code>, which means that the result can be assigned into a variable.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "xkBd",
+      "code_hash": "e14cd3e0f5382b3e0530775cc986dfd4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "The condition is met.\n"
+        }
+      ]
+    },
+    {
+      "id": "cVWC",
+      "code_hash": "ec9411cae7a8200179d019d6b49d13de",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">Usually, Boolean expressions are defined by <em>Boolean operators</em>, used to define the truth values of an expression. Here are the common Boolean operators we will be using in this course.</span>\n<table>\n<thead>\n<tr>\n<th>Operator</th>\n<th>Purpose</th>\n<th style=\"text-align: left;\">Example</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>==</code></td>\n<td>Equal to</td>\n<td style=\"text-align: left;\"><code>x == y</code></td>\n</tr>\n<tr>\n<td><code>!=</code></td>\n<td>Not equal to</td>\n<td style=\"text-align: left;\"><code>x != y</code></td>\n</tr>\n<tr>\n<td><code>&gt;</code></td>\n<td>Greater than</td>\n<td style=\"text-align: left;\"><code>x &gt; y</code></td>\n</tr>\n<tr>\n<td><code>&lt;</code></td>\n<td>Less than</td>\n<td style=\"text-align: left;\"><code>x &lt; y</code></td>\n</tr>\n<tr>\n<td><code>&gt;=</code></td>\n<td>Greater than or equal to</td>\n<td style=\"text-align: left;\"><code>x &gt;= y</code></td>\n</tr>\n<tr>\n<td><code>&lt;=</code></td>\n<td>Less than or euqal to</td>\n<td style=\"text-align: left;\"><code>x &lt;= y</code></td>\n</tr>\n</tbody>\n</table>\n<span class=\"paragraph\">Let's consider the following example. You have two numbers (integer values) <code>x</code> and <code>y</code>, and you'd like to print the larger of the two numbers. Using an if-statement, the program will look like the following.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bHZi",
+      "code_hash": "347edae3c223718fe7749418ac25f191",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "The larger number is: 8.\n"
+        }
+      ]
+    },
+    {
+      "id": "zdok",
+      "code_hash": "caa4459cbc121d78a80d5767fb272187",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"if-else-statements\">If-else statements</h2>\n<span class=\"paragraph\">This looks a bit clumsy and repetitive. We only ever want to execute one of the if blocks, because one of the two numbers will always be either larger (or equal to) the other. So, the first conditional statement actually contains all we need here. If it is true, <code>x</code> is larger. If it is false, either <code>y</code> is larger or they are the same.</span>\n<span class=\"paragraph\">Instead of creating a whole another conditional statement, as in the example above, it is possible to create another branch of the same conditional statement to cover all cases where the condition was false. This is called the <code>else</code> statement.</span>\n<span class=\"paragraph\">Let's rewrite the previous example.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "QDXJ",
+      "code_hash": "65f817315821350b025fe16099f75306",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "The larger number is: 8.\n"
+        }
+      ]
+    },
+    {
+      "id": "DAns",
+      "code_hash": "04eb1214d70b7b412bca73a2b59bd71c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">When using an if-else construction, one and exactly one of the branches will always be executed.</span>\n<h2 id=\"example\">Example</h2>\n<span class=\"paragraph\">Write a program that checks whether a number given by the user is even or odd. Parity can be checked with the modulo operator <code>%</code>, which produces the remainder of an integer division operation. When divided by two, if the remainder is zero, the number is even. Otherwise the number is odd.</span>\n<div class=\"language-carbon codehilite\"><pre><span></span><code><span class=\"nx\">Please</span><span class=\"w\"> </span><span class=\"k\">type</span><span class=\"w\"> </span><span class=\"k\">in</span><span class=\"w\"> </span><span class=\"nx\">a</span><span class=\"w\"> </span><span class=\"nx\">number</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"mi\">2</span>\n<span class=\"nx\">The</span><span class=\"w\"> </span><span class=\"nx\">number</span><span class=\"w\"> </span><span class=\"k\">is</span><span class=\"w\"> </span><span class=\"nx\">even</span><span class=\"p\">.</span>\n</code></pre></div>\n<div class=\"language-carbon codehilite\"><pre><span></span><code><span class=\"nx\">Please</span><span class=\"w\"> </span><span class=\"k\">type</span><span class=\"w\"> </span><span class=\"k\">in</span><span class=\"w\"> </span><span class=\"nx\">a</span><span class=\"w\"> </span><span class=\"nx\">number</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"mi\">3</span>\n<span class=\"nx\">The</span><span class=\"w\"> </span><span class=\"nx\">number</span><span class=\"w\"> </span><span class=\"k\">is</span><span class=\"w\"> </span><span class=\"nx\">odd</span><span class=\"p\">.</span>\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MXLC",
+      "code_hash": "6b1bcd19168606725a51534eef7c9952",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"if-elif-else-statements\">If-elif-else statements</h2>\n<span class=\"paragraph\">Actually, in the previous example, we did not cover the last case, which is that the two numbers are the same, and therefore no number is larger than the other. Now we have more than three cases:</span>\n<ol>\n<li><code>x</code> is larger</li>\n<li><code>y</code> is larger</li>\n<li>They are the same number</li>\n</ol>\n<span class=\"paragraph\">A conditional statement can be added to with an <code>elif</code> branch. It is short for the words \"else if\", which means the branch will contain an alternative to the original condition. Importantly, an <code>elif</code> statement is executed only if none of the preceding branches is executed.</span>\n<h2 id=\"example\">Example</h2>\n<span class=\"paragraph\">Let's finish the number comparison program that we started at the beginning of this class. The program asks for two numbers, and tells the user whichever one is larger. If the two numbers are the same, the program should print a different message accordingly.</span>\n<div class=\"language-carbon codehilite\"><pre><span></span><code><span class=\"nx\">Please</span><span class=\"w\"> </span><span class=\"k\">type</span><span class=\"w\"> </span><span class=\"k\">in</span><span class=\"w\"> </span><span class=\"nx\">the</span><span class=\"w\"> </span><span class=\"nx\">first</span><span class=\"w\"> </span><span class=\"nx\">number</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"mi\">5</span>\n<span class=\"nx\">Please</span><span class=\"w\"> </span><span class=\"k\">type</span><span class=\"w\"> </span><span class=\"k\">in</span><span class=\"w\"> </span><span class=\"nx\">another</span><span class=\"w\"> </span><span class=\"nx\">number</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"mi\">3</span>\n<span class=\"nx\">The</span><span class=\"w\"> </span><span class=\"nx\">larger</span><span class=\"w\"> </span><span class=\"nx\">number</span><span class=\"w\"> </span><span class=\"k\">is</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"mi\">5</span>\n</code></pre></div>\n<div class=\"language-carbon codehilite\"><pre><span></span><code><span class=\"nx\">Please</span><span class=\"w\"> </span><span class=\"k\">type</span><span class=\"w\"> </span><span class=\"k\">in</span><span class=\"w\"> </span><span class=\"nx\">the</span><span class=\"w\"> </span><span class=\"nx\">first</span><span class=\"w\"> </span><span class=\"nx\">number</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"mi\">5</span>\n<span class=\"nx\">Please</span><span class=\"w\"> </span><span class=\"k\">type</span><span class=\"w\"> </span><span class=\"k\">in</span><span class=\"w\"> </span><span class=\"nx\">another</span><span class=\"w\"> </span><span class=\"nx\">number</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"mi\">5</span>\n<span class=\"nx\">The</span><span class=\"w\"> </span><span class=\"nx\">numbers</span><span class=\"w\"> </span><span class=\"nx\">are</span><span class=\"w\"> </span><span class=\"nx\">the</span><span class=\"w\"> </span><span class=\"nx\">same</span><span class=\"p\">!</span>\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "yMDv",
+      "code_hash": "913c128985ad8d01ebce327befd5f111",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example\">Example</h2>\n<span class=\"paragraph\">Python comparison operators can also be used on strings. String a is smaller than string b if it comes alphabetically before b.</span>\n<span class=\"paragraph\">Write a program that asks the user for two words. The program should then print out whichever of the two comes alphabetically last.</span>\n<div class=\"language-carbon codehilite\"><pre><span></span><code><span class=\"nx\">Please</span><span class=\"w\"> </span><span class=\"k\">type</span><span class=\"w\"> </span><span class=\"k\">in</span><span class=\"w\"> </span><span class=\"nx\">the</span><span class=\"w\"> </span><span class=\"nx\">first</span><span class=\"w\"> </span><span class=\"nx\">word</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"nx\">car</span>\n<span class=\"nx\">Please</span><span class=\"w\"> </span><span class=\"k\">type</span><span class=\"w\"> </span><span class=\"k\">in</span><span class=\"w\"> </span><span class=\"nx\">the</span><span class=\"w\"> </span><span class=\"nx\">second</span><span class=\"w\"> </span><span class=\"nx\">word</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"nx\">scooter</span>\n<span class=\"nx\">scooter</span><span class=\"w\"> </span><span class=\"nx\">comes</span><span class=\"w\"> </span><span class=\"nx\">alphabetically</span><span class=\"w\"> </span><span class=\"nx\">last</span><span class=\"p\">.</span>\n</code></pre></div>\n<div class=\"language-carbon codehilite\"><pre><span></span><code><span class=\"nx\">Please</span><span class=\"w\"> </span><span class=\"k\">type</span><span class=\"w\"> </span><span class=\"k\">in</span><span class=\"w\"> </span><span class=\"nx\">the</span><span class=\"w\"> </span><span class=\"mi\">1</span><span class=\"nx\">st</span><span class=\"w\"> </span><span class=\"nx\">word</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"nx\">python</span>\n<span class=\"nx\">Please</span><span class=\"w\"> </span><span class=\"k\">type</span><span class=\"w\"> </span><span class=\"k\">in</span><span class=\"w\"> </span><span class=\"nx\">the</span><span class=\"w\"> </span><span class=\"mi\">2</span><span class=\"nx\">nd</span><span class=\"w\"> </span><span class=\"nx\">word</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"nx\">python</span>\n<span class=\"nx\">You</span><span class=\"w\"> </span><span class=\"nx\">gave</span><span class=\"w\"> </span><span class=\"nx\">the</span><span class=\"w\"> </span><span class=\"nx\">same</span><span class=\"w\"> </span><span class=\"nx\">word</span><span class=\"w\"> </span><span class=\"nx\">twice</span><span class=\"p\">.</span>\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}
