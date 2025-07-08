@@ -1,0 +1,84 @@
+---
+title: "lesson-09: Centrality"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(magrittr)
+```
+
+# Marginal distributions
+
+Even when outcomes of a random phenomenon are equally likely, values of related random variables are usually not. The (probability) distribution of a collection of random variables identifies the possible values that the random variables can take and their relative likelihoods. We will see many ways of describing a distribution, depending on how many random variables are involved and their types (discrete or continuous).
+
+In the context of multiple random variables, the distribution of any one of the random variables is called a **marginal distribution**.
+
+The probability distribution of a single discrete random variable $X$ is often displayed in a table containing the probability of the event ${X = x}$ for each possible outcome $x$.
+
+In principle, there are always two ways of simulating a value $x$ of a random variable $X$.
+
+1. Simulate from the probability space. Simulate an outcome $\omega$ from the underlying probability space and set $x = X(\omega)$.
+
+2. Simulate from the distribution. Construct a spinner corresponding to the distribution of $X$ and spin it once to generate $x$.
+
+The second method requires that the distribution of $X$ is known. However, as we will see in many examples, it is common to specify the distribution of a random variable directly *without defining the underlying probability space*.
+
+## Example
+
+Roll a four-sided die twice. Let's assume that for our probability measure, the die is fair and all possible outcomes are equally likely.
+
+Let $X$ be the sum of the two rolls, and $Y$ the larger of the two rolls.
+
+1. Construct a table and plot displaying the marginal distribution of $X$.
+
+2. Construct a table and plot displaying the marginal distribution of $Y$.
+
+3. Construct a spinner to represent the marginal distribution of $X$.
+
+4. Construct a spinner to represent the marginal distribution of $Y$.
+
+5. How could you use these spinners to simulate a value of $X$ or $Y$?
+
+6. Consider the following statement: "Great! I can now simulate the $(X, Y)$" pair by spinning the $X$ spinner to generate $X$ and the other one to generate $Y$". Is he correct? Why now?
+
+7. Define $X$ by specifying its marginal distribution.
+
+8. Define $Y$ by specifying its marginal distribution.
+
+
+# Averages 
+
+On any single repetition of the simulation a particular event either occurs or not. Summarizing simulation results for events involves simply counting the number of repetitions on which the event occurs and finding related proportions.
+
+On the other hand, random variables typically take many possible values over the course of many repetitions. We are still interested in relative frequencies of events, like $\{X = 6\}$, $\{Y \ge 3}$, and $\{X > 5\}$, $\{Y \ge 3\}$.
+
+But for random variables we are also interested in their distributions which describe the possible values that the random variables can take and their relative likelihoods. While the marginal distribution contain all the information about a single random variables, it is also useful to summarize some key features of a distribution. For example, probabilities of particular events concerning a random variable can be interpreted as long run relative frequencies.
+
+One summary characteristic of a distribution is the long run average value of the random variable. We can approximate the long run average value by simulating many values of the random variable and computing the average (mean) in the usual way.
+
+## Example
+
+Let $X$ be the sum of the two rolls, and $Y$ the larger of the two rolls. Use your simulation from the previous example to approximate the long run average value of each of the following.
+
+1. $X$
+
+2. $Y$
+
+3. $X^2$
+
+4. $XY$
+
+5. Calculate the long-run average of $X$ by running a simulation and plot the simulated average as a function of repetitions.
+
+6. Let $U_1$ be the result of the first roll, and $U_2$ the result of the second, so the sum is $X = U_1 + U_2$.
+
+6.1. Someone tells you that "$X = U_1 + U_2$, so I can find the average value of $X$ by finding the average value of $U_1$, then find the average value of $U_2$ and adding the two averages”. Do you agree?
+
+6.2. "$U_1$ and $U_2$ have the same distribution, so they have the same average value, so I can find the average value of $X$ multiplying the average value of $U_1$ by 2". Do you agree?
+
+6.3. "$U_1$ and $U_2$ have the same distribution, so $X = U_1 + U_2$ has the same distribution as $2  U = U_1 + U_2$". Do you agree?
+
+7. Let $A$ be the event that the first roll is `3` and $I_A$ the corresponding indicator random variable. Based only on the results of your simulation, approximate the long run average value of $I_A$. What do you notice?
+
+
