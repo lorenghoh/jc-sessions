@@ -18,8 +18,8 @@
       "console": []
     },
     {
-      "id": "RjpD",
-      "code_hash": "86087baf8a283289f212fc951a989574",
+      "id": "MJUe",
+      "code_hash": "9261482d0dba276e2c49065203b8d78f",
       "outputs": [
         {
           "type": "data",
@@ -31,7 +31,7 @@
       "console": []
     },
     {
-      "id": "hqXl",
+      "id": "vblA",
       "code_hash": "23742cd6b3f7b7a5212d39e8028d7fa4",
       "outputs": [
         {
@@ -50,7 +50,7 @@
       ]
     },
     {
-      "id": "PGEA",
+      "id": "bkHC",
       "code_hash": "7ddc0313e88f7146fbb3ef79a9b8e8fc",
       "outputs": [
         {
@@ -63,7 +63,7 @@
       "console": []
     },
     {
-      "id": "FksY",
+      "id": "lEQa",
       "code_hash": "9a44ab83483e10595edfedb81507cfec",
       "outputs": [
         {
@@ -76,7 +76,7 @@
       "console": []
     },
     {
-      "id": "jova",
+      "id": "PKri",
       "code_hash": "8c8621cb68ec4f0b0069509e6b3e95c7",
       "outputs": [
         {
@@ -89,13 +89,26 @@
       "console": []
     },
     {
-      "id": "SMAy",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
+      "id": "Xref",
+      "code_hash": "54a5d8d2f2f6f861746a470a01a78a08",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "You are an adult!\nYou are now one year older...\nThis here belongs to the main block\n"
+        }
+      ]
     },
     {
-      "id": "DyxH",
+      "id": "SFPL",
       "code_hash": "9f9558b119a8e1dd0509ba6d1c496850",
       "outputs": [
         {
@@ -108,7 +121,7 @@
       "console": []
     },
     {
-      "id": "WdxJ",
+      "id": "BYtC",
       "code_hash": "20c88ba57d3aa8ed686e641bdb4e386b",
       "outputs": [
         {
@@ -121,7 +134,7 @@
       "console": []
     },
     {
-      "id": "xkBd",
+      "id": "RGSE",
       "code_hash": "e14cd3e0f5382b3e0530775cc986dfd4",
       "outputs": [
         {
@@ -140,7 +153,7 @@
       ]
     },
     {
-      "id": "cVWC",
+      "id": "Kclp",
       "code_hash": "ec9411cae7a8200179d019d6b49d13de",
       "outputs": [
         {
@@ -153,7 +166,7 @@
       "console": []
     },
     {
-      "id": "bHZi",
+      "id": "emfo",
       "code_hash": "347edae3c223718fe7749418ac25f191",
       "outputs": [
         {
@@ -172,7 +185,7 @@
       ]
     },
     {
-      "id": "zdok",
+      "id": "Hstk",
       "code_hash": "caa4459cbc121d78a80d5767fb272187",
       "outputs": [
         {
@@ -185,7 +198,7 @@
       "console": []
     },
     {
-      "id": "QDXJ",
+      "id": "nWHF",
       "code_hash": "65f817315821350b025fe16099f75306",
       "outputs": [
         {
@@ -204,7 +217,7 @@
       ]
     },
     {
-      "id": "DAns",
+      "id": "iLit",
       "code_hash": "04eb1214d70b7b412bca73a2b59bd71c",
       "outputs": [
         {
@@ -217,7 +230,7 @@
       "console": []
     },
     {
-      "id": "MXLC",
+      "id": "ZHCJ",
       "code_hash": "6b1bcd19168606725a51534eef7c9952",
       "outputs": [
         {
@@ -230,13 +243,142 @@
       "console": []
     },
     {
-      "id": "yMDv",
+      "id": "ROlb",
       "code_hash": "913c128985ad8d01ebce327befd5f111",
       "outputs": [
         {
           "type": "data",
           "data": {
             "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example\">Example</h2>\n<span class=\"paragraph\">Python comparison operators can also be used on strings. String a is smaller than string b if it comes alphabetically before b.</span>\n<span class=\"paragraph\">Write a program that asks the user for two words. The program should then print out whichever of the two comes alphabetically last.</span>\n<div class=\"language-carbon codehilite\"><pre><span></span><code><span class=\"nx\">Please</span><span class=\"w\"> </span><span class=\"k\">type</span><span class=\"w\"> </span><span class=\"k\">in</span><span class=\"w\"> </span><span class=\"nx\">the</span><span class=\"w\"> </span><span class=\"nx\">first</span><span class=\"w\"> </span><span class=\"nx\">word</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"nx\">car</span>\n<span class=\"nx\">Please</span><span class=\"w\"> </span><span class=\"k\">type</span><span class=\"w\"> </span><span class=\"k\">in</span><span class=\"w\"> </span><span class=\"nx\">the</span><span class=\"w\"> </span><span class=\"nx\">second</span><span class=\"w\"> </span><span class=\"nx\">word</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"nx\">scooter</span>\n<span class=\"nx\">scooter</span><span class=\"w\"> </span><span class=\"nx\">comes</span><span class=\"w\"> </span><span class=\"nx\">alphabetically</span><span class=\"w\"> </span><span class=\"nx\">last</span><span class=\"p\">.</span>\n</code></pre></div>\n<div class=\"language-carbon codehilite\"><pre><span></span><code><span class=\"nx\">Please</span><span class=\"w\"> </span><span class=\"k\">type</span><span class=\"w\"> </span><span class=\"k\">in</span><span class=\"w\"> </span><span class=\"nx\">the</span><span class=\"w\"> </span><span class=\"mi\">1</span><span class=\"nx\">st</span><span class=\"w\"> </span><span class=\"nx\">word</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"nx\">python</span>\n<span class=\"nx\">Please</span><span class=\"w\"> </span><span class=\"k\">type</span><span class=\"w\"> </span><span class=\"k\">in</span><span class=\"w\"> </span><span class=\"nx\">the</span><span class=\"w\"> </span><span class=\"mi\">2</span><span class=\"nx\">nd</span><span class=\"w\"> </span><span class=\"nx\">word</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"nx\">python</span>\n<span class=\"nx\">You</span><span class=\"w\"> </span><span class=\"nx\">gave</span><span class=\"w\"> </span><span class=\"nx\">the</span><span class=\"w\"> </span><span class=\"nx\">same</span><span class=\"w\"> </span><span class=\"nx\">word</span><span class=\"w\"> </span><span class=\"nx\">twice</span><span class=\"p\">.</span>\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "NXhK",
+      "code_hash": "f7a4dcc371216ec92ec737dc5c1c8a15",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h1 id=\"combining-conditions\">Combining Conditions</h1>\n<span class=\"paragraph\">You can combine conditions with the logical operators <code>and</code> and <code>or</code>. The operator <code>and</code> specifies that all the given conditions must be true at the same time. The operator <code>or</code> specifies that at least one of the given conditions must be true.</span>\n<span class=\"paragraph\">Let's say you want to determine if a number is between 5 and 8. There are two conditions, <code>number &gt;= 5</code> <strong>and</strong> <code>number &lt;= 8</code>. Normally, you would want to paranthesize each condition. So you can write <code>(number &gt;= 5) and (number &lt;= 8)</code>.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "uWsX",
+      "code_hash": "df5ac99fe91907839b116cc76ec80ef8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "The number is between 5 and 8\n"
+        }
+      ]
+    },
+    {
+      "id": "Zllc",
+      "code_hash": "0f10155f1e3a065eacfdd40700ee5c10",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">Meanwhile, the condition <code>(number &lt; 5) or (number &gt; 8)</code> determines that number must be either less than 5 or greater than 8. That is, it must not be within the range of 5 to 8.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "IJoi",
+      "code_hash": "c43d0dfbaa4aabb009367dfb689e6b15",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example\">Example</h2>\n<span class=\"paragraph\">Write a program that asks for four integers, and prints the largest of the four numbers given. Use <code>if-elif-else</code> statements and consider the four cases: <code>n1</code> is the largest, <code>n2</code> is the largest, <code>n3</code> is the largest, or <code>n4</code> is the largest.</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>Number 1: 2\nNumber 2: 4\nNumber 3: 1\nNumber 4: 1\n\n4 is the greatest of the numbers.\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "LQFa",
+      "code_hash": "e682925e811a14869cd31c51c2773b4b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example\">Example</h2>\n<span class=\"paragraph\">The table below outlines the grade boundaries on a certain university course. Write a program that asks for the amount of points received and then prints out the grade attained according to the table.</span>\n<table>\n<thead>\n<tr>\n<th>Points</th>\n<th>Grade</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>&lt; 0</td>\n<td>Impossible</td>\n</tr>\n<tr>\n<td>0 - 49</td>\n<td>Fail</td>\n</tr>\n<tr>\n<td>50 - 59</td>\n<td>D</td>\n</tr>\n<tr>\n<td>60 - 69</td>\n<td>C</td>\n</tr>\n<tr>\n<td>70 - 79</td>\n<td>B</td>\n</tr>\n<tr>\n<td>80 - 90</td>\n<td>A</td>\n</tr>\n<tr>\n<td>90 - 100</td>\n<td>A+</td>\n</tr>\n<tr>\n<td>&gt; 100</td>\n<td>Impossible</td>\n</tr>\n</tbody>\n</table>\n<div class=\"language-text codehilite\"><pre><span></span><code>Enter points [0-100]: 37\nGrade: fail\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "IOJm",
+      "code_hash": "45c0d993a40159cde51caea17eb39301",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h1 id=\"nested-conditionals\">Nested Conditionals</h1>\n<span class=\"paragraph\">Conditional statements can also be nested within other conditional statements. For example, the following program checks whether a number is above zero, and then whether it is odd or even:</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "GnLO",
+      "code_hash": "982265e835bbbcaaa841a64c6412230b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "The number is odd\n"
+        }
+      ]
+    },
+    {
+      "id": "uJwL",
+      "code_hash": "88fc86711a2185281e8f1f00290b8332",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example\">Example</h2>\n<span class=\"paragraph\">Generally, any year that is divisible by four is a leap year. However, if the year is additionally divisible by 100, it is a leap year only if it also divisible by 400.</span>\n<span class=\"paragraph\">Write a program that asks the user for a year, and then prints out whether that year is a leap year or not.</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>Type in a year: 2011\nThat year is not a leap year.\n</code></pre></div>\n<div class=\"language-carbon codehilite\"><pre><span></span><code><span class=\"nx\">Please</span><span class=\"w\"> </span><span class=\"k\">type</span><span class=\"w\"> </span><span class=\"k\">in</span><span class=\"w\"> </span><span class=\"nx\">a</span><span class=\"w\"> </span><span class=\"nx\">year</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"mi\">2020</span>\n<span class=\"nx\">That</span><span class=\"w\"> </span><span class=\"nx\">year</span><span class=\"w\"> </span><span class=\"k\">is</span><span class=\"w\"> </span><span class=\"nx\">a</span><span class=\"w\"> </span><span class=\"nx\">leap</span><span class=\"w\"> </span><span class=\"nx\">year</span><span class=\"p\">.</span>\n</code></pre></div>\n<div class=\"language-carbon codehilite\"><pre><span></span><code><span class=\"nx\">Please</span><span class=\"w\"> </span><span class=\"k\">type</span><span class=\"w\"> </span><span class=\"k\">in</span><span class=\"w\"> </span><span class=\"nx\">a</span><span class=\"w\"> </span><span class=\"nx\">year</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"mi\">1800</span>\n<span class=\"nx\">That</span><span class=\"w\"> </span><span class=\"nx\">year</span><span class=\"w\"> </span><span class=\"k\">is</span><span class=\"w\"> </span><span class=\"k\">not</span><span class=\"w\"> </span><span class=\"nx\">a</span><span class=\"w\"> </span><span class=\"nx\">leap</span><span class=\"w\"> </span><span class=\"nx\">year</span><span class=\"p\">.</span>\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BkoG",
+      "code_hash": "fbfed6fd6f50ec5c16a5573cc400ec81",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example\">Example</h2>\n<span class=\"paragraph\">Write a program which asks the user for three letters. The program should then print out whichever of the three letters would be in the middle if the letters were in alphabetical order.</span>\n<div class=\"language-cbmbas codehilite\"><pre><span></span><code><span class=\"mf\">1</span><span class=\"n\">st</span><span class=\"w\"> </span><span class=\"kd\">let</span><span class=\"n\">ter</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"n\">x</span>\n<span class=\"mf\">2</span><span class=\"n\">nd</span><span class=\"w\"> </span><span class=\"kd\">let</span><span class=\"n\">ter</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"n\">c</span>\n<span class=\"mf\">3</span><span class=\"n\">rd</span><span class=\"w\"> </span><span class=\"kd\">let</span><span class=\"n\">ter</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"n\">p</span>\n<span class=\"n\">The</span><span class=\"w\"> </span><span class=\"kd\">let</span><span class=\"n\">ter</span><span class=\"w\"> </span><span class=\"n\">in</span><span class=\"w\"> </span><span class=\"n\">the</span><span class=\"w\"> </span><span class=\"n\">middle</span><span class=\"w\"> </span><span class=\"n\">is</span><span class=\"w\"> </span><span class=\"n\">p</span>\n</code></pre></div></span>"
           }
         }
       ],

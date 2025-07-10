@@ -268,7 +268,7 @@ def _(mo):
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(mo):
     mo.md(
         r"""
@@ -288,6 +288,156 @@ def _(mo):
     Please type in the 1st word: python
     Please type in the 2nd word: python
     You gave the same word twice.
+    ```
+    """
+    )
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        r"""
+    # Combining Conditions
+
+    You can combine conditions with the logical operators `and` and `or`. The operator `and` specifies that all the given conditions must be true at the same time. The operator `or` specifies that at least one of the given conditions must be true.
+
+    Let's say you want to determine if a number is between 5 and 8. There are two conditions, `number >= 5` **and** `number <= 8`. Normally, you would want to paranthesize each condition. So you can write `(number >= 5) and (number <= 8)`.
+    """
+    )
+    return
+
+
+@app.cell
+def _():
+    number = 5
+
+    if (number >= 5) and (number <= 8):
+        print("The number is between 5 and 8")
+    return (number,)
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""Meanwhile, the condition `(number < 5) or (number > 8)` determines that number must be either less than 5 or greater than 8. That is, it must not be within the range of 5 to 8.""")
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        r"""
+    ## Example
+
+    Write a program that asks for four integers, and prints the largest of the four numbers given. Use `if-elif-else` statements and consider the four cases: `n1` is the largest, `n2` is the largest, `n3` is the largest, or `n4` is the largest.
+
+    ```
+    Number 1: 2
+    Number 2: 4
+    Number 3: 1
+    Number 4: 1
+
+    4 is the greatest of the numbers.
+    ```
+    """
+    )
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        r"""
+    ## Example
+
+    The table below outlines the grade boundaries on a certain university course. Write a program that asks for the amount of points received and then prints out the grade attained according to the table.
+
+    | Points | Grade |
+    |--------|-------|
+    | < 0 | Impossible|
+    | 0 - 49 | Fail |
+    | 50 - 59 | D |
+    | 60 - 69 | C |
+    | 70 - 79 | B |
+    | 80 - 90 | A |
+    | 90 - 100 | A+ |
+    | > 100 | Impossible |
+
+    ```
+    Enter points [0-100]: 37
+    Grade: fail
+    ```
+    """
+    )
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        r"""
+    # Nested Conditionals
+
+    Conditional statements can also be nested within other conditional statements. For example, the following program checks whether a number is above zero, and then whether it is odd or even:
+    """
+    )
+    return
+
+
+@app.cell
+def _(number):
+    if number > 0:
+        if number % 2 == 0:
+            print("The number is even")
+        else:
+            print("The number is odd")
+    else:
+        print("The number is negative or zero")
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        r"""
+    ## Example
+
+    Generally, any year that is divisible by four is a leap year. However, if the year is additionally divisible by 100, it is a leap year only if it also divisible by 400.
+
+    Write a program that asks the user for a year, and then prints out whether that year is a leap year or not.
+
+    ```
+    Type in a year: 2011
+    That year is not a leap year.
+    ```
+
+    ```
+    Please type in a year: 2020
+    That year is a leap year.
+    ```
+
+    ```
+    Please type in a year: 1800
+    That year is not a leap year.
+    ```
+    """
+    )
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        r"""
+    ## Example
+
+    Write a program which asks the user for three letters. The program should then print out whichever of the three letters would be in the middle if the letters were in alphabetical order.
+
+    ```
+    1st letter: x
+    2nd letter: c
+    3rd letter: p
+    The letter in the middle is p
     ```
     """
     )
