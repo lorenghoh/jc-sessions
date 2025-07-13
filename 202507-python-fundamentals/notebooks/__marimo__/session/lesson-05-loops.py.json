@@ -1,0 +1,272 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.14.9"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "sFWU",
+      "code_hash": "07afad29d8bc07ddd6734c8f21ecd80a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h1 id=\"lesson-6-loops\">Lesson 6: Loops</h1>\n<span class=\"paragraph\">Last time, we have tried the <code>while True</code> loop to repeat sections of code. Because the condition of the loop is set to <code>True</code>, the condition is met every time the loop iterates. We need to explicitly break out of the loop when we want to stop the loop.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "VMzN",
+      "code_hash": "797fbf21fa7ccf87de5c44f029cb62ee",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "1\n2\n3\n4\n"
+        }
+      ]
+    },
+    {
+      "id": "bmZx",
+      "code_hash": "0e28bbe5f5df867d47555393c089b54d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">The general structure of the while statement is as follows:</span>\n<div class=\"language-teratermmacro codehilite\"><pre><span></span><code><span class=\"k\">while</span><span class=\"w\"> </span><span class=\"nv\">CONDITION</span>:\n<span class=\"w\">    </span><span class=\"nv\">BLOCK</span>\n</code></pre></div>\n<span class=\"paragraph\">Notice that the syntax for the <code>while</code> loop is similar to that of the <code>if</code> statement: both statements consist of some Boolean expression (condition) and the code block that you want to repeat.</span>\n<span class=\"paragraph\">In the followin example, we want to count up from a given number. The block is executed if and only if the variable <code>number</code> is less than 10.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "XGXb",
+      "code_hash": "d96471538a7113686178d4d039412c61",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "4\n5\n6\n7\n8\n9\nDone!\n"
+        }
+      ]
+    },
+    {
+      "id": "mOfx",
+      "code_hash": "7f73e37616a09a5d79404e68fd9eab5e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"loop-structure\">Loop Structure</h2>\n<span class=\"paragraph\">To create a loop, you need three components: initilization, condition, and update.</span>\n<span class=\"paragraph\"><strong>Initialization</strong> deals with setting the initiali values for the variables being used in the loop. This has to be performed before the loop begins.</span>\n<span class=\"paragraph\"><strong>Condition</strong> defines how long the loop will run.</span>\n<span class=\"paragraph\"><strong>Update</strong> needs to be performed within the loop, in a way that each iteration will bring the loop one step closer to the completion of the loop.</span>\n<h2 id=\"example\">Example</h2>\n<span class=\"paragraph\">Write a program that prints out all even numbers between 2 and 30.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "KrCh",
+      "code_hash": "93b8a4417718ad76dc3db7ac97cf9d9c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example-fix-the-code\">Example: Fix the code</h2>\n<span class=\"paragraph\">The program below has some syntactic issues:</span>\n<div class=\"language-carbon codehilite\"><pre><span></span><code><span class=\"nx\">print</span><span class=\"p\">(</span><span class=\"s\">&quot;Are you ready?&quot;</span><span class=\"p\">)</span>\n<span class=\"nx\">number</span><span class=\"w\"> </span><span class=\"p\">=</span><span class=\"w\"> </span><span class=\"nx\">int</span><span class=\"p\">(</span><span class=\"nx\">input</span><span class=\"p\">(</span><span class=\"s\">&quot;Please type in a number: &quot;</span><span class=\"p\">))</span>\n<span class=\"k\">while</span><span class=\"w\"> </span><span class=\"nx\">number</span><span class=\"w\"> </span><span class=\"p\">=</span><span class=\"w\"> </span><span class=\"mi\">0</span><span class=\"p\">:</span>\n<span class=\"nx\">print</span><span class=\"p\">(</span><span class=\"nx\">number</span><span class=\"p\">)</span>\n<span class=\"nx\">print</span><span class=\"p\">(</span><span class=\"s\">&quot;Now!&quot;</span><span class=\"p\">)</span>\n</code></pre></div>\n<span class=\"paragraph\">Please fix the code so that it prints out the following:</span>\n<div class=\"language-carbon codehilite\"><pre><span></span><code><span class=\"nx\">Are</span><span class=\"w\"> </span><span class=\"nx\">you</span><span class=\"w\"> </span><span class=\"nx\">ready</span><span class=\"p\">?</span>\n<span class=\"nx\">Please</span><span class=\"w\"> </span><span class=\"k\">type</span><span class=\"w\"> </span><span class=\"k\">in</span><span class=\"w\"> </span><span class=\"nx\">a</span><span class=\"w\"> </span><span class=\"nx\">number</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"mi\">5</span>\n<span class=\"mi\">5</span>\n<span class=\"mi\">4</span>\n<span class=\"mi\">3</span>\n<span class=\"mi\">2</span>\n<span class=\"mi\">1</span>\n<span class=\"nx\">Now</span><span class=\"p\">!</span>\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZNGT",
+      "code_hash": "f67ffe634f49a35ba1d6656f572c6bd3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example\">Example</h2>\n<span class=\"paragraph\">Write a program that asks the user for an integer value as input, and prints out all integers greater than zero but smaller than the number give.</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>Enter a number: 5\n1\n2\n3\n4\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "fmFt",
+      "code_hash": "44f5e49bfa2851962628e22625e5aca5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example\">Example</h2>\n<span class=\"paragraph\">Write a program that asks the user for an integer value, which will be the upper limit. The program prints out numbers, starting from 1, so that each subsequent number is twice as large as the last number, up to the upper limit given by the user.</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>Upper limit: 8\n1\n2\n4\n8\n</code></pre></div>\n<div class=\"language-text codehilite\"><pre><span></span><code>Upper limit: 20\n1\n2\n4\n8\n16\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "JoeQ",
+      "code_hash": "8ac869cee0fccc14fe544152c3919af8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example\">Example</h2>\n<span class=\"paragraph\">Let's write a program that asks the user to enter a number, and calculates the sum of all numbers starting from 1, until the sum is at least equal to the number entered by the user.</span>\n<div class=\"language-actionscript3 codehilite\"><pre><span></span><code><span class=\"n\">Limit</span><span class=\"o\">:</span><span class=\"w\"> </span><span class=\"mi\">2</span>\n<span class=\"mi\">3</span>\n</code></pre></div>\n<div class=\"language-actionscript3 codehilite\"><pre><span></span><code><span class=\"n\">Limit</span><span class=\"o\">:</span><span class=\"w\"> </span><span class=\"mi\">10</span>\n<span class=\"mi\">10</span>\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "wSUg",
+      "code_hash": "4fadada03d077d9e81c4f8f10f5b1b2c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"strings-revisited\">Strings, revisited</h2>\n<span class=\"paragraph\">Remember that you can append strings by adding them together.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "roan",
+      "code_hash": "94210f8634d3904b6dca2564eab4ff18",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "word 1 word 2 word 3\n"
+        }
+      ]
+    },
+    {
+      "id": "WGTb",
+      "code_hash": "41e253a140dee276d6ff9fb6df7a259f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">We can, however, simplify this using the loop syntax.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "CqBe",
+      "code_hash": "ace0883501255695715da213411fba67",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "word 1 word 2 word 3 \n"
+        }
+      ]
+    },
+    {
+      "id": "Xmiu",
+      "code_hash": "be817cc30a4fb28e47b9746d8d9963a0",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example\">Example</h2>\n<span class=\"paragraph\">Let's update our code from the previous example. In addition to the result, let's also print the actual calculation.</span>\n<div class=\"language-actionscript3 codehilite\"><pre><span></span><code><span class=\"n\">Limit</span><span class=\"o\">:</span><span class=\"w\"> </span><span class=\"mi\">2</span>\n<span class=\"n\">The</span><span class=\"w\"> </span><span class=\"n\">consecutive</span><span class=\"w\"> </span><span class=\"n\">sum</span><span class=\"o\">:</span><span class=\"w\"> </span><span class=\"mi\">1</span><span class=\"w\"> </span><span class=\"o\">+</span><span class=\"w\"> </span><span class=\"mi\">2</span><span class=\"w\"> </span><span class=\"o\">=</span><span class=\"w\"> </span><span class=\"mi\">3</span>\n</code></pre></div>\n<div class=\"language-actionscript3 codehilite\"><pre><span></span><code><span class=\"n\">Limit</span><span class=\"o\">:</span><span class=\"w\"> </span><span class=\"mi\">10</span>\n<span class=\"n\">The</span><span class=\"w\"> </span><span class=\"n\">consecutive</span><span class=\"w\"> </span><span class=\"n\">sum</span><span class=\"o\">:</span><span class=\"w\"> </span><span class=\"mi\">1</span><span class=\"w\"> </span><span class=\"o\">+</span><span class=\"w\"> </span><span class=\"mi\">2</span><span class=\"w\"> </span><span class=\"o\">+</span><span class=\"w\"> </span><span class=\"mi\">3</span><span class=\"w\"> </span><span class=\"o\">+</span><span class=\"w\"> </span><span class=\"mi\">4</span><span class=\"w\"> </span><span class=\"o\">=</span><span class=\"w\"> </span><span class=\"mi\">10</span>\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Mxwr",
+      "code_hash": "836ff3e3fffcc054a27c363ac4a33691",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"nested-loops\">Nested loops</h2>\n<span class=\"paragraph\">As we have practiced using the <code>if</code> statements, loops can also be nested inside another loop. For example, the following program uses a loop to ask the user to input numbers. It then uses another loop inside the first one to print a countdown from the given number down to 1.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "DSru",
+      "code_hash": "3b0801754e41df9f28ba42a29bc8e369",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "3 2 1 0 \n2 1 0 \n1 0 \n0 \nIteration complete.\n"
+        }
+      ]
+    },
+    {
+      "id": "PLkl",
+      "code_hash": "02dbb74d5c8e261ed57744b356da87a5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example\">Example</h2>\n<span class=\"paragraph\">Write a program that asks the user for an integer value. The program then prints out a list of multiplication operations until both operands reach the number given by the user.</span>\n<div class=\"language-carbon codehilite\"><pre><span></span><code><span class=\"nx\">Please</span><span class=\"w\"> </span><span class=\"k\">type</span><span class=\"w\"> </span><span class=\"k\">in</span><span class=\"w\"> </span><span class=\"nx\">a</span><span class=\"w\"> </span><span class=\"nx\">number</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"mi\">2</span>\n<span class=\"mi\">1</span><span class=\"w\"> </span><span class=\"nx\">x</span><span class=\"w\"> </span><span class=\"mi\">1</span><span class=\"w\"> </span><span class=\"p\">=</span><span class=\"w\"> </span><span class=\"mi\">1</span>\n<span class=\"mi\">1</span><span class=\"w\"> </span><span class=\"nx\">x</span><span class=\"w\"> </span><span class=\"mi\">2</span><span class=\"w\"> </span><span class=\"p\">=</span><span class=\"w\"> </span><span class=\"mi\">2</span>\n<span class=\"mi\">2</span><span class=\"w\"> </span><span class=\"nx\">x</span><span class=\"w\"> </span><span class=\"mi\">1</span><span class=\"w\"> </span><span class=\"p\">=</span><span class=\"w\"> </span><span class=\"mi\">2</span>\n<span class=\"mi\">2</span><span class=\"w\"> </span><span class=\"nx\">x</span><span class=\"w\"> </span><span class=\"mi\">2</span><span class=\"w\"> </span><span class=\"p\">=</span><span class=\"w\"> </span><span class=\"mi\">4</span>\n</code></pre></div>\n<div class=\"language-carbon codehilite\"><pre><span></span><code><span class=\"nx\">Please</span><span class=\"w\"> </span><span class=\"k\">type</span><span class=\"w\"> </span><span class=\"k\">in</span><span class=\"w\"> </span><span class=\"nx\">a</span><span class=\"w\"> </span><span class=\"nx\">number</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"mi\">3</span>\n<span class=\"mi\">1</span><span class=\"w\"> </span><span class=\"nx\">x</span><span class=\"w\"> </span><span class=\"mi\">1</span><span class=\"w\"> </span><span class=\"p\">=</span><span class=\"w\"> </span><span class=\"mi\">1</span>\n<span class=\"mi\">1</span><span class=\"w\"> </span><span class=\"nx\">x</span><span class=\"w\"> </span><span class=\"mi\">2</span><span class=\"w\"> </span><span class=\"p\">=</span><span class=\"w\"> </span><span class=\"mi\">2</span>\n<span class=\"mi\">1</span><span class=\"w\"> </span><span class=\"nx\">x</span><span class=\"w\"> </span><span class=\"mi\">3</span><span class=\"w\"> </span><span class=\"p\">=</span><span class=\"w\"> </span><span class=\"mi\">3</span>\n<span class=\"mi\">2</span><span class=\"w\"> </span><span class=\"nx\">x</span><span class=\"w\"> </span><span class=\"mi\">1</span><span class=\"w\"> </span><span class=\"p\">=</span><span class=\"w\"> </span><span class=\"mi\">2</span>\n<span class=\"mi\">2</span><span class=\"w\"> </span><span class=\"nx\">x</span><span class=\"w\"> </span><span class=\"mi\">2</span><span class=\"w\"> </span><span class=\"p\">=</span><span class=\"w\"> </span><span class=\"mi\">4</span>\n<span class=\"mi\">2</span><span class=\"w\"> </span><span class=\"nx\">x</span><span class=\"w\"> </span><span class=\"mi\">3</span><span class=\"w\"> </span><span class=\"p\">=</span><span class=\"w\"> </span><span class=\"mi\">6</span>\n<span class=\"mi\">3</span><span class=\"w\"> </span><span class=\"nx\">x</span><span class=\"w\"> </span><span class=\"mi\">1</span><span class=\"w\"> </span><span class=\"p\">=</span><span class=\"w\"> </span><span class=\"mi\">3</span>\n<span class=\"mi\">3</span><span class=\"w\"> </span><span class=\"nx\">x</span><span class=\"w\"> </span><span class=\"mi\">2</span><span class=\"w\"> </span><span class=\"p\">=</span><span class=\"w\"> </span><span class=\"mi\">6</span>\n<span class=\"mi\">3</span><span class=\"w\"> </span><span class=\"nx\">x</span><span class=\"w\"> </span><span class=\"mi\">3</span><span class=\"w\"> </span><span class=\"p\">=</span><span class=\"w\"> </span><span class=\"mi\">9</span>\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}
