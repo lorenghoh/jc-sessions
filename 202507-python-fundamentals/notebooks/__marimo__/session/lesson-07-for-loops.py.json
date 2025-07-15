@@ -1,0 +1,271 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.14.9"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RHvN",
+      "code_hash": "b98cb955b14f44a8605f52c96fe86780",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h1 id=\"lesson-07-definite-iterations\">Lesson 07: Definite Iterations</h1>\n<span class=\"paragraph\">Accessing all items from a list is troublesome as the list bocomes longer and longer. We can do this iteratively using the <code>while</code> loop, as shown below.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "UnEL",
+      "code_hash": "f7a70cb34477521c32938ec5e883afdb",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "3\n2\n4\n5\n2\n"
+        }
+      ]
+    },
+    {
+      "id": "oXcw",
+      "code_hash": "19406f47eeb0ab72003fab0377926b97",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">In the Python programming language, fortunately, there is an easier, and more intuitive way to perform this operation.</span>\n<h1 id=\"the-for-loop\">The <code>for</code> loop</h1>\n<span class=\"paragraph\">The <code>for</code> loop is a type of a definite iteration, where the number of loops is known before the loop begins. This is because the loop is defined for a <em>collection</em>; for example, we have dealt with strings (collections of characters) and list (collections of values).</span>\n<span class=\"paragraph\">The syntax for a for loop is as follows.</span>\n<div class=\"language-teratermmacro codehilite\"><pre><span></span><code><span class=\"k\">for</span><span class=\"w\"> </span><span class=\"nv\">INDEX</span><span class=\"w\"> </span><span class=\"nv\">in</span><span class=\"w\"> </span><span class=\"nv\">COLLECTION</span>:\n<span class=\"w\">    </span><span class=\"nv\">EXECUTE</span>\n</code></pre></div>\n<span class=\"paragraph\">For example, we can re-write the above <code>while</code> loop as follows.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "qNWi",
+      "code_hash": "181702f5d02c3da953ab65c4f81c292d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "3\n2\n4\n5\n2\n"
+        }
+      ]
+    },
+    {
+      "id": "HOlY",
+      "code_hash": "2f521f4aaae60cba6da21f9cc2640704",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">Likewise, as we have noted, strings can be considered to be a collection of characters, which can be used in a <code>for</code> loop.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "FZFc",
+      "code_hash": "67c695ae9b6c8290e7aa58820b4e005a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "G\nr\na\nc\ne\n"
+        }
+      ]
+    },
+    {
+      "id": "IfMA",
+      "code_hash": "149f13678d556e0fb31591a05efeb892",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example-1\">Example 1</h2>\n<span class=\"paragraph\">Write a program that asks the user to enter his name. The program then outputs each character on separate lines, with a dash (<code>-</code>) in between. The following shows a possible interaction with this program.</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>Enter your name: Steve\nS\n-\nt\n-\ne\n-\nv\n-\ne\n-\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "UALD",
+      "code_hash": "5b2a12f13a9345a5fecd0492b9f278ec",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h1 id=\"the-range-function\">The <code>range()</code> function</h1>\n<span class=\"paragraph\">Very often, we want to repeat a certain block of code only a set number of time. For example, we want to go through a list containing 10 numbers:</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Emuq",
+      "code_hash": "3a245316250bbbe29545e46cc08f4c8a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n"
+        }
+      ]
+    },
+    {
+      "id": "BwJO",
+      "code_hash": "228cedd21074e58d8826d30311d83453",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">Python has a helper function to support a use case like this. The <code>range()</code> function, when used in a loop, can be used to loop through a <em>range</em> of numbers.</span>\n<span class=\"paragraph\">There are a few different ways to use the <code>range()</code> function. The simplest way is to give it a number, and the loop will iterate from 0 to the number being given. For example,</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZNhc",
+      "code_hash": "90b185598c34347643b72a04080b9b06",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n"
+        }
+      ]
+    },
+    {
+      "id": "Hjww",
+      "code_hash": "3560ebdacd87fddb1a93c69c3b9a2742",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">You can also use the <code>range()</code> function with two numbers, in which case the loop with start with the first number, and terminate at the second number - 1. For example,</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "oKRx",
+      "code_hash": "131161c0b1bf87cb3bf02053696500e5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "1\n2\n3\n4\n5\n"
+        }
+      ]
+    },
+    {
+      "id": "cxIQ",
+      "code_hash": "69a5c763dc7b386744e020c25401a4d9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">Finally, if you use the <code>range()</code> function with three numbers, the last number will be used to determine the <em>step size</em>. For example, the following code goes through even numbers between 0 and 10.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "AVBh",
+      "code_hash": "eb0fe4559f687845557c9e0b26ee89f3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "0\n2\n4\n6\n8\n10\n"
+        }
+      ]
+    },
+    {
+      "id": "rnqv",
+      "code_hash": "22a9e24fc89e9b7f862cf985d6274951",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example-2\">Example 2</h2>\n<span class=\"paragraph\">Create the following list: <code>[3, 7, 1, 1, 2]</code>.</span>\n<span class=\"paragraph\">Write a program that prints lines of stars (<code>*</code>), one per item in the given list. For example, the above list should print the following output.</span>\n<div class=\"language-scdoc codehilite\"><pre><span></span><code>***\n*******\n<span class=\"gs\">*</span>\n<span class=\"gs\">*</span>\n**\n</code></pre></div>\n<span class=\"paragraph\">Also test your code with the following list: <code>[1, 3, 2, 4, 6]</code>.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

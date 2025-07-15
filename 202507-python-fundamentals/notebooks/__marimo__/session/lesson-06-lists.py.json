@@ -16,6 +16,828 @@
         }
       ],
       "console": []
+    },
+    {
+      "id": "Xmwp",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h1 id=\"lesson-6-lists\">Lesson 6: Lists</h1>\n<h1 id=\"list-basics\">List Basics</h1>\n<span class=\"paragraph\">In our programs, we've been storing data using variables where each piece of information has its own name. However, this can become complicated when dealing with a large amount of data because it requires creating many separate variables.</span>\n<span class=\"paragraph\">A list is like a collection basket or container in programming. You can store multiple items within it. Instead of creating a new variable for each item, all the items are stored together under one variable name.</span>\n<span class=\"paragraph\">In Python, you define a list by placing its contents within square brackets.</span>\n<span class=\"paragraph\">For example, if I have names \"John,\" \"Paul,\" and \"Sarah,\" I can group them into a single list named \"<strong>people</strong>\".</span>\n<span class=\"paragraph\">It might look like this: </span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "KbHK",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "egqC",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">Each item inside the list is called an <em>element</em> or an <em>item</em>.</span>\n<span class=\"paragraph\">This way, instead of assigning each name to a variable, they're all stored together, making it easier to manage and access.</span>\n<span class=\"paragraph\">A list can also be defined with no items.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Eecg",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "[]\n"
+        }
+      ]
+    },
+    {
+      "id": "XzXD",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">Individual <em>items</em> (or <em>elements</em>) can be accessed using square brackets.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bJRv",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "8\n32\n4\n6\nThe sum of first and third element is: 12\n"
+        }
+      ]
+    },
+    {
+      "id": "Ipvg",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">Lists are <em>mutable</em>, which means that the elements can be updated (changed).</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "WpLg",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "[8, 13, 4, 6]\n"
+        }
+      ]
+    },
+    {
+      "id": "MEsg",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">Lastly, if you want to know the <em>length</em> of the list (i.e. the number of elements, or items, in the list), use the <code>len()</code> function.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZIVh",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "4\n"
+        }
+      ]
+    },
+    {
+      "id": "LIOf",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example-1\">Example 1</h2>\n<span class=\"paragraph\">First, create a list with values <code>[0, 1, 2, 3, 4, 5]</code>.</span>\n<span class=\"paragraph\">Swap every value in the list so that the elements are sorted in a descending order; that is, the resulting list starts with the largest number and ends with the smallest number. Then print out the following line.</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>The sum between the first three numbers are: 12\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Qnuh",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h1 id=\"list-manipulations\">List Manipulations</h1>\n<h2 id=\"adding-items\">Adding items</h2>\n<span class=\"paragraph\">Items or elements can be added to a list using the <code>append()</code> method.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "xexc",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "[13, 14, 16]\n"
+        }
+      ]
+    },
+    {
+      "id": "uqyo",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"adding-items-at-a-specific-index\">Adding items at a specific index</h2>\n<span class=\"paragraph\">The <code>append()</code> method always adds the item at the end. If you want to add the item at a specific position (based on an index), you can use the <code>insert()</code> method instead. If there are any items at the specific position, all items to the right of the inserted position get pushed to the right, in the direction of the increasing index.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vSPX",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Before insert: [13, 14]\nAfter insert: [13, 14, 15]\n"
+        }
+      ]
+    },
+    {
+      "id": "NpwF",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"removing-items\">Removing items</h2>\n<span class=\"paragraph\">Just like adding items, there are two ways to remove an item from a list.</span>\n<ul>\n<li><code>pop()</code> if you want to remove an item at a specific index</li>\n<li><code>remove()</code> if you want to remove an item based on its value</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "aFzv",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h3 id=\"index-based-pop\">Index-based <code>pop()</code></h3>\n<span class=\"paragraph\">Like <code>insert()</code> method, <code>pop()</code> required the index of the element you want to remove. The following example removes items at index 2 from the list.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZIiR",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RPEk",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Before removal: [13, 14, 16]\nAfter removal: [13, 14]\n"
+        }
+      ]
+    },
+    {
+      "id": "bfxI",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">It might be useful to know that <code>pop()</code> method removes the item and also returns the item. </span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "jnrq",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "[13, 15]\n[13]\n15\n"
+        }
+      ]
+    },
+    {
+      "id": "ZLeH",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h3 id=\"example-2\">Example 2</h3>\n<span class=\"paragraph\">Create a list with the following items: <code>[1, 2, 3, 4, 5]</code>.</span>\n<span class=\"paragraph\">Using the <code>pop()</code> function, remove all odd numbers from the list, and output the resulting list. You may use <code>while</code> loop, which will make it easier.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iuoP",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h3 id=\"value-based-remove\">Value-based <code>remove()</code></h3>\n<span class=\"paragraph\">On the other hand, the <code>remove()</code> method requires the value of an item to be removed.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "VakU",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "[1, 2, 3, 3, 6]\n"
+        }
+      ]
+    },
+    {
+      "id": "JgUK",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">Notice that the <code>remove()</code> method removed the <strong>fist</strong> element that appears.</span>\n<span class=\"paragraph\">You need to call the <code>remove()</code> method multiple times in this case. However, if you try to remove an item that does not exist, Python will throw and error. In this case, you may want to check if the item exists in the list using the <code>in</code> operator.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "CDUA",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "[2, 3, 3, 6]\n"
+        }
+      ]
+    },
+    {
+      "id": "sqWV",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h3 id=\"example-3\">Example 3</h3>\n<span class=\"paragraph\">Create a list with the following items: <code>[1, 1, 2, 1, 3, 6]</code>.</span>\n<span class=\"paragraph\">Write a <code>while</code> loop that iterates through this list and removes the number 1 from the list until all 1s are removed from the list. Then output the resulting list.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "a80958bb891a6361cb9b419dfc7f31f4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h1 id=\"lesson-6-lists\">Lesson 6: Lists</h1>\n<h1 id=\"list-basics\">List Basics</h1>\n<span class=\"paragraph\">In our programs, we've been storing data using variables where each piece of information has its own name. However, this can become complicated when dealing with a large amount of data because it requires creating many separate variables.</span>\n<span class=\"paragraph\">A list is like a collection basket or container in programming. You can store multiple items within it. Instead of creating a new variable for each item, all the items are stored together under one variable name.</span>\n<span class=\"paragraph\">In Python, you define a list by placing its contents within square brackets.</span>\n<span class=\"paragraph\">For example, if I have names \"John,\" \"Paul,\" and \"Sarah,\" I can group them into a single list named \"<strong>people</strong>\".</span>\n<span class=\"paragraph\">It might look like this:</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "32d11584aa0f53eb9a071fa7f3927416",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "cd848d05109eef1735a49e2db963fbf8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">Each item inside the list is called an <em>element</em> or an <em>item</em>.</span>\n<span class=\"paragraph\">This way, instead of assigning each name to a variable, they're all stored together, making it easier to manage and access.</span>\n<span class=\"paragraph\">A list can also be defined with no items.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "ce0011d6a5486d2855a5a8ad2aca8bf2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "[]\n"
+        }
+      ]
+    },
+    {
+      "id": "PKri",
+      "code_hash": "0ca5059dc61efcb5bdec05c3ff61f1f7",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">Individual <em>items</em> (or <em>elements</em>) can be accessed using square brackets.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "29194a4f1aeb4d0e5acb1de9c5777e13",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "8\n32\n4\n6\nThe sum of first and third element is: 12\n"
+        }
+      ]
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "66be80c32d54f6be211a8005bf0f5f26",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">Lists are <em>mutable</em>, which means that the elements can be updated (changed).</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "61a1d8f0bfe9ebc5c7ad56f0157eee06",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "[8, 13, 4, 6]\n"
+        }
+      ]
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "e944b12679c35b3dece74cfe1ba42a55",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">Lastly, if you want to know the <em>length</em> of the list (i.e. the number of elements, or items, in the list), use the <code>len()</code> function.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "f85c8d48f1180ce936732dd73266fcfa",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "4\n"
+        }
+      ]
+    },
+    {
+      "id": "emfo",
+      "code_hash": "d94bfc1c37d00f6f4ae033268573bef0",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example-1\">Example 1</h2>\n<span class=\"paragraph\">First, create a list with values <code>[0, 1, 2, 3, 4, 5]</code>.</span>\n<span class=\"paragraph\">Swap every value in the list so that the elements are sorted in a descending order; that is, the resulting list starts with the largest number and ends with the smallest number. Then print out the following line.</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>The sum between the first three numbers are: 12\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "ef63a382a15ad03a041267d9b4a8569b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h1 id=\"list-manipulations\">List Manipulations</h1>\n<h2 id=\"adding-items\">Adding items</h2>\n<span class=\"paragraph\">Items or elements can be added to a list using the <code>append()</code> method.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "bc4bd3edebb448ac15bb720325adf5fc",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "[13, 14, 16]\n"
+        }
+      ]
+    },
+    {
+      "id": "iLit",
+      "code_hash": "383dba4689c5482b6c0e051e92e1be8f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"adding-items-at-a-specific-index\">Adding items at a specific index</h2>\n<span class=\"paragraph\">The <code>append()</code> method always adds the item at the end. If you want to add the item at a specific position (based on an index), you can use the <code>insert()</code> method instead. If there are any items at the specific position, all items to the right of the inserted position get pushed to the right, in the direction of the increasing index.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "97c10b9282eb08311f1faaabbc56cdd5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Before insert: [13, 14, 16]\nAfter insert: [13, 14, 15, 16]\n"
+        }
+      ]
+    },
+    {
+      "id": "ROlb",
+      "code_hash": "899529b79947dc516ec6ca021b34f7f4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"removing-items\">Removing items</h2>\n<span class=\"paragraph\">Just like adding items, there are two ways to remove an item from a list.</span>\n<ul>\n<li><code>pop()</code> if you want to remove an item at a specific index</li>\n<li><code>remove()</code> if you want to remove an item based on its value</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "qnkX",
+      "code_hash": "ad7d4252addf51ef9bd2d05599960026",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h3 id=\"index-based-pop\">Index-based <code>pop()</code></h3>\n<span class=\"paragraph\">Like <code>insert()</code> method, <code>pop()</code> required the index of the element you want to remove. The following example removes items at index 2 from the list.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TqIu",
+      "code_hash": "89207e7e83c64f69805fac4f5069f9c4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Vxnm",
+      "code_hash": "e4890083d3510c6d0c7103fa4b14a7c5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Before removal: [13, 14, 15, 16]\nAfter removal: [13, 14, 16]\n"
+        }
+      ]
+    },
+    {
+      "id": "DnEU",
+      "code_hash": "40594b290fdeabe1e6be1698d85a74cf",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">It might be useful to know that <code>pop()</code> method removes the item and also returns the item.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ulZA",
+      "code_hash": "4889c985bfa72fb3d226b3564ab9003a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "[13, 14, 16]\n[13, 16]\n14\n"
+        }
+      ]
+    },
+    {
+      "id": "ecfG",
+      "code_hash": "799eb71427215fac1ef2b01dfc1d30fb",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h3 id=\"example-2\">Example 2</h3>\n<span class=\"paragraph\">Create a list with the following items: <code>[1, 2, 3, 4, 5]</code>.</span>\n<span class=\"paragraph\">Using the <code>pop()</code> function, remove all odd numbers from the list, and output the resulting list. You may use <code>while</code> loop, which will make it easier.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Pvdt",
+      "code_hash": "0e98e04b2f21cf992d8a37c5951a018e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h3 id=\"value-based-remove\">Value-based <code>remove()</code></h3>\n<span class=\"paragraph\">On the other hand, the <code>remove()</code> method requires the value of an item to be removed.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZBYS",
+      "code_hash": "6aab3e75074f0abc6171bd2453ef2153",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "[1, 2, 3, 3, 6]\n"
+        }
+      ]
+    },
+    {
+      "id": "aLJB",
+      "code_hash": "a74d7b899994f3a3f4329539a575c73a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">Notice that the <code>remove()</code> method removed the <strong>fist</strong> element that appears.</span>\n<span class=\"paragraph\">You need to call the <code>remove()</code> method multiple times in this case. However, if you try to remove an item that does not exist, Python will throw and error. In this case, you may want to check if the item exists in the list using the <code>in</code> operator.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "nHfw",
+      "code_hash": "72ffcdda4a1e34ebabc55ff0eee731b9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "[2, 3, 3, 6]\n"
+        }
+      ]
+    },
+    {
+      "id": "xXTn",
+      "code_hash": "556d64538ee14a2a3d4f17583fa6b5d5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h3 id=\"example-3\">Example 3</h3>\n<span class=\"paragraph\">Create a list with the following items: <code>[1, 1, 2, 1, 3, 6]</code>.</span>\n<span class=\"paragraph\">Write a <code>while</code> loop that iterates through this list and removes the number 1 from the list until all 1s are removed from the list. Then output the resulting list.</span></span>"
+          }
+        }
+      ],
+      "console": []
     }
   ]
 }
