@@ -1,0 +1,141 @@
+---
+title: "lesson-10: Correlation"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(magrittr)
+```
+
+# Joint distributions
+
+Most interesting problems involve two or more random variables defined on the same probability space.
+
+In these situations, we can consider how the variables vary together, or jointly, and study their relationship. The joint distribution of random variables $X$ and $Y$ (defined on the same probability space) is a probability distribution on ($x, y$) pairs. (Remember that he distribution of one of the variables alone is a “marginal distribution”.) Think of a joint distribution as being represented by a spinner that returns pairs of values.
+
+## Example
+
+Roll a four-sided die twice. One choice of probability measure corresponds to assuming that the die is fair and that the 16 possible outcomes are equally likely.
+
+Let $X$ be the sum of the two dice, and $Y$ be the larger of the two rolls
+
+1.  Construct a “flat” table displaying the distribution of ($X$, $Y$) pairs, with one pair in each row.
+
+2.  Construct a two-way displaying the joint distribution on $X$ and $Y$.
+
+3.  Sketch a plot depicting the joint distribution of $X$ and $Y$.
+
+4.  Starting with the two-way table, how could you obtain the marginal distribution of $X$? of $Y$?
+
+5.  Starting with the marginal distribution of $X$ and the marginal distribution of $Y$, could you necessarily construct the two-way table of the joint distribution? Explain.
+
+In the context of multiple random variables, the distribution of any one of the random variables is called a marginal distribution. In Example 2.54, we can obtain the marginal distributions of $X$ and $Y$ from the joint distribution by summing rows and columns. Think of adding a total column (for $X$) and a total row (for $Y$) in the “margins” of the table.
+
+It is possible to obtain marginal distributions from a joint distribution. However, in general you cannot recover the joint distribution from the marginal distributions alone. Just because you know the row and column totals, it does not mean you know all the values of the interior cells in the joint distribution table. The joint distribution reflects the relationship between $X$ and $Y$, while the marginal distributions only reflect how each variable behaves in isolation.
+
+# Correlation
+
+Quantities like long run average, variance, and standard deviation summarize characteristics of the marginal distribution of a single random variable. When there are multiple random variables their joint distribution is of interest. Covariance and correlation summarize in a single number a characteristic of the joint distribution of two random variables, namely, the degree to which they “co-deviate from the their respective means”.
+
+Covariance is the average of the paired deviations from the respective means.
+
+Mathematically, *covariance* of random variables $X$ and $Y$ is defined as the long-run average of the product of the paired deviations from their respective means.
+
+$$
+\mathrm{cov}(X, Y) = \mathrm{mean}((X - \overline{X}) \times ((Y - \overline{Y}))
+$$
+
+or, equivalently,
+
+$$
+\mathrm{cov}(X, Y) = \overline{XY} - \overline{X} \, \overline{Y}
+$$
+
+Ultimately, the value of covariance is hard to interpret as it depends heavily on the measurement unit scale of the random variables. However, its sign does have a practical meaning.
+
+-   A positive covariance indicate an overall positive association: above average values of $X$ tend to be associated with above average values of $Y$
+
+-   A negative covariance indicates am overall negative association: above average values of $X$ tend to be associated with below average values of $Y$
+
+-   A covariance of zero indicates that the random variables are uncorrelated: there is no overall positive or negative association. But be careful: if $X$ and $Y$ are uncorrelated there can still be a relationship between them.
+
+## Example
+
+Consider the probability space corresponding to two rolls of a fair four-sided die.
+
+Let:
+
+-   X be the sum of the two rolls,
+
+-   Y be the larger of the two rolls,
+
+-   W be the number of rolls equal to 4, and
+
+-   Z the number of rolls equal to 1.
+
+Without doing any calculations, determine if the covariance between each of the following pairs of variables is positive, negative, or zero.
+
+1.  $X$ and $Y$
+
+2.  $X$ and $W$
+
+3.  $X$ and $Z$
+
+4.  $X$ and $V$, where $V = W + Z$
+
+5.  $W$ and $Z$
+
+The numerical value of the covariance depends on the measurement units of both variables, so interpreting it can be difficult. Covariance is a measure of joint association between two random variables that has many nice theoretical properties, but the **correlation** is often a more practical measure.
+
+The correlation for two random variables is the covariance between the corresponding standardized random variables. Therefore, correlation is a *standardized* measure of the association between two random variables.
+
+That is, the correlation is the covariance of the standardized random variables.
+
+$$
+\mathrm{corr}(X, Y) = \mathrm{cov} \left( \frac{X - \overline{X}}{\sigma_x}, \frac{Y - \overline{Y}}{\sigma_y} \right)
+$$
+
+When standardizing, subtracting the means doesn’t change the scale of the possible pairs of values; it merely shifts the centre of the joint distribution. Therefore, correlation is the covariance divided by the product of the standard deviations.
+
+$$
+\mathrm{corr}(X, Y) = \frac{\mathrm{cov}(X, Y)}{\sigma_x \sigma_y}
+$$
+
+A correlation is a *standardized* measure, which means that regardless of the original measurements of $X$ and $Y$,
+
+$$
+-1 \leq \mathrm{corr}(X, Y) \leq 1
+$$
+
+such that
+
+-   $\mathrm{corr}(X, Y) = 1$ iff $Y = aX + b$ where $a > 0$
+
+-   $\mathrm{corr}(X, Y) = -1$ iff $Y = aX + b$ where $a < 0$
+
+Therefore, correlation is a standardized measure of the strength of the linear association between two random variables.
+
+## Example.
+
+Let's revisit the previous example.
+
+Let: - X be the sum of the two rolls,
+
+-   Y be the larger of the two rolls,
+
+Simulate $\mathrm{cov}(X, Y)$. You will follow the steps below.
+
+-   Simulate an $(X, Y)$ pair from the joint distribution.
+
+-   Find the value of the product $XY$ for the simulated pair.
+
+-   Repeat many times, simulating many $(X, Y)$ pairs and finding their product $XY$.
+
+-   Average the simulated values of the product $XY$ to approximate $E(XY)$.
+
+-   Average the simulated values of $X$ to approximate $E(X)$.
+
+-   Average the simulated values of $Y$ to approximate $E(Y)$
+
+-   $\mathrm{cov}(X, Y)$ is approximately the average of the product minus the product of the averages.
