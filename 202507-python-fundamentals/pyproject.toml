@@ -3,7 +3,7 @@ name = "202507-python-fundamentals"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.13"
 dependencies = [
     "jupyter>=1.1.1",
     "marimo>=0.14.9",
