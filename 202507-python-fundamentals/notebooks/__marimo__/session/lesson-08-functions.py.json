@@ -1,0 +1,201 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.14.10"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "nxES",
+      "code_hash": "9439b1814db6e5e529bc8b8a83f975c8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h1 id=\"lesson-8-functions\">Lesson 8: Functions</h1>\n<h2 id=\"function-definitions\">Function definitions</h2>\n<span class=\"paragraph\">So far in this class, we have used a number of functions built into Python; for example, we have been using <code>len</code>, <code>print</code> and <code>input</code> to solve the problems.</span>\n<span class=\"paragraph\">Of course, it is possible to come up with our own functions.</span>\n<span class=\"paragraph\">To do so, we must <strong>define</strong> our function. The syntax for the function definition is as follows.</span>\n<div class=\"language-scdoc codehilite\"><pre><span></span><code>def NAME():\n    CODE_BLOCK\n</code></pre></div>\n<span class=\"paragraph\">The <strong>definition</strong> of a function always begins with the <code>def</code> keyword, followed by the <strong>name</strong> of the function. The code block following the colon is also called the <strong>body</strong> of the function.</span>\n<span class=\"paragraph\">For example, consider a simple function that prints a message.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "YWkQ",
+      "code_hash": "ff6cd9d88e9c5a1d4b859bb924c62a28",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "cRng",
+      "code_hash": "d53ebb80e4791981426e10b2ce4e7d7c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">Nothing happens when you run the code above. This is because <em>defining</em> a function, by itself, does not perform any actions. To execute the function body, a function must be <strong>called</strong>.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "gGJX",
+      "code_hash": "a420e1cf852ad86ca3553c5880cd5304",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "This is the function body.\n"
+        }
+      ]
+    },
+    {
+      "id": "Pnty",
+      "code_hash": "387043233f615dd5fd3ddc4a9606fbc4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">Once defined, a function can be called multiple times.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bymM",
+      "code_hash": "6d34e9485cc134514174cb109b5b49f9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "This is the function body.\nThis is the function body.\nThis is the function body.\n"
+        }
+      ]
+    },
+    {
+      "id": "TrGd",
+      "code_hash": "638a4a5fb5abc6b9bea59962bf8d0101",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"function-arguments\">Function arguments</h2>\n<span class=\"paragraph\">Every function can take input <em>arguments</em> and produce an output. For example, the <code>input()</code> function takes a string as an input, and returns a string as an output.</span>\n<span class=\"paragraph\">Let's define a function with arguments.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vjhF",
+      "code_hash": "1dfe4c3ca19c33481760f92b2905f9b8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Hello, Alan!\nHello, World!\n"
+        }
+      ]
+    },
+    {
+      "id": "PnRx",
+      "code_hash": "ad10690ff2b9c3ac45023a4dda9ead8b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">Of course, a function can take more than one argument.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MSDK",
+      "code_hash": "2c78a97cc6ef3f57d85241a73d0cdaa4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Hello Steve, Alan, and Nick!\n"
+        }
+      ]
+    },
+    {
+      "id": "DbqX",
+      "code_hash": "8c1c2c3c924b232e4788240e64d265a9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example-1\">Example 1</h2>\n<span class=\"paragraph\">Write a function called <code>sum</code> that takes two numbers as arguments and calculates the sum of the two numbers. Then call your function to test the sum of the two numbers is printed.</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>sum(5, 3)\nsum(10, 1)\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "HuNu",
+      "code_hash": "58722f6a6dc3580a1b63912fd1e1a318",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example-2\">Example 2</h2>\n<span class=\"paragraph\">Write a function called <code>mean</code> that takes a list of any length as its argument, and calculates the average among all the items included in the list.</span>\n<span class=\"paragraph\">Call your function to test if the averages are correct.</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>mean([5, 3, 1, 8, 9])\nmean([10, 7, 1])\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "version": "1",
   "metadata": {
-    "marimo_version": "0.14.9"
+    "marimo_version": "0.14.10"
   },
   "cells": [
     {
@@ -18,7 +18,7 @@
       "console": []
     },
     {
-      "id": "RHvN",
+      "id": "MJUe",
       "code_hash": "b98cb955b14f44a8605f52c96fe86780",
       "outputs": [
         {
@@ -31,7 +31,7 @@
       "console": []
     },
     {
-      "id": "UnEL",
+      "id": "vblA",
       "code_hash": "f7a70cb34477521c32938ec5e883afdb",
       "outputs": [
         {
@@ -50,7 +50,7 @@
       ]
     },
     {
-      "id": "oXcw",
+      "id": "bkHC",
       "code_hash": "19406f47eeb0ab72003fab0377926b97",
       "outputs": [
         {
@@ -63,7 +63,7 @@
       "console": []
     },
     {
-      "id": "qNWi",
+      "id": "lEQa",
       "code_hash": "181702f5d02c3da953ab65c4f81c292d",
       "outputs": [
         {
@@ -82,7 +82,7 @@
       ]
     },
     {
-      "id": "HOlY",
+      "id": "PKri",
       "code_hash": "2f521f4aaae60cba6da21f9cc2640704",
       "outputs": [
         {
@@ -95,7 +95,7 @@
       "console": []
     },
     {
-      "id": "FZFc",
+      "id": "Xref",
       "code_hash": "67c695ae9b6c8290e7aa58820b4e005a",
       "outputs": [
         {
@@ -114,7 +114,7 @@
       ]
     },
     {
-      "id": "IfMA",
+      "id": "SFPL",
       "code_hash": "149f13678d556e0fb31591a05efeb892",
       "outputs": [
         {
@@ -127,7 +127,7 @@
       "console": []
     },
     {
-      "id": "UALD",
+      "id": "BYtC",
       "code_hash": "5b2a12f13a9345a5fecd0492b9f278ec",
       "outputs": [
         {
@@ -140,7 +140,7 @@
       "console": []
     },
     {
-      "id": "Emuq",
+      "id": "RGSE",
       "code_hash": "3a245316250bbbe29545e46cc08f4c8a",
       "outputs": [
         {
@@ -159,7 +159,7 @@
       ]
     },
     {
-      "id": "BwJO",
+      "id": "Kclp",
       "code_hash": "228cedd21074e58d8826d30311d83453",
       "outputs": [
         {
@@ -172,7 +172,7 @@
       "console": []
     },
     {
-      "id": "ZNhc",
+      "id": "emfo",
       "code_hash": "90b185598c34347643b72a04080b9b06",
       "outputs": [
         {
@@ -191,7 +191,7 @@
       ]
     },
     {
-      "id": "Hjww",
+      "id": "Hstk",
       "code_hash": "3560ebdacd87fddb1a93c69c3b9a2742",
       "outputs": [
         {
@@ -204,7 +204,7 @@
       "console": []
     },
     {
-      "id": "oKRx",
+      "id": "nWHF",
       "code_hash": "131161c0b1bf87cb3bf02053696500e5",
       "outputs": [
         {
@@ -223,7 +223,7 @@
       ]
     },
     {
-      "id": "cxIQ",
+      "id": "iLit",
       "code_hash": "69a5c763dc7b386744e020c25401a4d9",
       "outputs": [
         {
@@ -236,7 +236,7 @@
       "console": []
     },
     {
-      "id": "AVBh",
+      "id": "ZHCJ",
       "code_hash": "eb0fe4559f687845557c9e0b26ee89f3",
       "outputs": [
         {
@@ -255,13 +255,155 @@
       ]
     },
     {
-      "id": "rnqv",
-      "code_hash": "22a9e24fc89e9b7f862cf985d6274951",
+      "id": "ROlb",
+      "code_hash": "e109ac470fc9f6facbab6cea4d5e5d0f",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example-2\">Example 2</h2>\n<span class=\"paragraph\">Create the following list: <code>[3, 7, 1, 1, 2]</code>.</span>\n<span class=\"paragraph\">Write a program that prints lines of stars (<code>*</code>), one per item in the given list. For example, the above list should print the following output.</span>\n<div class=\"language-scdoc codehilite\"><pre><span></span><code>***\n*******\n<span class=\"gs\">*</span>\n<span class=\"gs\">*</span>\n**\n</code></pre></div>\n<span class=\"paragraph\">Also test your code with the following list: <code>[1, 3, 2, 4, 6]</code>.</span></span>"
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example-2\">Example 2</h2>\n<span class=\"paragraph\">Create the following list: <code>[3, 7, 1, 1, 2]</code>.</span>\n<span class=\"paragraph\">Write a program that prints lines of stars (<code>*</code>), one per item in the given list. For example, the above list should print the following output.</span>\n<span class=\"paragraph\">Use <code>string</code> multiplication here; if you multiply (<code>*</code>) a <code>string</code> object, it gets repeated by the number being multiplied.</span>\n<div class=\"language-scdoc codehilite\"><pre><span></span><code>***\n*******\n<span class=\"gs\">*</span>\n<span class=\"gs\">*</span>\n**\n</code></pre></div>\n<span class=\"paragraph\">Also test your code with the following list: <code>[1, 3, 2, 4, 6]</code>.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "qnkX",
+      "code_hash": "3e743cd53acf08a58f67f35f7dc988b9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example-3\">Example 3</h2>\n<span class=\"paragraph\">Write a program, using a for loop, that outputs the sum of the following two lists as a new list. You can manually write down the two lists in your script.</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>a = [1, 2, 3, 4, 5, 6, 7, 8, 9]\nb = [9, 8, 7, 6, 5, 4, 3, 2, 1]\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TqIu",
+      "code_hash": "bc6bf32bf8cf6f64925f7f3f31b2a50e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h1 id=\"nested-loops\">Nested loops</h1>\n<span class=\"paragraph\">Depending on the task at hand, you may need to <em>nest</em> your <code>for</code> loops. Here, the inner loop gets repeated by the outer loop.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Vxnm",
+      "code_hash": "ba6bf1fea8465a75e162a152de425441",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "1 1\n1 2\n1 3\n\n2 1\n2 2\n2 3\n\n3 1\n3 2\n3 3\n\n"
+        }
+      ]
+    },
+    {
+      "id": "DnEU",
+      "code_hash": "731991f006b138caf0fea435f2ce5649",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example-4\">Example 4</h2>\n<span class=\"paragraph\">Let's revisit a previous example.</span>\n<span class=\"paragraph\">Create the following list: <code>[3, 2, 1, 3, 2]</code>.</span>\n<span class=\"paragraph\">Write a program that prints lines of stars (<code>*</code>), one per item in the given list. For example, the above list should print the following output.</span>\n<span class=\"paragraph\">Do not use <code>string</code> multiplication here; instead, write the star (<code>*</code>) using nested loops.</span>\n<div class=\"language-scdoc codehilite\"><pre><span></span><code>***\n**\n<span class=\"gs\">*</span>\n<span class=\"gs\">*</span>**\n**\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ulZA",
+      "code_hash": "1105d4e626184c0dabf7b8908afbd635",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example-5\">Example 5</h2>\n<span class=\"paragraph\">Write a program that, given the following list of numbers, prints out only the distinctive (unique) items in the given list.</span>\n<span class=\"paragraph\">You can create a new list, only containing unique items, or use the <code>remove()</code> function to modify the given list. There are also a number of other ways to solve this problem; be creative, but make sure to use <code>for</code> loops.</span>\n<div class=\"language-scdoc codehilite\"><pre><span></span><code>my_list = [3, 2, 2, 1, 3, 3, 1]\n</code></pre></div>\n<span class=\"paragraph\"><code>[1, 2, 3]</code></span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ecfG",
+      "code_hash": "7cb397a09525e2714125e36ad8deaf58",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h1 id=\"finding-extremes\">Finding extremes</h1>\n<span class=\"paragraph\">For example, the following <code>for</code> loop goes through a list to find the largest item in that list. In order to solve this problem using the loop structure, one must <strong>remember</strong> the current largest value during the iteration.</span>\n<span class=\"paragraph\">To do that, the simplest way is to create a <code>temporary</code> variable. This temporary value is compared to every value in the list, and whenever the target value in the list is larger the temporary value, we assign the larger value to the temporary variable. Once the loop finishes, we will have looked at every item in the list, and our temporary variable will hold the largest value in the list.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Pvdt",
+      "code_hash": "f7723a256fe582f27408a2b11d0f6c9d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "The large number is: 5\n"
+        }
+      ]
+    },
+    {
+      "id": "ZBYS",
+      "code_hash": "ffa9bc8b658317229b03de02cad42cc9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example-6\">Example 6</h2>\n<span class=\"paragraph\">Write a program that, given a list of strings, prints the length of the longest string in the list. Use <code>len()</code> function to determine the length of each string item in the list.</span>\n<div class=\"language-scdoc codehilite\"><pre><span></span><code>my_list = [&quot;first&quot;, &quot;second&quot;, &quot;fourth&quot;, &quot;eleventh&quot;]\n</code></pre></div>\n<div class=\"language-text codehilite\"><pre><span></span><code>The longest string is 8 characters long.\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "NFYs",
+      "code_hash": "7980b9929e2fa80f07e35b574104b711",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example-7\">Example 7</h2>\n<span class=\"paragraph\">Write a program that, given a list of strings, prints the text of the longest string in the list. Use <code>len()</code> function to determine the length of each string item in the list.</span>\n<div class=\"language-scdoc codehilite\"><pre><span></span><code>my_list = [&quot;first&quot;, &quot;second&quot;, &quot;fourth&quot;, &quot;eleventh&quot;]\n</code></pre></div>\n<div class=\"language-text codehilite\"><pre><span></span><code>The longest string is: &quot;eleventh&quot;.\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iqzC",
+      "code_hash": "f2c1bb9ad335e6a7ddeb47c0d98ecede",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example-8\">Example 8</h2>\n<span class=\"paragraph\">Write a program that, given a list of strings, prints <strong>all</strong> the longest string items in the list. This time, the given list might contain multiple strings of the same length, and the output must be given as a list.</span>\n<span class=\"paragraph\">Use <code>len()</code> function to determine the length of each string item in the list.</span>\n<div class=\"language-scdoc codehilite\"><pre><span></span><code>my_list = [&quot;adele&quot;, &quot;mark&quot;, &quot;dorothy&quot;, &quot;tim&quot;, &quot;hedy&quot;, &quot;richard&quot;]\n</code></pre></div>\n<div class=\"language-text codehilite\"><pre><span></span><code>[&#39;dorothy&#39;, &#39;richard&#39;]\n</code></pre></div></span>"
           }
         }
       ],

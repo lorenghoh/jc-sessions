@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.14.9"
+__generated_with = "0.14.10"
 app = marimo.App()
 
 
@@ -104,7 +104,7 @@ def _(mo):
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(mo):
     mo.md(
         r"""
@@ -123,7 +123,7 @@ def _():
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(mo):
     mo.md(
         r"""
@@ -142,7 +142,7 @@ def _():
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""You can also use the `range()` function with two numbers, in which case the loop with start with the first number, and terminate at the second number - 1. For example,""")
     return
@@ -155,7 +155,7 @@ def _():
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""Finally, if you use the `range()` function with three numbers, the last number will be used to determine the *step size*. For example, the following code goes through even numbers between 0 and 10.""")
     return
@@ -168,7 +168,7 @@ def _():
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(mo):
     mo.md(
         r"""
@@ -177,6 +177,8 @@ def _(mo):
     Create the following list: `[3, 7, 1, 1, 2]`.
 
     Write a program that prints lines of stars (`*`), one per item in the given list. For example, the above list should print the following output.
+
+    Use `string` multiplication here; if you multiply (`*`) a `string` object, it gets repeated by the number being multiplied.
 
     ```
     ***
@@ -187,6 +189,181 @@ def _(mo):
     ```
 
     Also test your code with the following list: `[1, 3, 2, 4, 6]`.
+    """
+    )
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        r"""
+    ## Example 3
+
+    Write a program, using a for loop, that outputs the sum of the following two lists as a new list. You can manually write down the two lists in your script.
+
+    ```{python}
+    a = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    b = [9, 8, 7, 6, 5, 4, 3, 2, 1]
+    ```
+    """
+    )
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        r"""
+    # Nested loops
+
+    Depending on the task at hand, you may need to *nest* your `for` loops. Here, the inner loop gets repeated by the outer loop.
+    """
+    )
+    return
+
+
+@app.cell
+def _():
+    for a in range(1, 3 + 1):
+
+        for b in range(1, 3 + 1):
+            print(a, b)
+
+        print("")
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        r"""
+    ## Example 4
+
+    Let's revisit a previous example.
+
+    Create the following list: `[3, 2, 1, 3, 2]`.
+
+    Write a program that prints lines of stars (`*`), one per item in the given list. For example, the above list should print the following output.
+
+    Do not use `string` multiplication here; instead, write the star (`*`) using nested loops.
+
+    ```
+    ***
+    **
+    *
+    ***
+    **
+    ```
+    """
+    )
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        r"""
+    ## Example 5
+
+    Write a program that, given the following list of numbers, prints out only the distinctive (unique) items in the given list.
+
+    You can create a new list, only containing unique items, or use the `remove()` function to modify the given list. There are also a number of other ways to solve this problem; be creative, but make sure to use `for` loops.
+
+    ```{python}
+    my_list = [3, 2, 2, 1, 3, 3, 1]
+    ```
+
+    `[1, 2, 3]`
+    """
+    )
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        r"""
+    # Finding extremes
+
+    For example, the following `for` loop goes through a list to find the largest item in that list. In order to solve this problem using the loop structure, one must **remember** the current largest value during the iteration.
+
+    To do that, the simplest way is to create a `temporary` variable. This temporary value is compared to every value in the list, and whenever the target value in the list is larger the temporary value, we assign the larger value to the temporary variable. Once the loop finishes, we will have looked at every item in the list, and our temporary variable will hold the largest value in the list.
+    """
+    )
+    return
+
+
+@app.cell
+def _():
+    largest = 0
+    l = [1, 2, 3, 4, 5]
+
+    for num in l:
+        if num > largest:
+            largest = num
+
+    print(f"The large number is: {largest}")
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        r"""
+    ## Example 6
+
+    Write a program that, given a list of strings, prints the length of the longest string in the list. Use `len()` function to determine the length of each string item in the list.
+
+    ```{python}
+    my_list = ["first", "second", "fourth", "eleventh"]
+    ```
+
+    ```
+    The longest string is 8 characters long.
+    ```
+    """
+    )
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        r"""
+    ## Example 7
+
+    Write a program that, given a list of strings, prints the text of the longest string in the list. Use `len()` function to determine the length of each string item in the list.
+
+    ```{python}
+    my_list = ["first", "second", "fourth", "eleventh"]
+    ```
+
+    ```
+    The longest string is: "eleventh".
+    ```
+    """
+    )
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        r"""
+    ## Example 8
+
+    Write a program that, given a list of strings, prints **all** the longest string items in the list. This time, the given list might contain multiple strings of the same length, and the output must be given as a list.
+
+    Use `len()` function to determine the length of each string item in the list.
+
+    ```{python}
+    my_list = ["adele", "mark", "dorothy", "tim", "hedy", "richard"]
+    ```
+
+    ```
+    ['dorothy', 'richard']
+    ```
     """
     )
     return
