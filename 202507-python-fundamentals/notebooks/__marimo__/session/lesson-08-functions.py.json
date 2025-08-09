@@ -18,7 +18,7 @@
       "console": []
     },
     {
-      "id": "nxES",
+      "id": "MJUe",
       "code_hash": "9439b1814db6e5e529bc8b8a83f975c8",
       "outputs": [
         {
@@ -31,7 +31,7 @@
       "console": []
     },
     {
-      "id": "YWkQ",
+      "id": "vblA",
       "code_hash": "ff6cd9d88e9c5a1d4b859bb924c62a28",
       "outputs": [
         {
@@ -44,7 +44,7 @@
       "console": []
     },
     {
-      "id": "cRng",
+      "id": "bkHC",
       "code_hash": "d53ebb80e4791981426e10b2ce4e7d7c",
       "outputs": [
         {
@@ -57,7 +57,7 @@
       "console": []
     },
     {
-      "id": "gGJX",
+      "id": "lEQa",
       "code_hash": "a420e1cf852ad86ca3553c5880cd5304",
       "outputs": [
         {
@@ -76,7 +76,7 @@
       ]
     },
     {
-      "id": "Pnty",
+      "id": "PKri",
       "code_hash": "387043233f615dd5fd3ddc4a9606fbc4",
       "outputs": [
         {
@@ -89,7 +89,7 @@
       "console": []
     },
     {
-      "id": "bymM",
+      "id": "Xref",
       "code_hash": "6d34e9485cc134514174cb109b5b49f9",
       "outputs": [
         {
@@ -108,7 +108,7 @@
       ]
     },
     {
-      "id": "TrGd",
+      "id": "SFPL",
       "code_hash": "638a4a5fb5abc6b9bea59962bf8d0101",
       "outputs": [
         {
@@ -121,7 +121,7 @@
       "console": []
     },
     {
-      "id": "vjhF",
+      "id": "BYtC",
       "code_hash": "1dfe4c3ca19c33481760f92b2905f9b8",
       "outputs": [
         {
@@ -140,7 +140,7 @@
       ]
     },
     {
-      "id": "PnRx",
+      "id": "RGSE",
       "code_hash": "ad10690ff2b9c3ac45023a4dda9ead8b",
       "outputs": [
         {
@@ -153,7 +153,7 @@
       "console": []
     },
     {
-      "id": "MSDK",
+      "id": "Kclp",
       "code_hash": "2c78a97cc6ef3f57d85241a73d0cdaa4",
       "outputs": [
         {
@@ -172,26 +172,123 @@
       ]
     },
     {
-      "id": "DbqX",
-      "code_hash": "8c1c2c3c924b232e4788240e64d265a9",
+      "id": "PiIc",
+      "code_hash": "f024af9b3af994e8835fb33102a5c1d7",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example-1\">Example 1</h2>\n<span class=\"paragraph\">Write a function called <code>sum</code> that takes two numbers as arguments and calculates the sum of the two numbers. Then call your function to test the sum of the two numbers is printed.</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>sum(5, 3)\nsum(10, 1)\n</code></pre></div></span>"
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example-1\">Example 1</h2>\n<span class=\"paragraph\">The following shows the outline a function <code>first_character()</code>.</span>\n<span class=\"paragraph\">Complete the function so that it prints out the first character of the string it takes as its argument.</span>\n<div class=\"language-scdoc codehilite\"><pre><span></span><code>def first_character(text):\n     # write your code here\n</code></pre></div>\n<span class=\"paragraph\">such that running the following code</span>\n<div class=\"language-scdoc codehilite\"><pre><span></span><code>first_character(&#39;python&#39;)\nfirst_character(&#39;yellow&#39;)\nfirst_character(&#39;tomorrow&#39;)\nfirst_character(&#39;heliotrope&#39;)\nfirst_character(&#39;open&#39;)\nfirst_character(&#39;night&#39;)\n</code></pre></div>\n<span class=\"paragraph\">results in the following output.</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>p\ny\nt\nh\no\nn\n</code></pre></div></span>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "HuNu",
-      "code_hash": "58722f6a6dc3580a1b63912fd1e1a318",
+      "id": "emfo",
+      "code_hash": "b2155f450a7c37e316711a94df38860f",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example-2\">Example 2</h2>\n<span class=\"paragraph\">Write a function called <code>mean</code> that takes a list of any length as its argument, and calculates the average among all the items included in the list.</span>\n<span class=\"paragraph\">Call your function to test if the averages are correct.</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>mean([5, 3, 1, 8, 9])\nmean([10, 7, 1])\n</code></pre></div></span>"
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example-2\">Example 2</h2>\n<span class=\"paragraph\">Write a function called <code>sum</code> that takes two numbers as arguments and calculates the sum of the two numbers. Then call your function to test the sum of the two numbers is printed.</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>sum(5, 3)\nsum(10, 1)\n</code></pre></div>\n<div class=\"language-cbmbas codehilite\"><pre><span></span><code><span class=\"mf\">8</span>\n<span class=\"mf\">11</span>\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "18b87bfc751861e6bb5d89f21a453dda",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example-3\">Example 3</h2>\n<span class=\"paragraph\">Write a function called <code>mean</code> that takes a list of any length as its argument, and calculates the average among all the items included in the list.</span>\n<span class=\"paragraph\">Call your function to test if the averages are correct.</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>mean([5, 3, 1, 8, 9])\nmean([10, 7, 1])\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "DRHk",
+      "code_hash": "32e92f4db622d16cdf3a5d6e58a3a518",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h1 id=\"nested-function-calls\">Nested function Calls</h1>\n<span class=\"paragraph\">As we have done many times before, functions calls can be made within another function.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "cYbx",
+      "code_hash": "2a5a4384e633d44d943ec5f8a5111441",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Hello there, Emily\nHello there, Emily\nHello there, Emily\n"
+        }
+      ]
+    },
+    {
+      "id": "WkpR",
+      "code_hash": "79021657ae892e6e93f5953b89b3a383",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example-4\">Example 4</h2>\n<span class=\"paragraph\">Let's define a function called <code>line()</code> that takes two arguments: an integer and a string.</span>\n<span class=\"paragraph\">The function prints out a line of text, the length of which is specified by the first argument.</span>\n<span class=\"paragraph\">The character used to draw the line should be the first character in the second argument. If the second argument is an empty string, the line should consist of stars.</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>line(7, &quot;%&quot;)\nline(10, &quot;Python&quot;)\nline(3, &quot;&quot;)\n</code></pre></div>\n<div class=\"language-matlab codehilite\"><pre><span></span><code><span class=\"c\">%%%%%%%</span>\n<span class=\"n\">PPPPPPPPPP</span>\n<span class=\"o\">***</span>\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Drlo",
+      "code_hash": "66d63b54301f6fc48ffc480576a6efbd",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example-5\">Example 5</h2>\n<span class=\"paragraph\">Write a function called <code>square_of_hashes()</code>, which uses the <code>line()</code> function that you just defined.</span>\n<span class=\"paragraph\">The function takes one argument, which determines the length of the side of the square.</span>\n<div class=\"language-scdoc codehilite\"><pre><span></span><code>square_of_hashes(5)\nprint()\nsquare_of_hashes(3)\n</code></pre></div>\n<div class=\"language-text codehilite\"><pre><span></span><code>#####\n#####\n#####\n#####\n#####\n\n###\n###\n###\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "qdth",
+      "code_hash": "bc72bd317d45c7f7ba2b31ffabf0671c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example-6\">Example 6</h2>\n<span class=\"paragraph\">Write a function called <code>triangle()</code>, which takes one argument and draws a trangle of hashes. The argument should be an integer, that is both the width and height of the triangle. You should use the <code>line()</code> function from previous examples.</span>\n<div class=\"language-scdoc codehilite\"><pre><span></span><code>triangle(6)\nprint()\ntriangle(3)\n</code></pre></div>\n<div class=\"language-text codehilite\"><pre><span></span><code>#\n##\n###\n####\n#####\n######\n\n#\n##\n###\n</code></pre></div></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "NyCf",
+      "code_hash": "2d695811c4c239ed2022667a9543741e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example-7\">Example 7</h2></span>"
           }
         }
       ],

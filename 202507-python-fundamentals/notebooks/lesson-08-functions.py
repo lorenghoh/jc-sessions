@@ -107,17 +107,63 @@ def _():
     return
 
 
-@app.cell(hide_code=True)
+@app.cell
 def _(mo):
     mo.md(
         r"""
     ## Example 1
+
+    The following shows the outline a function `first_character()`.
+
+    Complete the function so that it prints out the first character of the string it takes as its argument.
+
+    ```{python}
+    def first_character(text):
+         # write your code here
+    ```
+
+    such that running the following code
+
+    ```
+    first_character('python')
+    first_character('yellow')
+    first_character('tomorrow')
+    first_character('heliotrope')
+    first_character('open')
+    first_character('night')
+    ```
+
+    results in the following output.
+
+    ```
+    p
+    y
+    t
+    h
+    o
+    n
+    ```
+    """
+    )
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        r"""
+    ## Example 2
 
     Write a function called `sum` that takes two numbers as arguments and calculates the sum of the two numbers. Then call your function to test the sum of the two numbers is printed.
 
     ```{python}
     sum(5, 3)
     sum(10, 1)
+    ```
+
+    ```
+    8
+    11
     ```
     """
     )
@@ -128,7 +174,7 @@ def _(mo):
 def _(mo):
     mo.md(
         r"""
-    ## Example 2
+    ## Example 3
 
     Write a function called `mean` that takes a list of any length as its argument, and calculates the average among all the items included in the list.
 
@@ -140,6 +186,130 @@ def _(mo):
     ```
     """
     )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r"""
+    # Nested function Calls
+
+    As we have done many times before, functions calls can be made within another function.
+    """
+    )
+    return
+
+
+@app.cell
+def _():
+    def hello(name):
+        print("Hello there,", name)
+
+    def greet_many_times(name, times):
+        while times > 0:
+            hello(name)
+            times -= 1
+
+    greet_many_times("Emily", 3)
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r"""
+    ## Example 4
+
+    Let's define a function called `line()` that takes two arguments: an integer and a string.
+
+    The function prints out a line of text, the length of which is specified by the first argument.
+
+    The character used to draw the line should be the first character in the second argument. If the second argument is an empty string, the line should consist of stars.
+
+    ```
+    line(7, "%")
+    line(10, "Python")
+    line(3, "")
+    ```
+
+    ```
+    %%%%%%%
+    PPPPPPPPPP
+    ***
+    ```
+    """
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r"""
+    ## Example 5
+
+    Write a function called `square_of_hashes()`, which uses the `line()` function that you just defined.
+
+    The function takes one argument, which determines the length of the side of the square.
+
+    ```{python}
+    square_of_hashes(5)
+    print()
+    square_of_hashes(3)
+    ```
+
+    ```
+    #####
+    #####
+    #####
+    #####
+    #####
+
+    ###
+    ###
+    ###
+    ```
+
+    """
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r"""
+    ## Example 6
+
+    Write a function called `triangle()`, which takes one argument and draws a trangle of hashes. The argument should be an integer, that is both the width and height of the triangle. You should use the `line()` function from previous examples.
+
+    ```{python}
+    triangle(6)
+    print()
+    triangle(3)
+    ```
+
+    ```
+    #
+    ##
+    ###
+    ####
+    #####
+    ######
+
+    #
+    ##
+    ###
+    ```
+    """
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""## Example 7""")
     return
 
 

@@ -1,7 +1,7 @@
 {
   "version": "1",
   "metadata": {
-    "marimo_version": "0.14.9"
+    "marimo_version": "0.14.10"
   },
   "cells": [
     {
@@ -271,12 +271,12 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "Enter a number:  22\n"
+          "text": "Enter a number:  12\n"
         },
         {
           "type": "stream",
           "name": "stdout",
-          "text": "The number is 22.\n"
+          "text": "The number is 12.\n"
         }
       ]
     },
@@ -314,58 +314,6 @@
           "type": "data",
           "data": {
             "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example\">Example</h2>\n<span class=\"paragraph\">Write a program that asks for two numbers from the user and display the total and the difference of the two numbers. The following shows a possible interaction with this program.</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>&gt; Define x = 27\n&gt; Define y = 12\n\n&gt; 27 + 12 = 39\n&gt; 27 - 12 = 15\n</code></pre></div></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "TGyH",
-      "code_hash": null,
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"example\">Example</h2>\n<span class=\"paragraph\">Write a program that asks for three numbers from the user and display the sum of the three numbers. The following shows a possible interaction with this program.</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>Enter first number: 11\nEnter second number: 7\nEnter third number: 3\n\nThe sum is: 21\n</code></pre></div>\n<span class=\"paragraph\">How many variables did you use? Can you re-write this code with only a single variable?</span></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "IFIU",
-      "code_hash": null,
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"aside\">Aside</h2>\n<span class=\"paragraph\">Let's consider the following lines of code.</span></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "VCNq",
-      "code_hash": null,
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "LJQm",
-      "code_hash": null,
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/html": "<span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\">and let's say that at some point in the code, you need to swap the values of <code>x</code> and <code>y</code>. It is likely that you do not remember the exact values of the two. What would you do to swap the two variables?</span></span>"
           }
         }
       ],

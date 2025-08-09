@@ -1,7 +1,7 @@
 {
   "version": "1",
   "metadata": {
-    "marimo_version": "0.14.9"
+    "marimo_version": "0.14.10"
   },
   "cells": [
     {
@@ -256,7 +256,7 @@
       "console": []
     },
     {
-      "id": "NXhK",
+      "id": "qnkX",
       "code_hash": "f7a4dcc371216ec92ec737dc5c1c8a15",
       "outputs": [
         {
@@ -269,7 +269,7 @@
       "console": []
     },
     {
-      "id": "uWsX",
+      "id": "TqIu",
       "code_hash": "df5ac99fe91907839b116cc76ec80ef8",
       "outputs": [
         {
@@ -288,7 +288,7 @@
       ]
     },
     {
-      "id": "Zllc",
+      "id": "Vxnm",
       "code_hash": "0f10155f1e3a065eacfdd40700ee5c10",
       "outputs": [
         {
@@ -301,7 +301,7 @@
       "console": []
     },
     {
-      "id": "IJoi",
+      "id": "DnEU",
       "code_hash": "c43d0dfbaa4aabb009367dfb689e6b15",
       "outputs": [
         {
@@ -314,7 +314,7 @@
       "console": []
     },
     {
-      "id": "LQFa",
+      "id": "ulZA",
       "code_hash": "e682925e811a14869cd31c51c2773b4b",
       "outputs": [
         {
@@ -327,7 +327,7 @@
       "console": []
     },
     {
-      "id": "IOJm",
+      "id": "ecfG",
       "code_hash": "45c0d993a40159cde51caea17eb39301",
       "outputs": [
         {
@@ -340,7 +340,7 @@
       "console": []
     },
     {
-      "id": "GnLO",
+      "id": "Pvdt",
       "code_hash": "982265e835bbbcaaa841a64c6412230b",
       "outputs": [
         {
@@ -359,7 +359,7 @@
       ]
     },
     {
-      "id": "uJwL",
+      "id": "ZBYS",
       "code_hash": "88fc86711a2185281e8f1f00290b8332",
       "outputs": [
         {
@@ -372,7 +372,7 @@
       "console": []
     },
     {
-      "id": "BkoG",
+      "id": "aLJB",
       "code_hash": "fbfed6fd6f50ec5c16a5573cc400ec81",
       "outputs": [
         {
